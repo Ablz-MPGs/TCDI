@@ -113,7 +113,7 @@ const dinoDatabase = {
         fullName: "GUANLONG<br>WUCAII",
         image: "img/pict/guanperfil.png",
         diet: "🥩🦈",
-        stats: { group: "-", growth: "28 min", price: "180", skin1: "8.000", skin2: 50, fotinha: "N/A", cormoeda: "2000", corgema: "15" },
+        stats: { group: "1.5 slots", growth: "28 min", price: "180", skin1: "8.000", skin2: 50, fotinha: "N/A", cormoeda: "2000", corgema: "15" },
         passives: [
             { title: "Poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa aumenta.", icon: "img/skill/rebanho.png" },
             { title: "Força das Trevas", desc: "Seu dinossauro gasta menos stamina à noite (-20% gasto de stamina).", icon: "img/skill/hora.png" }
@@ -203,7 +203,7 @@ const dinoDatabase = {
         fullName: "CONCAVENATOR<br>CORCOVATUS",
         image: "img/pict/concaperfil.png",
         diet: "🥩🦈",
-        stats: { group: "-", growth: "32 min", price: "280g", skin1: "-", skin2: "-", fotinha: "150g", cormoeda: "3000", corgema: "30"},
+        stats: { group: "2 slots", growth: "32 min", price: "280g", skin1: "-", skin2: "-", fotinha: "150g", cormoeda: "3000", corgema: "30"},
         passives: [
             { title: "O poder do bando", desc: "Quando os membros da matilha estão próximos, você recupera HP mais rápido.", icon: "img/skill/rebanho.png" },
             { title: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, seu dano aumenta e o consumo de stamina é reduzido.", icon: "img/skill/poucohp.png" }
@@ -278,7 +278,7 @@ const dinoDatabase = {
         fullName: "CARNOTAURUS<br>SASTREI",
         image: "img/pict/carnoperfil.png",
         diet: "🥩",
-        stats: { group: "-", growth: "29 min", price: "100k", skin1: "-", skin2: "-", fotinha: "N/A", cormoeda: "2500", corgema: "25" },
+        stats: { group: "4 slots", growth: "29 min", price: "100k", skin1: "-", skin2: "-", fotinha: "N/A", cormoeda: "2500", corgema: "25" },
         passives: [
             { title: "Sede de Sangue", desc: "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento e velocidade de movimento (até 10 vezes: +3,6% chance de sangramento, +6% velocidade).", icon: "img/skill/sedesangue.png" },
             { title: "O poder do bando", desc: "Quando há membros da matilha perto de você, seu gasto de resistência é reduzido.", icon: "img/skill/rebanho.png" }
@@ -308,7 +308,7 @@ const dinoDatabase = {
         fullName: "ALLOSAURUS<br>FRAGILIS",
         image: "img/pict/alloperfil.png",
         diet: "🥩",
-        stats: { group: "-", growth: "38 min", price: "650g", skin1: "-", skin2: "-", fotinha: "N/A", cormoeda: "6000", corgema: "40" },
+        stats: { group: "2.5 slots", growth: "38 min", price: "650g", skin1: "-", skin2: "-", fotinha: "N/A", cormoeda: "6000", corgema: "40" },
         passives: [
             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, resistência recupera mais rápido.", icon: "img/skill/rebanho.png" },
             { title: "Bom Sono", desc: "Quando seu dinossauro gasta menos stamina enquanto o cansaço estiver acima de 79%. (-15% gasto de stamina)", icon: "img/skill/sono.png" },
