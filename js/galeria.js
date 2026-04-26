@@ -170,7 +170,7 @@ const dinoDatabase = {
         fullName: "AUSTRORAPTOR<br>CABAZAI",
         image: "img/pict/austroperfil.png",
         diet: "🥩🦈",
-        stats: { group: "2 slots", growth: "24 min", price: "28.000", skin1: "15.000", skin2: "195g", fotinha: "120g", cormoeda: "3000", corgema: "30"},
+        stats: { group: "2 slots", growth: "24 min", price: "28.000", skin1: "15.000", skin2: "195g", fotinha: "12.000", cormoeda: "3000", corgema: "30"},
         passives: [
             { title: "Vampirismo", desc: "Ao atacar, seu dinossauro pode restaurar parte de sua saúde com o dano causado.", icon: "img/skill/vamp.png" },
             { title: "Juntos somos fortes!", desc: "Quando os membros da matilha estão perto de você, o gasto de vigor é reduzido.", icon: "img/skill/rebanho.png" },
@@ -232,7 +232,7 @@ const dinoDatabase = {
         fullName: "KENTROSAURUS<br>AETHIOPICUS",
         image: "img/pict/kentroperfil.png",
         diet: "🌿",
-        stats: { group: "2 slots", growth: "39 min", price: "30.000", skin1: "12k", skin2: "120g", fotinha: "N/A", cormoeda: "2000", corgema: "20"},
+        stats: { group: "2 slots", growth: "39 min", price: "30.000", skin1: "12k", skin2: "120g", fotinha: "10.000", cormoeda: "2000", corgema: "20"},
         passives: [
             { title: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, o consumo de vigor diminui e a velocidade de movimento aumenta (+5% velocidade, -20% consumo de vigor).", icon: "img/skill/poucohp.png" },
             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (até +4% sangramento).", icon: "img/skill/rebanhoH.png" },
