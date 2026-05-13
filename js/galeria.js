@@ -144,8 +144,8 @@ const dinoDatabase = {
         diet: "🌿",
         stats: { group: "1 slot", growth: "20 min", price: "5.000", skin1: "8.500", skin2: "70", fotinha: "70g", cormoeda: "2000", corgema: "20"},
         passives: [
-            { title: "Surto de poder", desc: "Seu dinossauro gasta menos stamina e sua velocidade aumenta quando está com HP baixo.", icon: "img/skill/poucohp.png" },
-            { title: "Instinto materno", desc: "Quando perto de seu ninho, seu dano aumenta para cada ovo nele.", icon: "img/skill/ninho.png" }
+            { title: "Surto de poder", desc: "Seu dinossauro gasta menos stamina e sua velocidade aumenta quando está com HP baixo (+5% valocidade, -20% gasto de vigor).", icon: "img/skill/poucohp.png" },
+            { title: "Instinto materno", desc: "Quando perto de seu ninho, seu dano aumenta para cada ovo nele (até +18% dano).", icon: "img/skill/ninho.png" }
         ],
         actives: [
             { title: "Grito de Cura", desc: "Seu dinossauro emite um grito que acelera a própria regeneração de HP e dos membros da matilha próximos (+20% regeneração de HP).", icon: "img/skill/buffR.png" }
@@ -232,7 +232,7 @@ const dinoDatabase = {
         fullName: "KENTROSAURUS<br>AETHIOPICUS",
         image: "img/pict/kentroperfil.png",
         diet: "🌿",
-        stats: { group: "2 slots", growth: "39 min", price: "30.000", skin1: "12k", skin2: "120g", fotinha: "10.000", cormoeda: "2000", corgema: "20"},
+        stats: { group: "2 slots", growth: "39 min", price: "30.000", skin1: "12.000", skin2: "120g", fotinha: "10.000", cormoeda: "2000", corgema: "20"},
         passives: [
             { title: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, o consumo de vigor diminui e a velocidade de movimento aumenta (+5% velocidade, -20% consumo de vigor).", icon: "img/skill/poucohp.png" },
             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (até +4% sangramento).", icon: "img/skill/rebanhoH.png" },
@@ -248,11 +248,11 @@ const dinoDatabase = {
         fullName: "MEGARAPTOR<br>NAMUNHUAIQUII",
         image: "img/pict/megaperfil.png",
         diet: "🥩",
-        stats: { group: "2.5 slots", growth: "38 min", price: "600g", skin1: "40k", skin2: "450g", fotinha: "N/A", cormoeda: "8000", corgema: "50" },
+        stats: { group: "2.5 slots", growth: "38 min", price: "600g", skin1: "40.000", skin2: "450g", fotinha: "N/A", cormoeda: "8.000", corgema: "50" },
         passives: [
             { title: "Poder Acumulado", desc: "Seu primeiro ataque causa dano aumentado, há um tempo de recarga (+30% dano).", icon: "img/skill/poderacumulado.png" },
-            { title: "Devorador da Noite", desc: "À noite a chance do seu dinossauro causar sangramento aumenta e o consumo de vigor diminui.", icon: "img/skill/devorador.png" },
-             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de vigor é reduzido.", icon: "img/skill/rebanho.png" }
+            { title: "Devorador da Noite", desc: "À noite a chance do seu dinossauro causar sangramento aumenta e o consumo de vigor diminui (+20% chance de sangramento, -15% gasto de vigor).", icon: "img/skill/devorador.png" },
+             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de vigor é reduzido (até 2 vezes, -10% gasto de vigor).", icon: "img/skill/rebanho.png" }
         ],
         actives: [
             { title: "Rugido Aterrorizante", desc: "Seu dinossauro ruge, fazendo com que os jogadores próximos fiquem com medo e percam parte do conforto, manter-se próximo fará com que o efeito se torne continuo (-30% conforto imediato, podendo escalar).", icon: "img/skill/rugido.png" },
@@ -266,7 +266,7 @@ const dinoDatabase = {
         diet: "🥩🦈",
         stats: { group: "2.5 slots", growth: "39 min", price: "120.000", skin1: "-", skin2: "-", fotinha: "30.000", cormoeda: "6000", corgema: "40" },
         passives: [
-            { title: "Surto de poder", desc: "Quando seu dinossauro está com pouo HP, sua defesa e chance de sangrar aumentam.", icon: "img/skill/poucohp.png" },
+            { title: "Surto de poder", desc: "Quando seu dinossauro está com pouo HP, sua defesa e chance de sangrar aumentam (+12% defesa, +3.6% chance de sangramento).", icon: "img/skill/poucohp.png" },
             { title: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua saúde recupera mais rápido (até 2 vezes: +20% recuperação de HP).", icon: "img/skill/rebanho.png" }
         ],
         actives: [
