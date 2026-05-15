@@ -1,136 +1,45 @@
 Buff de hp baixo em 30%
 
-<h1>Tabela de estatísticas</h1>
-            <h2 class="tier-toggle collapsed">Tiers 5 <span class="arrow"> </span></h2>
-             <div class="table-container hidden">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nome</th>
-                            <th>HP</th>
-                            <th>Dano base</th>
-                            <th>Fratura</th>
-                            <th>Sangramento</th>
-                            <th>Velocidade: terra</th>
-                            <th>Velocidade: água</th>
-                            <th>Velocidade: ar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="trike"><td>Triceratops horridus</td><td>4875</td><td>270</td><td>5%</td><td>22%</td><td>1265-1328 / 1581-1644</td><td>450-472 / 562-585</td><td>N/A</td></tr>
-                        <tr id="trex"><td>Tyrannosaurus rex</td><td>4500</td><td>340</td><td>22%</td><td>4%</td><td>1285</td><td>450</td><td>N/A</td></tr>
-                        <tr id="giga"><td>Giganotosaurus carolini</td><td>4450</td><td>280-309</td><td>3%</td><td>34-47%</td><td>1335</td><td>520</td><td>N/A</td></tr>
-                        <tr id="spino"><td>Spinosaurus aegyptiacus</td><td>4440</td><td>265</td><td>2%</td><td>25-27.5%</td><td>1250</td><td>1250</td><td>N/A</td></tr>
-                        <tr id="pato"><td>Deinocheirus mirificus</td><td>4375</td><td>250</td><td>4%</td><td>28-30%</td><td>1310-1349</td><td>800-824</td><td>N/A</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <h2 class="tier-toggle collapsed">Tiers 4 <span class="arrow"> </span></h2>
-             <div class="table-container hidden">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nome</th>
-                            <th>HP</th>
-                            <th>Dano base</th>
-                            <th>Fratura</th>
-                            <th>Sangramento</th>
-                            <th>Velocidade: terra</th>
-                            <th>Velocidade: água</th>
-                            <th>Velocidade: ar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="stego"><td>Stegosaurus ungulatus</td><td>3900</td><td>300</td><td>6%</td><td>18-20%</td><td>1310</td><td>450</td><td>N/A</td></tr>
-                        <tr id="theri"><td>Therizinosaurus cheloniformis</td><td>3700</td><td>305-350</td><td>0%</td><td>19-22%</td><td>1365</td><td>450</td><td>N/A</td></tr>
-                        <tr id="para"><td>Parasaurolophus walkeri</td><td>3600</td><td>200</td><td>7%</td><td>0%</td><td>1500-1544</td><td>500-525</td><td>N/A</td></tr>
-                        <tr id="sucho"><td>Suchomimus tenerensis</td><td>3700</td><td>210-241</td><td>2%</td><td>25%</td><td>1425</td><td>850</td><td>N/A</td></tr>
-                        <tr id="sarco"><td>Sarcosuchus imperator</td><td>3650</td><td>300</td><td>11-12%</td><td>21%</td><td>1100</td><td>2100</td><td>N/A</td></tr>
-                        <tr id="amarga"><td>Amargasaurus cazaui</td><td>4000</td><td>250</td><td>5%</td><td>20-25%</td><td>1390</td><td>500</td><td>N/A</td></tr>
-                        <tr id="rhino"><td>Pachyrhinosaurus canadensis</td><td>3600</td><td>250</td><td>13%</td><td>0%</td><td>1370-1438 / 1712-1780</td><td>500-525 / 625-650</td><td>N/A</td></tr>
-                        <tr id="plateo"><td>Plateosaurus trossingensis</td><td>3450</td><td>180</td><td>0%</td><td>10%</td><td>1500-1574</td><td>700-734</td><td>N/A</td></tr>
-                        <tr id="tarchia"><td>Tarchia kielanae</td><td>3735</td><td>325-373</td><td>25-32%</td><td>0%</td><td>1215-1069</td><td>400-352</td><td>N/A</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <h2 class="tier-toggle collapsed">Tiers 3 <span class="arrow"> </span></h2>
-             <div class="table-container hidden">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nome</th>
-                            <th>HP</th>
-                            <th>Dano base</th>
-                            <th>Fratura</th>
-                            <th>Sangramento</th>
-                            <th>Velocidade: terra</th>
-                            <th>Velocidade: água</th>
-                            <th>Velocidade: ar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="styra"><td>Styracosaurus albertensis</td><td>3000</td><td>220</td><td>0%</td><td>23-30%</td><td>1450</td><td>500</td><td>N/A</td></tr>
-                        <tr id="allo"><td>Allosaurus fragilis</td><td>3300</td><td>240</td><td>0%</td><td>29-37.5%</td><td>1500</td><td>550</td><td>N/A</td></tr>
-                        <tr id="fasola"><td>Fasolasuchus tenax</td><td>3000</td><td>245</td><td>15-16%</td><td>12%</td><td>1500-1574</td><td>625-656</td><td>N/A</td></tr>
-                        <tr id="giganto"><td>Gigantoraptor erlianensis</td><td>3100</td><td>180 - 198 - 212 / 231</td><td>0%</td><td>15%</td><td>1700</td><td>480</td><td>N/A</td></tr>
-                        <tr id="carno"><td>Carnotaurus satrei</td><td>3000</td><td>200</td><td>0%</td><td>24-27%</td><td>1800-1908</td><td>500</td><td>N/A</td></tr>
-                        <tr id="kentro"><td>Kentrosaurus aethiopicus</td><td>2700</td><td>250</td><td>0%</td><td>30-43%</td><td>1480-1553</td><td>500-525</td><td>N/A</td></tr>
-                        <tr id="cerato"><td>Ceratosaurus nasicornis</td><td>2650</td><td>220</td><td>0%</td><td>24-28%</td><td>1700</td><td>650</td><td>N/A</td></tr>
-                        <tr id="mega"><td>Megaraptor namunhuaiquii</td><td>2845</td><td>245-318</td><td>0%</td><td>25%</td><td>1660</td><td>550</td><td>N/A</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <h2 class="tier-toggle collapsed">Tiers 2 <span class="arrow"> </span></h2>
-             <div class="table-container hidden">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nome</th>
-                            <th>HP</th>
-                            <th>Dano base</th>
-                            <th>Fratura</th>
-                            <th>Sangramento</th>
-                            <th>Velocidade: terra</th>
-                            <th>Velocidade: água</th>
-                            <th>Velocidade: ar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="dilo"><td>Dilophosaurus wetherilli</td><td>1800</td><td>160</td><td>0%</td><td>33-38%</td><td>1750-1852</td><td>550-580</td><td>N/A</td></tr>
-                        <tr id="conca"><td>Concavenator corcovatus</td><td>2200</td><td>140-160</td><td>0%</td><td>25%</td><td>1720</td><td>630</td><td>N/A</td></tr>
-                        <tr id="pachy"><td>Pachycephalosaurus wyomingensis</td><td>2000</td><td>185</td><td>14-19%</td><td>0%</td><td>1650-1732 / 2062-2145</td><td>400-420 / 500-520</td><td>N/A</td></tr>
-                        <tr id="austro"><td>Austroraptor cabazai</td><td>1550</td><td>150</td><td>0%</td><td>18%</td><td>1820-1910</td><td>780-818</td><td>N/A</td></tr>
-                        <tr id="quetzal"><td>Quetzalcoatlus northropi</td><td>1800</td><td>160-177</td><td>0%</td><td>9%</td><td>1400-1190-1469</td><td>600-510-630</td><td>2200-1870-2310</td></tr>
-                    </tbody>
-                </table>
-            </div>
-            <br>
-            <h2 class="tier-toggle collapsed">Tiers 1 <span class="arrow"> </span></h2>
-             <div class="table-container hidden">
-                <table>
-                    <thead>
-                        <tr class="head">
-                            <th>Nome</th>
-                            <th>HP</th>
-                            <th>Dano base</th>
-                            <th>Fratura</th>
-                            <th>Sangramento</th>
-                            <th>Velocidade: terra</th>
-                            <th>Velocidade: água</th>
-                            <th>Velocidade: ar</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr id="ornitho"><td>Ornithomimus velox</td><td>1200</td><td>100-114</td><td>0%</td><td>11%</td><td>2000</td><td>450</td><td>N/A</td></tr>
-                        <tr id="guan"><td>Guanlong wucaii</td><td>1150</td><td>120</td><td>0%</td><td>24-%</td><td>1880</td><td>500</td><td>N/A</td></tr>
-                        <tr id="deino"><td>Deinonychus antirrhopus</td><td>850</td><td>120-144</td><td>0%</td><td>21-25%</td><td>1900</td><td>400</td><td>N/A</td></tr>
-                        <tr id="psitta"><td>Psittacosaurus mongoliensis</td><td>980</td><td>110-130</td><td>0%</td><td>14%</td><td>1880-1973</td><td>400-419</td><td>N/A</td></tr>
-                        <tr id="coelo"><td>Coelophysis bauri</td><td>550</td><td>80-96</td><td>0%</td><td>28%</td><td>2050-2152-2255 / 2357</td><td>350-367-385 / 402</td><td>N/A</td></tr>
-                        <tr id="chang"><td>Changyuraptor yangi</td><td>400</td><td>60</td><td>0%</td><td>25%</td><td>2050</td><td>280</td><td>-</td></tr>
-                        <tr id="barba"><td>Barbaridactylus grandis</td><td>1000</td><td>120</td><td>0%</td><td>8-9%</td><td>1200</td><td>600</td><td>2800</td></tr>
-                    </tbody>
-                </table>
-            </div>
+Tiers 5
+Triceratops horridus: HP: 4875, Dano base: 270, Fratura: 5%, Sangramento: 22%, Vel. terra: 1265-1328 / 1581-1644, Vel. água: 450-472 / 562-585, Vel. ar: N/A
+Tyrannosaurus rex: HP: 4500, Dano base: 340, Fratura: 22%, Sangramento: 4%, Vel. terra: 1285, Vel. água: 450, Vel. ar: N/A
+Giganotosaurus carolini: HP: 4450, Dano base: 280-309, Fratura: 3%, Sangramento: 34-47%, Vel. terra: 1335, Vel. água: 520, Vel. ar: N/A
+Spinosaurus aegyptiacus: HP: 4440, Dano base: 265, Fratura: 2%, Sangramento: 25-27.5%, Vel. terra: 1250, Vel. água: 1250, Vel. ar: N/A
+Deinocheirus mirificus: HP: 4375, Dano base: 250, Fratura: 4%, Sangramento: 28-30%, Vel. terra: 1310-1349, Vel. água: 800-824, Vel. ar: N/A
+
+Tiers 4
+Stegosaurus ungulatus: HP: 3900, Dano base: 300, Fratura: 6%, Sangramento: 18-20%, Vel. terra: 1310, Vel. água: 450, Vel. ar: N/A
+Therizinosaurus cheloniformis: HP: 3700, Dano base: 305-350, Fratura: 0%, Sangramento: 19-22%, Vel. terra: 1365, Vel. água: 450, Vel. ar: N/A
+Parasaurolophus walkeri: HP: 3600, Dano base: 200, Fratura: 7%, Sangramento: 0%, Vel. terra: 1500-1544, Vel. água: 500-525, Vel. ar: N/A
+Suchomimus tenerensis: HP: 3700, Dano base: 210-241, Fratura: 2%, Sangramento: 25%, Vel. terra: 1425, Vel. água: 850, Vel. ar: N/A
+Sarcosuchus imperator: HP: 3650, Dano base: 300, Fratura: 11-12%, Sangramento: 21%, Vel. terra: 1100, Vel. água: 2100, Vel. ar: N/A
+Amargasaurus cazaui: HP: 4000, Dano base: 250, Fratura: 5%, Sangramento: 20-25%, Vel. terra: 1390, Vel. água: 500, Vel. ar: N/A
+Pachyrhinosaurus canadensis: HP: 3600, Dano base: 250, Fratura: 13%, Sangramento: 0%, Vel. terra: 1370-1438 / 1712-1780, Vel. água: 500-525 / 625-650, Vel. ar: N/A
+Plateosaurus trossingensis: HP: 3450, Dano base: 180, Fratura: 0%, Sangramento: 10%, Vel. terra: 1500-1574, Vel. água: 700-734, Vel. ar: N/A
+Tarchia kielanae: HP: 3735, Dano base: 325-373, Fratura: 25-32%, Sangramento: 0%, Vel. terra: 1215-1069, Vel. água: 400-352, Vel. ar: N/A
+
+Tiers 3
+Styracosaurus albertensis: HP: 3000, Dano base: 220, Fratura: 0%, Sangramento: 23-30%, Vel. terra: 1450, Vel. água: 500, Vel. ar: N/A
+Allosaurus fragilis: HP: 3300, Dano base: 240, Fratura: 0%, Sangramento: 29-37.5%, Vel. terra: 1500, Vel. água: 550, Vel. ar: N/A
+Fasolasuchus tenax: HP: 3000, Dano base: 245, Fratura: 15-16%, Sangramento: 12%, Vel. terra: 1500-1574, Vel. água: 625-656, Vel. ar: N/A
+Gigantoraptor erlianensis: HP: 3100, Dano base: 180 - 198 - 212 / 231, Fratura: 0%, Sangramento: 15%, Vel. terra: 1700, Vel. água: 480, Vel. ar: N/A
+Carnotaurus satrei: HP: 3000, Dano base: 200, Fratura: 0%, Sangramento: 24-27%, Vel. terra: 1800-1908, Vel. água: 500, Vel. ar: N/A
+Kentrosaurus aethiopicus: HP: 2700, Dano base: 250, Fratura: 0%, Sangramento: 30-43%, Vel. terra: 1480-1553, Vel. água: 500-525, Vel. ar: N/A
+Ceratosaurus nasicornis: HP: 2650, Dano base: 220, Fratura: 0%, Sangramento: 24-28%, Vel. terra: 1700, Vel. água: 650, Vel. ar: N/A
+Megaraptor namunhuaiquii: HP: 2845, Dano base: 245-318, Fratura: 0%, Sangramento: 25%, Vel. terra: 1660, Vel. água: 550, Vel. ar: N/A
+
+Tiers 2
+Dilophosaurus wetherilli: HP: 1800, Dano base: 160, Fratura: 0%, Sangramento: 33-38%, Vel. terra: 1750-1852, Vel. água: 550-580, Vel. ar: N/A
+Concavenator corcovatus: HP: 2200, Dano base: 140-160, Fratura: 0%, Sangramento: 25%, Vel. terra: 1720, Vel. água: 630, Vel. ar: N/A
+Pachycephalosaurus wyomingensis: HP: 2000, Dano base: 185, Fratura: 14-19%, Sangramento: 0%, Vel. terra: 1650-1732 / 2062-2145, Vel. água: 400-420 / 500-520, Vel. ar: N/A
+Austroraptor cabazai: HP: 1550, Dano base: 150, Fratura: 0%, Sangramento: 18%, Vel. terra: 1820-1910, Vel. água: 780-818, Vel. ar: N/A
+Quetzalcoatlus northropi: HP: 1800, Dano base: 160-177, Fratura: 0%, Sangramento: 9%, Vel. terra: 1400-1190-1469, Vel. água: 600-510-630, Vel. ar: 2200-1870-2310
+
+Tiers 1
+Ornithomimus velox: HP: 1200, Dano base: 100-114, Fratura: 0%, Sangramento: 11%, Vel. terra: 2000, Vel. água: 450, Vel. ar: N/A
+Guanlong wucaii: HP: 1150, Dano base: 120, Fratura: 0%, Sangramento: 24-%, Vel. terra: 1880, Vel. água: 500, Vel. ar: N/A
+Deinonychus antirrhopus: HP: 850, Dano base: 120-144, Fratura: 0%, Sangramento: 21-25%, Vel. terra: 1900, Vel. água: 400, Vel. ar: N/A
+Psittacosaurus mongoliensis: HP: 980, Dano base: 110-130, Fratura: 0%, Sangramento: 14%, Vel. terra: 1880-1973, Vel. água: 400-419, Vel. ar: N/A
+Coelophysis bauri: HP: 550, Dano base: 80-96, Fratura: 0%, Sangramento: 28%, Vel. terra: 2050-2152-2255 / 2357, Vel. água: 350-367-385 / 402, Vel. ar: N/A
+Changyuraptor yangi: HP: 400, Dano base: 60, Fratura: 0%, Sangramento: 25%, Vel. terra: 2050, Vel. água: 280, Vel. ar: -
+Barbaridactylus grandis: HP: 1000, Dano base: 120, Fratura: 0%, Sangramento: 8-9%, Vel. terra: 1200, Vel. água: 600, Vel. ar: 2800

@@ -82,39 +82,3 @@
     margin: 2px 0;
     transition: 0.4s;
 }
-
-.dropdown {
-    position: relative;
-}
-
-.dropdown-menu {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--panel);
-    border: 2px solid var(--accent);
-    list-style: none;
-    padding: 10px 0;
-    min-width: 150px;
-    z-index: 1100;
-    margin: 0;
-    margin-right: 10px;
-}
-
-.dropdown-menu.show {
-    display: block;
-}
-
-.dropdown-item {
-    display: block;
-    padding: 8px 20px;
-    color: var(--ink);
-    text-decoration: none;
-    transition: background-color 0.3s;
-}
-
-.dropdown-item:hover {
-    background-color: var(--ink);
-    color: var(--accent);
-}

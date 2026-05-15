@@ -1,7 +1,5 @@
 console.log("O script status.js foi carregado com sucesso!");
 
-// Remove o hash da URL ao clicar fora de um link para "limpar" o destaque,
-// usando replaceState para não sujar o histórico de navegação do usuário.
 document.addEventListener('click', (e) => {
     if (window.location.hash && e.target && !e.target.closest('a')) {
         history.replaceState(null, '', window.location.pathname + window.location.search);
