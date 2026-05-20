@@ -258,7 +258,7 @@ const dinosData = [
     {
         nome: "Amargasaurus cazaui",
         tier: 4,
-        peso: 1550,
+        peso: 1500,
         hp: 4000,
         dano_base: 250,
         fratura: 5,
