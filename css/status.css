@@ -90,7 +90,6 @@ h2.tier-toggle.collapsed .arrow {
 }
 
 .select-group {
-    background-color: transparent;
     display: flex;
     flex-direction: column;
     gap: 8px;
