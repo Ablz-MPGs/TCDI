@@ -23,7 +23,7 @@ tr:target td {
 
 tr:target td:first-child::before {
     content: "* ";
-    color: var(--text-highlight);
+    color: var(--panel);
     margin-right: 5px;
 }
 
