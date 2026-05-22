@@ -8,12 +8,12 @@
     margin-bottom: 15px;
     border: 2px solid var(--ink);
     border-radius: 8px;
-    background-color: rgba(8, 56, 56, 0.4);
+    background-color: var(--brilho);
     overflow: hidden;
 }
 
 .accordion-header {
-    background-color: var(--panel);
+    background-color: var(--ink);
     color: var(--text-highlight);
     cursor: pointer;
     padding: 18px 25px;
@@ -48,7 +48,7 @@
 
 .accordion-content {
     padding: 0 25px;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: var(--bg-back);
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out, padding 0.4s ease-out;

@@ -1,3 +1,4 @@
+
 .cabecalho {
     width: 100%;
     min-height: var(--header-height);
@@ -5,10 +6,11 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 5%;
-    background-color:rgba(0, 0, 0, 0.801);
+    background-color:var(--header);
     position: fixed;
     z-index: 1000;
-    border-bottom: rgb(1, 179, 179) solid 3px;
+    border-bottom: var(--base) solid 3px;     
+    backdrop-filter: blur(5px); 
 }
 
 .logo {
@@ -16,7 +18,7 @@
     align-items: center;
     gap: 10px;
     font-size: clamp(1rem, 3vw, 1.5rem);
-    color: rgb(20, 190, 212);
+    color: var(--accent);
     text-decoration: none;
     font-weight: bold;
 }
@@ -30,17 +32,12 @@
 .nav-link {
     font-weight: 500;
     text-decoration: none;
-    color:aqua;
+    color:var(--text-primary);
     padding: 5px 10px;
     transition: 0.3s, color 0.3s;
     border-radius: 4px;
 }
 
-.nav-link:hover{
-    background-color:rgba(0, 255, 255, 0.699); 
-    color: white; 
-    font-weight: bold;
-}
 
 .topnav{
     display: flex;
@@ -58,14 +55,12 @@
     display: flex;
     gap: 20px;
     list-style: none;
-    color:rgb(224, 224, 224);
+    color:var(--text-primary);
 }
 
 .nav-menu .active {
-    color:rgb(223, 223, 223);
+    color:var(--base);
     font-weight: bold;
-    border-bottom:  aqua solid 2px;
-    background-color:rgb(9, 97, 97);
 }
 
 .hamburger {
@@ -77,7 +72,7 @@
 .bar{
     width: 25px;
     height: 3px;
-    background-color: aqua;
+    background-color: var(--base);
     margin: 2px 0;
     transition: 0.4s;
 }
@@ -85,37 +80,211 @@
     position: relative;
 }
 
+.dropdown-toggle {
+    align-items: center;
+}
+
+.dropdown-toggle::after {
+    content: "▾";
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after,
+.dropdown:focus-within .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
 .dropdown-menu {
-    display: none;
     position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: black;
-    min-width: 200px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    z-index: 1001;
-    border-radius: 4px;
-    padding: 0;
-    list-style: none;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);    
+    min-width: 220px;    
+    background: var(--header);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.08);
     border-top: 3px solid var(--accent);
+    border-radius: 14px;
+    padding: 10px;
+    list-style: none;
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.45),
+        0 0 10px rgba(0,0,0,0.2);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s;
 }
 
 .dropdown:hover .dropdown-menu,
 .dropdown:focus-within .dropdown-menu {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
 
 .dropdown-item {
-    display: block;
-    padding: 12px 20px;
-    color:aqua;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    color: var(--text-primary);
     text-decoration: none;
+    border-radius: 10px;
     font-weight: 500;
-    transition: 0.3s, color 0.3s;
+    letter-spacing: 0.3px;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.2s ease;
 }
 
 .dropdown-item:hover {
-    background-color: var(--ink);
-    color: white;
+    background: rgba(255,255,255,0.06);
+    color: var(--accent);
+    transform: translateX(4px);
+}
+
+.dropdown-menu li + li {
+    margin-top: 4px;
+}
+
+
+
+.table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    margin: 20px 0;
+    border: 5px solid var(--accent);
+    border-radius: 8px;
+    empty-cells: hide;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 800px;
+    background-color: var(--bg);
+}
+
+table.tabela-simples {
+    min-width: 100%; 
+}
+
+th, td {
+    padding: 12px;
+    border: 3px solid var(--border-color);
+    text-align: center;
+}
+
+thead th {
+    background-color: var(--panel);
+    color: var(--ink);
     font-weight: bold;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+tbody td:first-child {
+    background-color: var(--ink);
+    color: var(--text-primary);
+    font-weight: bold;
+    text-align: left;
+}
+
+tbody tr:hover {
+    background-color: var(--accent);
+    color: var(--text-primary);
+    font-weight: bold;
+}
+
+
+
+.rodape {
+    background-color: var(--foot);
+    color: var(--text-primary);
+    border-top: 4px solid var(--accent);
+    padding: 40px 5% 20px 5%;
+    margin-top: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.rodape-conteudo {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.rodape-logo {
+    flex: 1 1 300px;
+}
+
+.rodape-logo img {
+    width: 60px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.rodape-logo h3 {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+}
+
+.rodape-logo p {
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.rodape-links, .rodape-sociais {
+    flex: 1 1 150px;
+}
+
+.rodape-links h4, .rodape-sociais h4 {
+    color: var(--text-highlight);
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.rodape-links ul, .sociais-icones {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.rodape-links a, .sociais-icones a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.rodape-links a:hover, .sociais-icones a:hover {
+    color: var(--accent);
+    transform: translateX(5px);
+}
+
+.rodape-bottom {
+    text-align: center;
+    border-top: 1px solid var(--muted-2);
+    padding-top: 20px;
+    font-size: 0.85rem;
+    color: var(--muted);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }

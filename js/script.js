@@ -1,5 +1,5 @@
 let = light = localStorage.getItem('light');
-const viewMode = document.getElementById('view-mode');
+const viewMode = document.getElementById('modeView');
 
 const lightMode = () => {
     document.documentElement.classList.add('light');

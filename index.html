@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Cursed Isle</title>
+    <script>
+        if(localStorage.getItem('light') === 'active'){
+            document.documentElement.classList.add('light');
+        }
+    </script>
     <link href="img/logo.svg" rel="icon">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/cabecalho.css">
@@ -21,6 +26,10 @@
         </div>
         <nav class="navbar">
             <ul class="nav-menu">
+                <button id="modeView">
+                    <span>🌞</span>
+                    <span>🌒</span>
+                </button>
                 <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">Início</a></li>
                 <li class="nav-item"><a href="galeria.html" class="nav-link">Galeria</a></li>
                 <li class="nav-item dropdown">
@@ -134,9 +143,7 @@
             <span>&copy; 2026, Ablaze. Todos os direitos reservados.</span>
         </div>
     </footer>
-
     <script src="js/index.js"></script>
-    <script src="js/status.js"></script>
-    <script src="js/info.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>

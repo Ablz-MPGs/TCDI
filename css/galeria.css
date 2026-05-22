@@ -1,3 +1,85 @@
+
+.tier-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--border-color); 
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.tier-btn {
+    background-color: transparent;
+    border: none;
+    color: var(--text-primary);
+    padding: 10px 25px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 8px 8px 0 0;
+    opacity: 0.7;
+}
+
+.tier-btn:hover {
+    transform: translateY(-5px);
+    color: var(--text-highlight);
+    opacity: 1;
+}
+
+.tier-btn.active {
+    color: var(--panel);
+    border-bottom:var(--border-color) solid 3px;
+    opacity: 1;
+}
+
+.tier-indicator {
+    display: none;
+    animation: fadeIn 0.5s;
+}
+
+.tier-indicator.active-content {
+    display: block;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.btn-status, .btn-paleo {
+    display: inline-block;
+    padding: 12px 0;
+    width: 48%;
+    text-align: center;
+    background-color: rgba(33, 70, 70, 0);
+    color: var(--panel-2); 
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid var(--border-color); 
+    font-size: 1rem; 
+    box-sizing: border-box;
+}
+
+.btn-status{
+    background-color: var(--border-color);
+    color:var(--text-primary);
+}
+
+.btn-status:hover, .btn-paleo:hover {
+    background-color: var(--accent);
+    color: var(--ink);
+    box-shadow: 0 0 10px var(--brilho);
+    transform: scale(1.05);
+}
+
 .linha-racas {
     display: flex;
     flex-wrap: wrap;
@@ -15,8 +97,8 @@
 }
 
 .card-raca {
-    background-color: rgba(23, 30, 31, 0.877); /* Semi-transparent --panel */
-    border: 2px solid rgb(0, 124, 124);
+    background-color: var(--bg-back);
+    border: 2px solid var(--text-secondary);
     border-radius: 15px;
     overflow: hidden;
     text-indent: 0;
@@ -29,8 +111,8 @@
 
 .card-raca:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(74, 168, 184, 0.2);
-    border-color:aqua;
+    box-shadow: 0 10px 25px var(--brilho);
+    border-color:var(--base);
 }
 
 .card-raca img {
@@ -39,7 +121,7 @@
     object-fit: cover; 
     object-position: top center;
     border-bottom: 2px solid var(--ink);
-    background-color: rgba(0,0,0,0.3);
+    background-color: var(--bg-back);
 }
 
 .card-body-custom {
@@ -59,22 +141,23 @@
 .btn-verificar {
     display: inline-block;
     padding: 12px 24px;
-    background-color:rgba(0, 184, 184, 0.562);
-    color:#fff;
+    background-color:var(--text-secondary);
+    color:var(--text-primary);
+    font-size: 1rem;
     font-weight: 800;
     text-transform: uppercase;
     text-decoration: none;
     border-radius: 6px;
-    border-color: aqua;
+    border-color: var(--base);
     cursor: pointer;    
     transition: all 0.3s ease;
     align-self: center; 
 }
 
 .btn-verificar:hover {
-    background-color:rgb(1, 158, 158);
-    color: #fff;
-    box-shadow: 0 0 15px rgba(2, 217, 255, 0.74);
+    background-color:var(--accent);
+    color: var(--text-primary);
+    box-shadow: 0 0 15px var(--brilho);
     transform: scale(1.05);
 }
 
@@ -88,15 +171,15 @@
     width: 100%; 
     height: 100%; 
     overflow: auto; 
-    background-color: rgba(0, 0, 0, 0.822); 
-    backdrop-filter: blur(3px); 
+    background-color: var(--back); 
+    backdrop-filter: blur(10px); 
 }
 
 .modal-content.dino-card-style {
-    background-color: rgba(19, 19, 19, 0.849); 
+    background-color: var(--header); 
     margin: auto;
     padding: 30px;
-    border: 2px solid rgb(2, 138, 138);
+    border: 2px solid var(--border-color);
     border-radius: 20px; 
     width: 90%; 
     max-width: 420px; 
@@ -172,7 +255,7 @@
 }
 
 .stats-box {
-    background-color: rgba(69, 131, 136, 0.05);
+    background-color: var(--bg-back);
     border: 2px solid var(--panel); 
     border-radius: 12px;
     padding: 15px;
@@ -317,89 +400,6 @@
   max-height: 90%;
   border-radius: 14px;
   cursor: zoom-out;
-}
-
-.tier-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 30px;
-    border-bottom: 2px solid rgb(0, 128, 128); 
-    padding-bottom: 10px;
-    flex-wrap: wrap;
-}
-
-.tier-btn {
-    background-color: transparent;
-    border: none;
-    color: rgb(122, 255, 255);
-    padding: 10px 25px;
-    font-size: 1.1rem;
-    font-weight: 700;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 8px 8px 0 0;
-    opacity: 0.7;
-}
-
-.tier-btn:hover {
-    background-color: rgba(0, 46, 49, 0.938); /* var(--panel) with opacity */
-    color: gainsboro;
-    opacity: 1;
-}
-
-.tier-btn.active {
-    background-color: rgba(0, 59, 66, 0.842);
-    color: rgb(198, 250, 250);
-    border-bottom:rgba(2, 217, 255, 0.74) solid 3px;
-    opacity: 1;
-    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.13);
-}
-
-.tier-indicator {
-    display: none;
-    animation: fadeIn 0.5s;
-}
-
-.tier-indicator.active-content {
-    display: block;
-}
-
-.modal-actions {
-    display: flex;
-    justify-content: space-between;
-    gap: 15px;
-    margin-top: 15px;
-}
-
-.btn-status, .btn-paleo {
-    display: inline-block;
-    padding: 12px 0;
-    width: 48%;
-    text-align: center;
-    background-color: rgba(33, 70, 70, 0);
-    color: rgb(94, 250, 250); 
-    font-weight: 700;
-    text-transform: uppercase;
-    text-decoration: none;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid rgb(108, 255, 255); 
-    font-size: 1rem; 
-    box-sizing: border-box;
-}
-
-.btn-status{
-    background-color: rgba(54, 228, 228, 0.76);
-    color:#fff;
-}
-
-.btn-status:hover, .btn-paleo:hover {
-    background-color: var(--accent);
-    color: var(--ink);
-    box-shadow: 0 0 10px rgba(74, 168, 184, 0.6);
-    transform: scale(1.05);
 }
 
 @keyframes fadeIn {

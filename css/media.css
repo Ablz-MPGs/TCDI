@@ -64,17 +64,27 @@
     }
     
     .dropdown-menu {
-        display: block;
-        position: relative; 
+        position: relative;
+        top: 0;
+        left: 0;
+        transform: none;
         width: 100%;
-        border: none;
-        background-color: rgba(0, 0, 0, 0.1);
+        margin-top: 10px;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        background: rgba(255,255,255,0.03);
+        border: 1px solid rgba(255,255,255,0.05);
         box-shadow: none;
     }
 
     .dropdown-item {
-        text-align: center;
-        padding: 12px;
+        justify-content: center;
+        padding: 14px;
+    }
+
+    .dropdown-item:hover {
+        transform: none;
     }
 
     .linha-racas {
@@ -129,8 +139,5 @@
 @media (max-width: 480px) {
     .logo_imagem {
         max-width: 40px;
-    }
-
-
-    
+    }    
 }
