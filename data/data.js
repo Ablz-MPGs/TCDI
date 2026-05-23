@@ -1,6 +1,7 @@
 const dinosData = [
     {
         nome: "Triceratops horridus",
+        classe: "ceratop",
         tier: 5,
         peso: 1650,
         hp: 4875,
@@ -12,17 +13,11 @@ const dinosData = [
         vel_ar: null,
         crescimento: 48,
         dieta: "🌿",
-        slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro tem pouco HP, seu consumo de vigor diminui e sua velocidade de movimento aumenta (-20% consumo de stamina, + 5% velocidade)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua regeneração de vigor aumenta (até 2 vezes: +8% regeneração de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Bater", desc: "Seu dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura e sangramento. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade (+25% velocidade, +15% consumo de vigor).", dano: 668},
-                { titulo: "Golpe Esmagador", desc: "Seu dinossauro desfere um golpe devastador com dano aumentado, pode atordoar e repelir os dinossauros.", dano: 350}
-            ]
-        }
+        slots: 3,       
+        ativas: {
+            skill1: 668,
+            skill2: 350
+        }  
     },
     {
         nome: "Tyrannosaurus rex",
@@ -38,14 +33,9 @@ const dinosData = [
         crescimento: 56,
         dieta: "🥩",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de vigor é reduzido (-10% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Rugido Aterrorizante", desc: "Seu dinossauro ruge, reduzindo a defesa de inimigos próximos (-20% defesa inimiga).", dano: null},
-                { titulo: "Crânio de Ferro", desc: "Seu dinossauro golpeia com a cabeça, causando dano aumentado e podendo atordoar e repelir os dinossauros.", dano: 400 }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 400 
         }
     },
     {
@@ -62,18 +52,9 @@ const dinosData = [
         crescimento: 48,
         dieta: "🥩",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "Sede de Sangue", desc: "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento. (até +4% chance de sangramento)" },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa aumenta (+7% defesa)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, o dano e chance de sangrar aumentam (+10% dano, +8,5% chance de sangramento)." },
-                { titulo: "Fúria insaciável", desc: "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na defesa (até +5% defesa)." },
-                { titulo: "Armadura resistente", desc: "Sua mordida é capaz de roubar a força da vítima, restaurando o vigor roubada do inimigo." }
-            ],
-            ativas: [
-                { titulo: "Mordida dupla", desc: "Seu dinossauro desfere duas mordidas rápidas com maior dano e chance de causar sangramento. É possível atordoar.", dano: 320 },
-                { titulo: "Terremoto", desc: "Seu dinossauro pisa o chão com força, causando dano em área. Pode atordoar e repelir outros dinossauros. Dano base: indefinido.", dano: 0 }
-            ]
+        ativas: {
+            skill1: 320,
+            skill2: "undefined"
         }
     },
     {
@@ -90,16 +71,9 @@ const dinosData = [
         crescimento: 48,
         dieta: "🥩🦈",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (+2.5% sangramento)." },
-                { titulo: "Elemento nativo", desc: "Quando seu dinossauro nada, a defesa aumenta (+15% defesa)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe (-10% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Chuva de Golpes", desc: "Seu dinossauro desfere três golpes com suas garras. Aumenta a chance de infligir sangramento.", dano: 180 },
-                { titulo: "Chicote de Cauda", desc: "Um golpe de cauda em área, causa repulsão.", dano: 265 }
-            ]
+        ativas: {
+            skill1: 180,
+            skill2: 265
         }
     },
     {
@@ -116,20 +90,14 @@ const dinosData = [
         crescimento: 48,
         dieta: "🌿🦈",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (+2% sangramento)." },
-                { titulo: "Elemento nativo", desc: "Quando seu dinossauro nada, a defesa aumenta (+15% defesa)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo, seu dinossauro gasta menos stamina após se alimentar de um peixe (-10% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Estrondo do Lagarto", desc: "Seu dinossauro ruge, aumentando temporariamente sua defesa e velocidade de movimento.", dano: null},
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.", dano: 791 }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 791
         }
     },
     {
         nome: "Stegosaurus ungulatus",
+        classe: "stego",
         tier: 4,
         peso: 1500,
         hp: 3900,
@@ -142,15 +110,9 @@ const dinosData = [
         crescimento: 40,
         dieta: "🌿",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (até 2x: +11% de sangramento)." },
-                { titulo: "Energia solar", desc: "Durante o dia, seu dinossauro consome menos vigor (-20% gasto de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo três movimentos de cauda em poucos segundos, aumenta a chance de infligir fratura e sangramento, pode causar atordoamento.", dano: 0},
-                { titulo: "Golpe Esmagador", desc: "Seu dinossauro causa um golpe devastador com dano aumentado, pode atordoar inimigos.", dano: 0}
-            ]
+        ativas: {
+            skill1: 488,
+            skill2: 350
         }
     },
     {
@@ -167,15 +129,9 @@ const dinosData = [
         crescimento: 48,
         dieta: "🌿",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "quando seu dinossauro está com pouco HP, seu dano e chance de sangrar aumentam (+15% dano e chance de sangramento)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa é aumentada (até 2 vezes: +11% defesa)." }
-            ],
-            ativas: [
-                { titulo: "Chuva de Golpes", desc: "Seu dinossauro faz dois movimentos com suas garras, aumenta a chance de infligir sangramento.", dano: 0},
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.", dano: 0}
-            ]
+        ativas: {
+            skill1: 150,
+            skill2: 873
         }
     },
     {
@@ -192,14 +148,9 @@ const dinosData = [
         crescimento: 29,
         dieta: "🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro tem pouco HP, o consumo de vigor é reduzido e a velocidade de movimento aumenta (-20% consumo de stamina, +5% velocidade)." }
-            ],
-            ativas: [
-                { titulo: "Chute", desc: "Ataca com as patas traseiras, causando dano adicional e tendo chance de atordoar e repelir outros dinossauros. Não pode ser usada enquanto estiver correndo.", dano: 0 },
-                { titulo: "Um rugido aterrorizante", desc: "Solta um rugido que causa medo nos dinossauros, reduzindo sua defesa.", dano: null}
-            ]
+        ativas: {
+            skill1: 350,
+            skill2: null
         }
     },
     {
@@ -216,16 +167,9 @@ const dinosData = [
         crescimento: 41,
         dieta: "🥩🦈",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa é aumentada (até 2 vezes: +8% defesa)." },
-                { titulo: "Elemento nativo", desc: "Quando seu dinossauro nada, seu dano aumenta (+15% dano)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe (-10% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.", dano: 0},
-                { titulo: "Garras Afiadas", desc: "O dinossauro faz dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.", dano: 0 }
-            ]
+        ativas: {
+            skill1: 0,
+            skill2: 0
         }
     },
     {
@@ -242,17 +186,9 @@ const dinosData = [
         crescimento: 48,
         dieta: "🥩🦈",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar fratura aumenta (até 2 vezes: +1% chance de fratura)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe (-10% gasto de stamina)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, sua defesa aumenta (+10% defesa)." },
-                { titulo: "Elemento nativo", desc: "quando seu dinossauro nada, sua defesa aumenta (+10% defesa)." }
-            ],
-            ativas: [
-                { titulo: "Capturar", desc: "Seu dinossauro agarra uma presa com o boca podendo levá-la consigo, perdendo velocidade e gastando stamina para tal. Funciona apenas com animais menores (-15% velocidade).", dano: 300 },
-                { titulo: "Mordida Mortal", desc: "Uma mordida poderosa que drena o oxigênio e a resistência do inimigo.", dano: 0}
-            ]
+        ativas: {
+            skill1: 300,
+            skill2: 350
         }
     },
     {
@@ -269,15 +205,9 @@ const dinosData = [
         crescimento: 48,
         dieta: "🌿",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de stamina é reduzido (até 4 vezes: -12% consumo de stamina)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouca vida, sua defesa e chance de sangrar aumentam (+12% defesa, +4.5% sangramento)." }
-            ],
-            ativas: [
-                { titulo: "Ataque do céu", desc: "O dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa dano em área, com chance de atordoar e empurrar inimigos.", dano: 0 },
-                { titulo: "Chicote de Cauda", desc: "Um golpe de cauda em área, causa repulsão.", dano: 0}
-            ]
+        ativas: {
+            skill1: "indefinido",
+            skill2: 300
         }
     },
     {
@@ -294,15 +224,9 @@ const dinosData = [
         crescimento: 36,
         dieta: "🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua saúde recupera mais rápido (+20% regeneração de HP)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro tem pouco HP, o consumo de vigor é reduzido e a velocidade de movimento aumenta (+5% velocidade, -20% gasto de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Bater", desc: "Seu dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade (+25% velocidade, +15% consumo de vigor).", dano: 0 },
-                { titulo: "Terremoto", desc: "Seu dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa dano em área, com chance de atordoar e empurrar inimigos, mas o dano é baixo.", dano: 0 }
-            ]
+        ativas: {
+            skill1: 618,
+            skill2: "indefinido"
         }
     },
     {
@@ -319,14 +243,8 @@ const dinosData = [
         crescimento: 31,
         dieta: "🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros de sua matilha estão perto de você, sua defesa é aumentada (até 2 vezes: +11% defesa)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP seu consumo de vigor diminui e a velocidade aumenta (+5% velocidade, -20% gasto de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Chicote de cauda", desc: "Um golpe de cauda em área, que causa repulsão (5 segundos).", dano: 0 }
-            ]
+        ativas: {
+            skill1: 220
         }
     },
     {
@@ -343,14 +261,9 @@ const dinosData = [
         crescimento: 39,
         dieta: "🌿",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com HP baixo, seu dano e chance de fraturar aumentam. (+15% dano, +7,5% fratura)" }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir fratura, pode causar repulsão e atordoamento.", dano: 0 },
-                { titulo: "Armadura Resistente", desc: "Seu dinossauro chacoalha o corpo por alguns segundos, após isso, ganha defesa e perde velocidade. (+30% defesa, -12% velocidade)", dano: null }
-            ]
+        ativas: {
+            skill1: 767,
+            skill2: null
         }
     },
     {
@@ -367,15 +280,9 @@ const dinosData = [
         crescimento: 39,
         dieta: "🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Fúria com Chifres", desc: "Quando seu dinossauro está com pouco HP, seu consumo de vigor é reduzido e sua chance de sangrar aumenta (-15% gasto de vigor, +7% chance de sangrar)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa é aumentada (até 2 vezes: +11% defesa)." }
-            ],
-            ativas: [
-                { titulo: "Chute", desc: "Seu dinossauro ataca com as patas traseiras causando dano adicional, tem chance de atordoar e repele alguns dinossauros.", dano: 270 },
-                { titulo: "Golpe Esmagador", desc: "O dinossauro golpeia com seu chifre, causa dano aumentado, podendo atordoar e repelir os dinossauros", dano: 300 }
-            ]
+        ativas: {
+            skill1: 270,
+            skill2: 300
         }
     },
     {
@@ -392,15 +299,8 @@ const dinosData = [
         crescimento: 38,
         dieta: "🥩",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu vigor recupera mais rápido (até 3 vezes: +9% regeneração de vigor)." },
-                { titulo: "Bom Sono", desc: "Seu dinossauro gasta menos vigor enquanto o cansaço estiver acima de 79%. (-15% gasto de stamina)" },
-                { titulo: "Instinto Primordial", desc: "Se seu dinossauro estiver sangrando, seus ataques têm maior probabilidade de causar sangramento (+9% sangramento)." }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.", dano: 672 }
-            ]
+        ativas: {
+            skill1: 672
         }
     },
     {
@@ -417,15 +317,9 @@ const dinosData = [
         crescimento: 29,
         dieta: "🥩",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu pseudosuchio está com baixo HP, o consumo de stamina diminui e a velocidade de movimento aumenta (+5% velocidade, -25% consumo de stamina)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar uma fratura aumenta (até 3 vezes: +1% chance de fratura)." }
-            ],
-            ativas: [
-                { titulo: "Capturar", desc: "Seu dinossauro agarra uma presa com o boca podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade (-15% velocidade).", dano: 245 },
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.", dano: 669}
-            ]
+        ativas: {
+            skill1: 245,
+            skill2: 669
         }
     },
     {
@@ -442,15 +336,9 @@ const dinosData = [
         crescimento: 42,
         dieta: "🥩🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Instinto Materno", desc: "Quando seu dinossauro está perto do ninho, o dano aumenta para cada ovo (até 3 vezes: +18% dano)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu dano aumenta (até 2 vezes: +11% dano)." }
-            ],
-            ativas: [
-                { titulo: "Chute", desc: "Seu dinossauro ataca com as patas traseiras causando dano adicional, tem chance de atordoar e repele alguns dinossauros.", dano: 250 },
-                { titulo: "Chuva de Golpes", desc: "Seu dinossauro desfere múltiplas bicadas com maior chance de causar sangramento. Ataques causam menos dano", dano: 110 }
-            ]
+        ativas: {
+            skill1: 250,
+            skill2: 110
         }
     },
     {
@@ -467,15 +355,9 @@ const dinosData = [
         crescimento: 29,
         dieta: "🥩",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Sede de Sangue", desc: "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento e velocidade de movimento (até 10 vezes: +3,6% chance de sangramento, +6% velocidade)." },
-                { titulo: "O poder do bando", desc: "Quando há membros da matilha perto de você, seu gasto de vigor é reduzido." }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.", dano: 560 },
-                { titulo: "Crânio de Ferro", desc: "Seu dinossauro causa um golpe devastador com dano aumentado, podendo atordoar inimigos.", dano: 245 }
-            ]
+        ativas: {
+            skill1: 560,
+            skill2: 245
         }
     },
     {
@@ -493,16 +375,9 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         fome: 150,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, o consumo de vigor diminui e a velocidade de movimento aumenta (+5% velocidade, -20% consumo de vigor)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta (até +4% sangramento)." },
-                { titulo: "Instinto Primordial", desc: "Se seu dinossauro estiver sangrando, seus ataques têm maior probabilidade de causar sangramento (+9% sangramento)." }
-            ],
-            ativas: [
-                { titulo: "Chuva de Golpes", desc: "Seu dinossauro bate a cauda várias vezes, causando dano várias vezes ao mesmo alvo.", dano: 0 },
-                { titulo: "Armadura", desc: "Seu dinossauro se levanta, ganha força e então cai bruscamente. Suas placas se movem, aumentando temporariamente a defesa (+25% defesa).", dano: null }
-            ]
+        ativas: {
+            skill1: 0,
+            skill2: null
         }
     },
     {
@@ -519,14 +394,8 @@ const dinosData = [
         crescimento: 39,
         dieta: "🥩🦈",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, sua defesa e chance de sangrar aumentam (+12% defesa, +3.6% chance de sangramento)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua saúde recupera mais rápido (até 2 vezes: +20% recuperação de HP)." }
-            ],
-            ativas: [
-                { titulo: "Ataque Carregado", desc: "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.", dano: 0 }
-            ]
+        ativas: {
+            skill1: 616
         }
     },
     {
@@ -543,16 +412,9 @@ const dinosData = [
         crescimento: 38,
         dieta: "🥩",
         slots: 2.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Poder Acumulado", desc: "Seu primeiro ataque causa dano aumentado, há um tempo de recarga (+30% dano)." },
-                { titulo: "Devorador da Noite", desc: "À noite a chance do seu dinossauro causar sangramento aumenta e o consumo de vigor diminui (+20% chance de sangramento, -15% gasto de vigor)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de vigor é reduzido (até 2 vezes, -10% gasto de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Rugido Aterrorizante", desc: "Seu dinossauro ruge, fazendo com que os jogadores próximos fiquem com medo e percam parte do conforto, manter-se próximo fará com que o efeito se torne continuo (-30% conforto imediato, podendo escalar).", dano: null },
-                { titulo: "Garras Afiadas", desc: "O dinossauro faz dois movimentos com suas garras. O ataque causa dano aumentado e aumenta as chances de infligir sangramento.", dano: 245 }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 245
         }
     },
     {
@@ -569,15 +431,9 @@ const dinosData = [
         crescimento: 28,
         dieta: "🥩🦈",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Sede de Sangue", desc: "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento e velocidade de movimento (até 10 vezes: +6% velocidade, 5% chance de sangramento)." },
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, a recuperação de vigor acelera (até 5 vezes: +28% recuperação de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Arranhão", desc: "Ataque com as garras, tem maior chance de causar sangramento, mas causando menos dano.", dano: 100 },
-                { titulo: "Chuva de Golpes", desc: "Seu dinossauro desfere três mordidas com maior chance de causar sangramento.", dano: 140 }
-            ]
+        ativas: {
+            skill1: 100,
+            skill2: 140
         }
     },
     {
@@ -594,14 +450,8 @@ const dinosData = [
         crescimento: 32,
         dieta: "🥩🦈",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão próximos, você recupera HP mais rápido (até 3 vezes: +20% recuperação de HP)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, seu dano aumenta e o consumo de vigor é reduzido (+15% dano, -20% consumo de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Golpe Esmagador", desc: "O dinossauro causa um golpe devastador com dano e chance de sangrar aumentados.", dano: 200}
-            ]
+        ativas: {
+            skill1: 200
         }
     },
     {
@@ -618,15 +468,9 @@ const dinosData = [
         crescimento: 28,
         dieta: "🌿",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa é aumentada (até 3 vezes: +13% defesa)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, sua velociade e chance de fraturar aumentam (+5% velocidade e chance de fratura)." }
-            ],
-            ativas: [
-                { titulo: "Bater", desc: "O dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade (+25% velocidade, +15% consumo de vigor).", dano: 457 },
-                { titulo: "Ataque Carregado", desc: "Após algum tempo de carregameto, seu dinossauro desfere um golpe poderoso com a cabeça, causando dano aumentado, aumentando a chance de fratura e podendo atordoar.", dano: 557 }
-            ]
+        ativas: {
+            skill1: 457,
+            skill2: 557
         }
     },
     {
@@ -643,17 +487,9 @@ const dinosData = [
         crescimento: 24,
         dieta: "🥩🦈",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "Vampirismo", desc: "Ao atacar, seu dinossauro pode restaurar parte de sua saúde com o dano causado." },
-                { titulo: "Juntos somos fortes!", desc: "Quando os membros da matilha estão perto de você, o gasto de vigor é reduzido (até 3 vezes: -15% gasto de vigor)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo seu dinossauro gasta menos stamina após se alimentar de um peixe (-10% gasto de stamina)." },
-                { titulo: "Frescor Marinho", desc: "Ao sair da água, sua velocidade de corrida e nado aumentam (+5% velocidade)." }
-            ],
-            ativas: [
-                { titulo: "Ataque do céu", desc: "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa (-15% defesa inimiga).", dano: 200 },
-                { titulo: "Disparada", desc: "Salte para alcançar o inimigo ou escapar velozmente, pode ser usado na água.", dano: null }
-            ]
+        ativas: {
+            skill1: 200,
+            skill2: null
         }
     },
     {
@@ -670,14 +506,8 @@ const dinosData = [
         crescimento: 41,
         dieta: "🥩🦈",
         slots: 3,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu dano é aumentado (até 3 vezes: +11% dano)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, seu consumo de vigor diminui e sua velocidade aumenta (+5% velocidade, -20% gasto de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Capturar", desc: "Seu dinossauro agarra uma presa com o bico podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade (-15% velocidade).", dano: 160 },
-            ]
+        ativas: {
+            skill1: 160
         }
     },
     {
@@ -694,16 +524,9 @@ const dinosData = [
         crescimento: 17,
         dieta: "🌿",
         slots: 1,
-        habilidades: {
-            passivas: [
-                { titulo: "Instinto materno", desc: "Quando perto de seu ninho, seu dano aumenta para cada ovo nele (até 3 vezes: +15% dano)." },
-                { titulo: "Corredor de maratona", desc: "Quando há membros da matilha perto de você, sua recuperação de vigor acelera (até 2 vezes: +15% regeneração de vigor)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouca saúde, sua defesa aumenta (+15% defesa)." }
-            ],
-            ativas: [
-                { titulo: "Incentivo", desc: "Seu dinossauro emite um grito alto, reduzindo o consumo de vigor dos membros da matilha (-15% gasto de vigor).", dano: null },
-                { titulo: "Chute", desc: "Seu dinossauro ataca com as patas traseiras, causando dano adicional, com chance de atordoar e repelir alguns dinossauros.", dano:150 }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 150
         }
     },
     {
@@ -720,15 +543,9 @@ const dinosData = [
         crescimento: 28,
         dieta: "🥩🦈",
         slots: 1.5,
-        habilidades: {
-            passivas: [
-                { titulo: "Poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa aumenta (até 3 vezes: +13% defesa)." },
-                { titulo: "Força das Trevas", desc: "Seu dinossauro gasta menos stamina à noite (-20% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Grito de Guerra", desc: "Seu dinossauro ruge, aumentando a chance de infligir sangramento por um tempo (+15% chance de sangramento).", dano: null },
-                { titulo: "Ataque Carregado", desc: "O dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",  dano: 336}
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 336
         }
     },
     {
@@ -745,15 +562,9 @@ const dinosData = [
         crescimento: 18,
         dieta: "🥩🦈",
         slots: 1.5,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, sua defesa é aumentada (até 3 vezes: + 9% defesa)." },
-                { titulo: "Surto de poder", desc: "Quando seu dinossauro está com pouco HP, o dano e chance de sangramento aumentam (+20% dano e sangramento)." }
-            ],
-            ativas: [
-                { titulo: "Grito de Guerra.", desc: "O dinossauro ruge, elevando seu moral e o da matilha, diminuindo seu consumo de vigor por um tempo (-20% gasto de vigor).", dano: null },
-                { titulo: "Lâminas Afiadas", desc: "Desfere um golpe penetrantes com as garras, causando mais dano e podendo atordoar dinossauros menores. ", dano: 160 }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: 160
         }
     },
     {
@@ -770,14 +581,8 @@ const dinosData = [
         crescimento: 20,
         dieta: "🌿",
         slots: 1,
-        habilidades: {
-            passivas: [
-                { titulo: "Surto de poder", desc: "Seu dinossauro gasta menos stamina e sua velocidade aumenta quando está com HP baixo (+5% velocidade, -20% gasto de vigor)." },
-                { titulo: "Instinto materno", desc: "Quando perto de seu ninho, seu dano aumenta para cada ovo nele (até +18% dano)." }
-            ],
-            ativas: [
-                { titulo: "Grito de Cura", desc: "Seu dinossauro emite um grito que acelera a própria regeneração de HP e dos membros da matilha próximos (+20% regeneração de HP).", dano: null },
-            ]
+        ativas: {
+            skill1: null
         }
     },
     {
@@ -794,16 +599,9 @@ const dinosData = [
         crescimento: 15,
         dieta: "🥩",
         slots: 1,
-        habilidades: {
-            passivas: [
-                { titulo: "Juntos somos fortes!", desc: "Recupera stamina mais rápido perto da matilha." },
-                { titulo: "Apetite louco", desc: "Seu dinossauro se torna mais rápido quando carrega algo na boca (+10% velocidade)." },
-                { titulo: "Surto de poder", desc: "Quando com baixo HP, seu dinossauro corre mais rápido e gasta menos vigor (-20% gasto de vigor, +5% velocidade)." }
-            ],
-            ativas: [
-                { titulo: "Troféu de carne", desc: "Seu dinossauro desfere um golpe forte, retirando um pedaço de carne caso atinja um player.", dano: 125 },
-                { titulo: "Grito de guerra", desc: "Seu dinossauro grita, aumentando o seu dano (+20% dano).", dano: null }
-            ]
+        ativas: {
+            skill1: 125,
+            skill2: null
         }
     },
     {
@@ -820,18 +618,12 @@ const dinosData = [
         crescimento: 12,
         dieta: "🥩🦈",
         slots: 1,
-        habilidades: {
-            passivas: [
-                { titulo: "Juntos somos fortes!", desc: "Quando os membros da matilha estão perto de você, seu consumo de vigor é reduzido (até 3 vezes: -35% consumo de vigor)." },
-                { titulo: "Força das Trevas", desc: "Seu dinossauro gasta menos stamina à noite (-20% consumo de vigor)." }
-            ],
-            ativas: [
-                { titulo: "Parkour", desc: "Capaz de escalar ao precionar salto próximo a uma superfície adequada.", dano: null },
-                { titulo: "Vento sob as asas", desc: "Quando no ar, pressione o botão de salto para planar.", dano: null },
-                { titulo: "Escalador", desc: "Quando no ar, pressione o botão de salto para tentar prender-se a uma superfície.", dano: null },
-                { titulo: "Disparada", desc: "O dinossauro se impulsiona para a direção em que estiver olhando, funciona apenas no ar.", dano: null },
-                { titulo: "Corrida alta", desc: "Seu dinossauro executa um grande salto." , dano: null }
-            ]
+        ativas: {
+            skill1: null,
+            skill2: null,
+            skill3: null,
+            skill4: null,
+            skill5: null
         }
     },
     {
@@ -848,14 +640,8 @@ const dinosData = [
         crescimento: 31,
         dieta: "🥩🦈",
         slots: 2,
-        habilidades: {
-            passivas: [
-                { titulo: "O poder do bando", desc: "Quando os membros da matilha estão perto de você, seu gasto de vigor é reduzido (até 3 vezes: -18% gasto de stamina)." },
-                { titulo: "Presente das Profundezas", desc: "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe (-10% gasto de stamina)." }
-            ],
-            ativas: [
-                { titulo: "Enxame Barulhento", desc: "O pterossauro emite um grito estridente, aumentando a sua capacidade de infligir sangramento e a de aliados próximos por um curto período (+15% chance de sangramento).", dano: null },
-            ]
+        ativas: {
+            skill1: null
         }
     }
 ];

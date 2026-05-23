@@ -31,6 +31,28 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
     }
+
+    const tabelaLancamento = document.getElementById('tabela-lancamento');
+    if (tabelaLancamento) {
+        fetch('data/dinoDataBase.json')
+            .then(res => res.json())
+            .then(data => {
+                const lancamentos = Object.entries(data).map(([nome, info]) => {
+                    return { nome, release: info.release };
+                });
+                
+                lancamentos.sort((a, b) => {
+                    const [diaA, mesA, anoA] = a.release.split(' / ');
+                    const [diaB, mesB, anoB] = b.release.split(' / ');
+                    const dataA = new Date(`${anoA}-${mesA}-${diaA}`);
+                    const dataB = new Date(`${anoB}-${mesB}-${diaB}`);
+                    return dataB - dataA;
+                });
+
+                tabelaLancamento.innerHTML = lancamentos.map(item => `<tr><td>${item.nome}</td><td>${item.release}</td></tr>`).join('');
+            })
+            .catch(err => console.error("Erro ao carregar dados de lançamento:", err));
+    }
 });
 
 window.aplicarOrdenacao = function() {

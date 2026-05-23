@@ -1,5 +1,6 @@
 {
   "Coelophysis": {
+    "release": "25 / 01 / 2024",
     "idStatus": "coelo",
     "fullName": "COELOPHYSIS<br>BAURI",
     "image": "img/pict/coeloperfil.png",
@@ -50,6 +51,7 @@
     ]
   },
   "Changyuraptor": {
+    "release": "12 / 02 / 2026",
     "idStatus": "chang",
     "fullName": "CHANGYURAPTOR<br>YANGI",
     "image": "img/pict/changperfil.png",
@@ -112,6 +114,7 @@
     ]
   },
   "Ornithomimus": {
+    "release": "21 / 12 / 2023",
     "idStatus": "ornitho",
     "fullName": "ORNITHOMIMUS<br>VELOX",
     "image": "img/pict/orniperfil.png",
@@ -162,6 +165,7 @@
     ]
   },
   "Deinonychus": {
+    "release": "12 / 08 / 2025",
     "idStatus": "deino",
     "fullName": "DEINONYCHUS<br>ANTIRHOPUS",
     "image": "img/pict/deinoperfil.png",
@@ -206,6 +210,7 @@
     ]
   },
   "Pachycephalosaurus": {
+    "release": "21 / 12 / 2023",
     "idStatus": "pachy",
     "fullName": "PACHYCEPHALO<br>SAURUS WYOMINGENSIS",
     "image": "img/pict/pachyperfil.png",
@@ -250,6 +255,7 @@
     ]
   },
   "Guanlong": {
+    "release": "25 / 01 / 2024",
     "idStatus": "guan",
     "fullName": "GUANLONG<br>WUCAII",
     "image": "img/pict/guanperfil.png",
@@ -294,6 +300,7 @@
     ]
   },
   "Barbaridactylus": {
+    "release": "22 / 05 / 2024",
     "idStatus": "barba",
     "fullName": "BARBARIDACTYLUS<br>GRANDIS",
     "image": "img/pict/barbaperfil.png",
@@ -332,6 +339,7 @@
     ]
   },
   "Psittacosaurus": {
+    "release": "04 / 11 / 2024",
     "idStatus": "psitta",
     "fullName": "PSITTACOSAURUS<br>MONGOLIENSIS",
     "image": "img/pict/psittaperfil.png",
@@ -370,6 +378,7 @@
     ]
   },
   "Quetzalcoatlus": {
+    "release": "01 / 06 / 2024",
     "idStatus": "quetzal",
     "fullName": "QUETZALCOATLUS<br>NORTHROPI",
     "image": "img/pict/quetzalperfil.png",
@@ -408,8 +417,9 @@
     ]
   },
   "Austroraptor": {
+    "release": "09 / 10 / 2025",
     "idStatus": "austro",
-    "fullName": "AUSTRORAPTOR<br>CABAZAI",
+    "fullName": "AUSTRORAPTOR<br>ABAZAI",
     "image": "img/pict/austroperfil.png",
     "diet": "🥩🦈",
     "stats": {
@@ -464,6 +474,7 @@
     ]
   },
   "Dilophosaurus": {
+    "release": "27 / 06 / 2025",
     "idStatus": "dilo",
     "fullName": "DILOPHOSAURUS<br>WETHERILLI",
     "image": "img/pict/diloperfil.png",
@@ -508,6 +519,7 @@
     ]
   },
   "Concavenator": {
+    "release": "27 / 09 / 2024",
     "idStatus": "conca",
     "fullName": "CONCAVENATOR<br>CORCOVATUS",
     "image": "img/pict/concaperfil.png",
@@ -546,6 +558,7 @@
     ]
   },
   "Fasolasuchus": {
+    "release": "03 / 02 / 2025",
     "idStatus": "fasola",
     "fullName": "FASOLASUCHUS<br>TENAX",
     "image": "img/pict/fasolaperfil.png",
@@ -590,6 +603,7 @@
     ]
   },
   "Kentrosaurus": {
+    "release": "21 / 12 / 2023",
     "idStatus": "kentro",
     "fullName": "KENTROSAURUS<br>AETHIOPICUS",
     "image": "img/pict/kentroperfil.png",
@@ -640,6 +654,7 @@
     ]
   },
   "Megaraptor": {
+    "release": "12 / 11 / 2025",
     "idStatus": "mega",
     "fullName": "MEGARAPTOR<br>NAMUNHUAIQUII",
     "image": "img/pict/megaperfil.png",
@@ -685,11 +700,12 @@
         "title": "Garras Afiadas",
         "desc": "O dinossauro faz dois movimentos com suas garras. O ataque tem maiores chances de infligir sangramento.",
         "icon": "img/skill/garras.png",
-        "effect": "Dano base: - (por ataque)"
+        "effect": "Dano base: 245 (por ataque)"
       }
     ]
   },
   "Ceratosaurus": {
+    "release": "06 / 03 / 2024",
     "idStatus": "cerato",
     "fullName": "CERATOSAURUS<br>NASICORNIS",
     "image": "img/pict/ceratoperfil.png",
@@ -723,11 +739,12 @@
         "title": "Ataque Carregado",
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
         "icon": "img/skill/carregada.png",
-        "effect": "Dano base máximo: 600"
+        "effect": "Dano base máximo: 616"
       }
     ]
   },
   "Carnotaurus": {
+    "release": "08 / 05 / 2025",
     "idStatus": "carno",
     "fullName": "CARNOTAURUS<br>SASTREI",
     "image": "img/pict/carnoperfil.png",
@@ -772,6 +789,7 @@
     ]
   },
   "Gigantoraptor": {
+    "release": "04 / 11 / 2024",
     "idStatus": "giganto",
     "fullName": "GIGANTORAPTOR<br>ERLIANENSIS",
     "image": "img/pict/gigantoperfil.png",
@@ -816,6 +834,7 @@
     ]
   },
   "Allosaurus": {
+    "release": "06 / 03 / 2024",
     "idStatus": "allo",
     "fullName": "ALLOSAURUS<br>FRAGILIS",
     "image": "img/pict/alloperfil.png",
@@ -860,6 +879,7 @@
     ]
   },
   "Styracosaurus": {
+    "release": "08 / 05 / 2025",
     "idStatus": "styra",
     "fullName": "STYRACOSAURUS<br>ALBERTENSIS",
     "image": "img/pict/styraperfil.png",
@@ -904,6 +924,7 @@
     ]
   },
   "Plateosaurus": {
+    "release": "14 / 02 / 2024",
     "idStatus": "plateo",
     "fullName": "PLATEOSAURUS<br>ENGELHARDTI",
     "image": "img/pict/plateoperfil.png",
@@ -942,6 +963,7 @@
     ]
   },
   "Tarchia": {
+    "release": "10 / 10 / 2023",
     "idStatus": "tarchia",
     "fullName": "TARCHIA<br>KIELANAE",
     "image": "img/pict/tarchiaperfil.png",
@@ -980,6 +1002,7 @@
     ]
   },
   "Parasaurolophus": {
+    "release": "14 / 02 / 2024",
     "idStatus": "para",
     "fullName": "PARASAUROLOPHUS<br>WALKERI",
     "image": "img/pict/paraperfil.png",
@@ -1018,6 +1041,7 @@
     ]
   },
   "Pachyrhinosaurus": {
+    "release": "13 / 01 / 2024",
     "idStatus": "rhino",
     "fullName": "PACHYRHINOSAURUS",
     "image": "img/pict/rhinoperfil.png",
@@ -1062,6 +1086,7 @@
     ]
   },
   "Stegosaurus": {
+    "release": "25 / 12 / 2025",
     "idStatus": "stego",
     "fullName": "STEGOSAURUS<br>UNGULATUS",
     "image": "img/pict/stegoperfil.png",
@@ -1106,6 +1131,7 @@
     ]
   },
   "Therizinosaurus": {
+    "release": "14 / 09 / 2024",
     "idStatus": "theri",
     "fullName": "THERIZINOSAURUS<br>CHELONIFORMIS",
     "image": "img/pict/theriperfil.png",
@@ -1150,6 +1176,7 @@
     ]
   },
   "Suchomimus": {
+    "release": "02 / 04 / 2025",
     "idStatus": "sucho",
     "fullName": "SUCHOMIMUS<br>TENERENSIS",
     "image": "img/pict/suchoperfil.png",
@@ -1200,6 +1227,7 @@
     ]
   },
   "Amargasaurus": {
+    "release": "03 / 02 / 2025",
     "idStatus": "amarga",
     "fullName": "AMARGASAURUS<br>CAZAUI",
     "image": "img/pict/amargaperfil.png",
@@ -1244,6 +1272,7 @@
     ]
   },
   "Sarcosuchus": {
+    "release": "30 / 11 / 2023",
     "idStatus": "sarco",
     "fullName": "SARCOSUCHUS<br>IMPERATOR",
     "image": "img/pict/sarcoperfil.png",
@@ -1300,6 +1329,7 @@
     ]
   },
   "Spinosaurus": {
+    "release": "30 / 03 / 2024",
     "idStatus": "spino",
     "fullName": "SPINOSAURUS<br>AEGYPTIACUS",
     "image": "img/pict/spinoperfil.png",
@@ -1350,6 +1380,7 @@
     ]
   },
   "Deinocheirus": {
+    "release": "20 / 11 / 2024",
     "idStatus": "pato",
     "fullName": "DEINOCHEIRUS<br>MIRIFICUS",
     "image": "img/pict/patoperfil.png",
@@ -1400,6 +1431,7 @@
     ]
   },
   "Triceratops": {
+    "release": "30 / 03 / 2024",
     "idStatus": "trike",
     "fullName": "TRICERATOPS<br>HORRIDUS",
     "image": "img/pict/trikeperfil.png",
@@ -1444,6 +1476,7 @@
     ]
   },
   "Giganotosaurus": {
+    "release": "13 / 04 / 2026",
     "idStatus": "giga",
     "fullName": "GIGANOTOSAURUS<br>CAROLINI",
     "image": "img/pict/gigaperfil.png",
@@ -1506,6 +1539,7 @@
     ]
   },
   "Tyrannosaurus": {
+    "release": "30 / 03 / 2024",
     "idStatus": "trex",
     "fullName": "TYRANNOSAURUS<br>REX",
     "image": "img/pict/trexperfil.png",

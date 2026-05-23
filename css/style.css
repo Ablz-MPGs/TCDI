@@ -24,7 +24,7 @@
 }
 
 :root.light {
-    --bg:              #f0f6f6;
+    --bg:              #cbdae2;
     --bg-back:         rgba(220, 240, 240, 0.103);
     --back:            rgba(200, 230, 230, 0.6);
     --header:          #e2f0f0f2;
@@ -43,7 +43,7 @@
     --hover-bg:        rgba(29, 138, 154, 0.12);
     --foot:            rgba(200, 235, 235, 0.95);
     --so-hover:        rgba(29, 138, 154, 0.1);
-    --brilho:          rgba(8, 56, 56, 0.07);
+    --brilho:          rgba(11, 216, 216, 0.178);
     --header-height:   90px;
     --base: rgb(0, 180, 180);
 }
@@ -105,7 +105,7 @@ p {
 
 .texto-info {
     color: var(--text-secondary);
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     margin-bottom: 30px;
     text-indent: 30px;
@@ -253,32 +253,93 @@ input:checked + .slider:before { transform: translateX(18px); background-color: 
     border-radius: 8px;
 }
 
-#modeView{
-    height: 25px;
-    width: 25px;
-    padding: 0;
-    border-radius: 50%;
-    background-color: var(--base);
-    border: 2px solid var(--accent);
-    justify-content: center;
+#modeView {
+    position: relative;
+    display: inline-flex;
     align-items: center;
+    justify-content: space-between;
+    flex: 0 0 auto;
+    width: 58px;
+    height: 32px;
+    padding: 3px 7px;
+    border: 1px solid var(--accent);
+    border: 1px solid color-mix(in srgb, var(--accent), var(--text-primary) 20%);
+    border-radius: 999px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.14), transparent),
+        var(--back);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+        0 6px 18px rgba(0, 0, 0, 0.22);
+    color: var(--text-primary);
+    cursor: pointer;
+    overflow: hidden;
 }
 
-#modeView span:last-child{
-    display:none;
+#modeView::before {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--base);
+    box-shadow:
+        0 0 12px var(--brilho),
+        0 2px 7px rgba(0, 0, 0, 0.25);
+    transform: translateX(26px);
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-#modeView:hover{
-    background-color: var(--text-primary);
-    border: 3px solid var(--branco);
-    transition: background-color 0.5s ease;
-    transition: border 0.5s ease;
+#modeView span {
+    position: relative;
+    z-index: 1;
+    display: inline-grid;
+    place-items: center;
+    width: 18px;
+    height: 18px;
+    font-size: 0.82rem;
+    line-height: 1;
+    opacity: 0.55;
+    transform: scale(0.9);
+    transition: opacity 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
-.light #modeView span:first-child{
-    display:none;
+#modeView span:last-child {
+    opacity: 1;
+    transform: scale(1);
 }
 
-.light #modeView span:last-child{
-    display:block;
+#modeView:hover {
+    border-color: var(--text-highlight);
+    box-shadow:
+        inset 0 0 0 1px rgba(255, 255, 255, 0.12),
+        0 0 0 4px var(--hover-bg),
+        0 8px 22px rgba(0, 0, 0, 0.28);
+}
+
+#modeView:focus-visible {
+    outline: 3px solid var(--base);
+    outline-offset: 4px;
+}
+
+.light #modeView {
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.55), transparent),
+        var(--back);
+}
+
+.light #modeView::before {
+    transform: translateX(0);
+}
+
+.light #modeView span:first-child {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.light #modeView span:last-child {
+    opacity: 0.55;
+    transform: scale(0.9);
 }

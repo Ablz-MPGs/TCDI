@@ -4,28 +4,102 @@ document.addEventListener('click', (e) => {
     }
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const headers = document.querySelectorAll('.tier-toggle');
+document.addEventListener('DOMContentLoaded', async () => {
+    const container = document.getElementById('tabelas-container');
+    if (container && typeof dinosData !== 'undefined') {
+        let dinoDbStatus = {};
+        try {
+            const response = await fetch('data/dinoDataBase.json');
+            dinoDbStatus = await response.json();
+        } catch (error) {
+            console.error("Erro ao carregar dinoDataBase.json:", error);
+        }
 
-    headers.forEach(header => {
-        const toggleTier = () => {
-            header.classList.toggle('collapsed');
-            const tableContainer = header.nextElementSibling;
-
-            if (tableContainer?.classList.contains('table-container')) {
-                const isHidden = tableContainer.classList.toggle('hidden');
-                header.setAttribute('aria-expanded', String(!isHidden));
-            }
-        };
-
-        header.addEventListener('click', toggleTier);
-        header.addEventListener('keydown', (event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-                event.preventDefault();
-                toggleTier();
+        const tierMap = { 5: [], 4: [], 3: [], 2: [], 1: [] };
+        
+        dinosData.forEach(dino => {
+            if (dino.tier && tierMap[dino.tier]) {
+                tierMap[dino.tier].push(dino);
             }
         });
-    });
+
+        let html = '';
+        for (let tier = 5; tier >= 1; tier--) {
+            if (tierMap[tier].length === 0) continue;
+
+            html += `
+            <h2 class="tier-toggle collapsed" tabindex="0" role="button" aria-expanded="false">Tier ${tier}<span class="arrow"></span></h2>
+            <div class="table-container hidden">
+                <table>
+                    <thead>
+                        <tr class="head">
+                            <th>Nome</th>
+                            <th>HP</th>
+                            <th>Dano base</th>
+                            <th>Fratura</th>
+                            <th>Sangramento</th>
+                            <th>Velocidade: terra</th>
+                            <th>Velocidade: água</th>
+                            <th>Velocidade: ar</th>
+                        </tr>
+                    </thead>
+                    <tbody>`;
+
+            tierMap[tier].forEach(dino => {
+                const dbKey = dino.nome.split(" ")[0];
+                const info = dinoDbStatus[dbKey];
+                const idStatus = info && info.idStatus ? info.idStatus : dbKey.toLowerCase();
+                
+                const dispHp = dino.hp || 'N/A';
+                const dispDano = dino.dano_base || 'N/A';
+                const dispFratura = dino.fratura !== undefined && dino.fratura !== null ? `${dino.fratura}%` : '0%';
+                const dispSangramento = dino.sangramento !== undefined && dino.sangramento !== null ? `${dino.sangramento}%` : '0%';
+                const dispVelTerra = dino.vel_terra || 'N/A';
+                const dispVelAgua = dino.vel_agua || 'N/A';
+                const dispVelAr = dino.vel_ar || 'N/A';
+
+                html += `
+                        <tr id="${idStatus}">
+                            <td><a href="galeria.html#${idStatus}" class="dino-link">${dino.nome}</a></td>
+                            <td>${dispHp}</td>
+                            <td>${dispDano}</td>
+                            <td>${dispFratura}</td>
+                            <td>${dispSangramento}</td>
+                            <td>${dispVelTerra}</td>
+                            <td>${dispVelAgua}</td>
+                            <td>${dispVelAr}</td>
+                        </tr>`;
+            });
+
+            html += `
+                    </tbody>
+                </table>
+            </div>`;
+        }
+        
+        container.innerHTML = html;
+
+        // Re-attach toggle events
+        const headers = document.querySelectorAll('.tier-toggle');
+        headers.forEach(header => {
+            const toggleTier = () => {
+                header.classList.toggle('collapsed');
+                const tableContainer = header.nextElementSibling;
+                if (tableContainer?.classList.contains('table-container')) {
+                    const isHidden = tableContainer.classList.toggle('hidden');
+                    header.setAttribute('aria-expanded', String(!isHidden));
+                }
+            };
+
+            header.addEventListener('click', toggleTier);
+            header.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' || event.key === ' ') {
+                    event.preventDefault();
+                    toggleTier();
+                }
+            });
+        });
+    }
 
     const hash = window.location.hash; 
     
@@ -146,6 +220,8 @@ function atualizarInterface() {
         
         const nomeAtacante = atacante.nome;
         const nomeAlvo = alvo.nome;
+
+
 
         resultsDiv.innerHTML = `
             <div class="result-row">

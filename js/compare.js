@@ -1,237 +1,185 @@
-const speciesASelect = document.getElementById("species-a");
-const speciesBSelect = document.getElementById("species-b");
-const summaryGrid = document.getElementById("summary-grid");
-const comparisonBody = document.getElementById("comparison-body");
-const skillsGrid = document.getElementById("skills-grid");
-const tableSpeciesA = document.getElementById("table-species-a");
-const tableSpeciesB = document.getElementById("table-species-b");
+document.addEventListener('DOMContentLoaded', () => {
+    const selectA = document.getElementById('species-a');
+    const selectB = document.getElementById('species-b');
+    let dinoDb = null;
 
-const attributes = [
-    { key: "tier", label: "Tier" },
-    { key: "peso", label: "Peso de combate" },
-    { key: "hp", label: "HP" },
-    { key: "dano_base", label: "Dano base" },
-    { key: "fratura", label: "Fratura", suffix: "%" },
-    { key: "sangramento", label: "Sangramento", suffix: "%" },
-    { key: "vel_terra", label: "Velocidade em terra" },
-    { key: "vel_agua", label: "Velocidade na água" },
-    { key: "vel_ar", label: "Velocidade no ar" },
-    { key: "crescimento", label: "Crescimento", suffix: " min" },
-];
+    // Inicializa a ferramenta de comparação
+    async function initCompare() {
+        if (!selectA || !selectB) return;
 
-const attrbutesout = [       
-    { key: "slots", label: "Slots" },
-    { key: "preco", label: "Preço" },
-    { key: "skin1", label: "Skin moedas" },
-    { key: "skin2", label: "Skin gemas" },
-    { key: "fotinha", label: "Fotinha" },
-    { key: "cormoeda", label: "Cor moedas" },
-    { key: "corgema", label: "Cor gemas" }
-];
-
-function formatValue(value, suffix = "") {
-    if (value === null || value === undefined || value === "") {
-        return "N/A";
-    }
-
-    if (typeof value === "number") {
-        return `${value.toLocaleString("pt-BR")}${suffix}`;
-    }
-
-    return `${value}${suffix}`;
-}
-
-function getShortName(name) {
-    return name.split(" ")[0];
-}
-
-function createGroupedOptions(selectElement) {
-    selectElement.innerHTML = "";
-
-    for (let tier = 5; tier >= 1; tier -= 1) {
-        const tierSpecies = dinosData
-            .filter(dino => dino.tier === tier)
-            .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
-
-        if (!tierSpecies.length) continue;
-
-        const group = document.createElement("optgroup");
-        group.label = `Tier ${tier}`;
-
-        tierSpecies.forEach(dino => {
-            const option = document.createElement("option");
-            option.value = dino.nome;
-            option.textContent = dino.nome;
-            group.appendChild(option);
-        });
-
-        selectElement.appendChild(group);
-    }
-}
-
-function findDino(name) {
-    return dinosData.find(dino => dino.nome === name);
-}
-
-function createSummaryCard(dino) {
-    const card = document.createElement("article");
-    card.className = "species-summary";
-
-    const title = document.createElement("h3");
-    title.textContent = dino.nome;
-    card.appendChild(title);
-
-    const stats = document.createElement("div");
-    stats.className = "summary-stats";
-
-    [
-        ["Tier", dino.tier],
-        ["Dieta", dino.dieta],
-        ["Slots", dino.slots],
-        ["Crescimento", formatValue(dino.crescimento, " min")]
-    ].forEach(([label, value]) => {
-        const item = document.createElement("div");
-        item.className = "summary-stat";
-
-        const labelElement = document.createElement("span");
-        labelElement.textContent = label;
-
-        const valueElement = document.createElement("strong");
-        valueElement.textContent = formatValue(value);
-
-        item.append(labelElement, valueElement);
-        stats.appendChild(item);
-    });
-
-    card.appendChild(stats);
-    return card;
-}
-
-function createComparisonRow(attribute, dinoA, dinoB) {
-    const valueA = dinoA[attribute.key];
-    const valueB = dinoB[attribute.key];
-    const row = document.createElement("tr");
-
-    const labelCell = document.createElement("td");
-    labelCell.textContent = attribute.label;
-
-    const cellA = document.createElement("td");
-    cellA.textContent = formatValue(valueA, attribute.suffix);
-
-    const cellB = document.createElement("td");
-    cellB.textContent = formatValue(valueB, attribute.suffix);
-
-    const diffCell = document.createElement("td");
-
-    if (typeof valueA === "number" && typeof valueB === "number") {
-        const diff = valueA - valueB;
-        const formattedDiff = formatValue(Math.abs(diff), attribute.suffix);
-
-        if (diff > 0) {
-            cellA.classList.add("winner");
-            diffCell.textContent = `${getShortName(dinoA.nome)} +${formattedDiff}`;
-            diffCell.className = "difference-positive";
-        } else if (diff < 0) {
-            cellB.classList.add("winner");
-            diffCell.textContent = `${getShortName(dinoB.nome)} +${formattedDiff}`;
-            diffCell.className = "difference-positive";
-        } else {
-            cellA.classList.add("tie");
-            cellB.classList.add("tie");
-            diffCell.textContent = "Empate";
-            diffCell.className = "difference-neutral";
+        try {
+            // Busca o JSON com as habilidades (ajuste o caminho se necessário)
+            const response = await fetch('data/dinoDataBase.json');
+            dinoDb = await response.json();
+        } catch (error) {
+            console.error("Erro ao carregar dinoDataBase.json. Certifique-se de estar rodando em um servidor local.", error);
         }
-    } else if (valueA === valueB) {
-        cellA.classList.add("tie");
-        cellB.classList.add("tie");
-        diffCell.textContent = "Mesmo valor";
-        diffCell.className = "difference-neutral";
-    } else {
-        diffCell.textContent = "Valores distintos";
-        diffCell.className = "difference-neutral";
+
+        // Popula os selects com os dinossauros de data.js
+        const optionsHtml = dinosData.map((dino, index) => {
+            return `<option value="${index}">${dino.nome}</option>`;
+        }).join('');
+
+        selectA.innerHTML = optionsHtml;
+        selectB.innerHTML = optionsHtml;
+
+        // Define um dinossauro diferente para o Select B por padrão
+        if (selectB.options.length > 1) {
+            selectB.selectedIndex = 1;
+        }
+
+        // Adiciona os eventos de mudança
+        selectA.addEventListener('change', renderComparison);
+        selectB.addEventListener('change', renderComparison);
+
+        // Renderiza a tela inicial
+        renderComparison();
     }
 
-    row.append(labelCell, cellA, cellB, diffCell);
-    return row;
-}
+    // Função principal que atualiza a interface
+    function renderComparison() {
+        const idA = selectA.value;
+        const idB = selectB.value;
+        
+        if (!idA || !idB) return;
 
-function createSkillSection(title, skills = []) {
-    const fragment = document.createDocumentFragment();
-    const heading = document.createElement("h4");
-    heading.textContent = title;
-    fragment.appendChild(heading);
+        const dinoA = dinosData[idA];
+        const dinoB = dinosData[idB];
 
-    const list = document.createElement("div");
-    list.className = "skill-list";
+        // Pega a primeira palavra do nome para buscar no dinoDataBase.json
+        const dbKeyA = dinoA.dbKey || dinoA.nome.split(" ")[0];
+        const dbKeyB = dinoB.dbKey || dinoB.nome.split(" ")[0];
 
-    if (!skills.length) {
-        const empty = document.createElement("p");
-        empty.className = "empty-skill";
-        empty.textContent = "Sem habilidades cadastradas.";
-        list.appendChild(empty);
+        const infoA = dinoDb ? dinoDb[dbKeyA] : null;
+        const infoB = dinoDb ? dinoDb[dbKeyB] : null;
+
+        updateSummary(dinoA, dinoB, infoA, infoB);
+        updateStatsTable(dinoA, dinoB);
+        updateSkills(dbKeyA, dbKeyB, infoA, infoB);
     }
 
-    skills.forEach(skill => {
-        const card = document.createElement("article");
-        card.className = "skill-card";
+    // 1. Atualiza o grid de resumo (Tier, Dieta, Peso, Crescimento)
+    function updateSummary(dinoA, dinoB, infoA, infoB) {
+        const grid = document.getElementById('summary-grid');
+        
+        document.getElementById('table-species-a').textContent = dinoA.nome.split(" ")[0];
+        document.getElementById('table-species-b').textContent = dinoB.nome.split(" ")[0];
 
-        const skillTitle = document.createElement("strong");
-        skillTitle.textContent = skill.titulo;
+        grid.innerHTML = `
+            ${createSummaryCard(dinoA, infoA)}
+            ${createSummaryCard(dinoB, infoB)}
+        `;
+    }
 
-        const description = document.createElement("p");
-        description.textContent = skill.desc;
+    function createSummaryCard(dino, info) {
+        const diet = info ? info.diet : dino.dieta;
+        return `
+            <div class="species-summary">
+                <h3>${dino.nome}</h3>
+                <div class="summary-stats">
+                    <div class="summary-stat"><span>Tier</span><strong>${dino.tier}</strong></div>
+                    <div class="summary-stat"><span>Dieta</span><strong>${diet}</strong></div>
+                    <div class="summary-stat"><span>Peso de combate</span><strong>${dino.peso}</strong></div>
+                    <div class="summary-stat"><span>Crescimento</span><strong>${dino.crescimento} min</strong></div>
+                </div>
+            </div>
+        `;
+    }
 
-        card.append(skillTitle, description);
-        list.appendChild(card);
-    });
+    // 2. Atualiza a tabela de atributos comparando valores
+    function updateStatsTable(dinoA, dinoB) {
+        const tbody = document.getElementById('comparison-body');
+        const statsToCompare = [
+            { label: 'HP', key: 'hp' },
+            { label: 'Dano Base', key: 'dano_base' },
+            { label: 'Fratura (%)', key: 'fratura' },
+            { label: 'Sangramento (%)', key: 'sangramento' },
+            { label: 'Velocidade (Terra)', key: 'vel_terra' },
+            { label: 'Velocidade (Água)', key: 'vel_agua' },
+            { label: 'Velocidade (Ar)', key: 'vel_ar' }
+        ];
 
-    fragment.appendChild(list);
-    return fragment;
-}
+        tbody.innerHTML = statsToCompare.map(stat => {
+            const valA = dinoA[stat.key] || 0;
+            const valB = dinoB[stat.key] || 0;
 
-function createSkillColumn(dino) {
-    const column = document.createElement("article");
-    column.className = "skill-column";
+            let classA = '', classB = '';
+            let diffText = '';
 
-    const title = document.createElement("h3");
-    title.textContent = dino.nome;
-    column.appendChild(title);
-    column.appendChild(createSkillSection("Passivas", dino.habilidades?.passivas));
-    column.appendChild(createSkillSection("Ativas", dino.habilidades?.ativas));
+            // Lógica para definir o vencedor do atributo
+            if (valA > valB) {
+                classA = 'winner';
+                diffText = `A (+${valA - valB})`;
+            } else if (valB > valA) {
+                classB = 'winner';
+                diffText = `B (+${valB - valA})`;
+            } else {
+                classA = 'tie';
+                classB = 'tie';
+                diffText = 'Empate';
+            }
 
-    return column;
-}
+            // Tratamento visual para valores zero ou nulos
+            const dispA = valA === 0 ? 'N/A' : valA;
+            const dispB = valB === 0 ? 'N/A' : valB;
 
-function updateComparison() {
-    const dinoA = findDino(speciesASelect.value);
-    const dinoB = findDino(speciesBSelect.value);
+            return `
+                <tr>
+                    <td>${stat.label}</td>
+                    <td class="${classA}">${dispA}</td>
+                    <td class="${classB}">${dispB}</td>
+                    <td class="${valA !== valB ? 'difference-positive' : 'difference-neutral'}">${diffText}</td>
+                </tr>
+            `;
+        }).join('');
+    }
 
-    if (!dinoA || !dinoB) return;
+    // 3. Atualiza os cards de habilidades
+    function updateSkills(nomeA, nomeB, infoA, infoB) {
+        const grid = document.getElementById('skills-grid');
+        grid.innerHTML = `
+            ${createSkillColumn(nomeA, infoA)}
+            ${createSkillColumn(nomeB, infoB)}
+        `;
+    }
 
-    tableSpeciesA.textContent = dinoA.nome;
-    tableSpeciesB.textContent = dinoB.nome;
+    function createSkillColumn(nome, info) {
+        if (!info) {
+            return `
+                <div class="skill-column">
+                    <h3>${nome}</h3>
+                    <p class="empty-skill">Habilidades não encontradas na base de dados.</p>
+                </div>
+            `;
+        }
 
-    summaryGrid.innerHTML = "";
-    summaryGrid.append(createSummaryCard(dinoA), createSummaryCard(dinoB));
+        const buildCard = (s) => `
+            <div class="skill-card">
+                <strong>${s.title}</strong>
+                <p>${s.desc}</p>
+                ${s.effect && s.effect !== "null" ? `<p class="text-muted"><small>Efeito: ${s.effect}</small></p>` : ''}
+            </div>
+        `;
 
-    comparisonBody.innerHTML = "";
-    attributes.forEach(attribute => {
-        comparisonBody.appendChild(createComparisonRow(attribute, dinoA, dinoB));
-    });
+        const passivesHtml = (info.passives && info.passives.length) 
+            ? info.passives.map(buildCard).join('') 
+            : '<span class="empty-skill">Nenhuma passiva disponível</span>';
 
-    skillsGrid.innerHTML = "";
-    skillsGrid.append(createSkillColumn(dinoA), createSkillColumn(dinoB));
-}
+        const activesHtml = (info.actives && info.actives.length) 
+            ? info.actives.map(buildCard).join('') 
+            : '<span class="empty-skill">Nenhuma ativa disponível</span>';
 
-if (typeof dinosData !== "undefined" && Array.isArray(dinosData) && dinosData.length >= 2) {
-    createGroupedOptions(speciesASelect);
-    createGroupedOptions(speciesBSelect);
+        return `
+            <div class="skill-column">
+                <h3>${info.fullName ? info.fullName.replace('<br>', ' ') : nome}</h3>
+                <h4>Passivas</h4>
+                <div class="skill-list">${passivesHtml}</div>
+                <h4>Ativas</h4>
+                <div class="skill-list">${activesHtml}</div>
+            </div>
+        `;
+    }
 
-    speciesASelect.value = dinosData[0].nome;
-    speciesBSelect.value = dinosData[1].nome;
-
-    speciesASelect.addEventListener("change", updateComparison);
-    speciesBSelect.addEventListener("change", updateComparison);
-
-    updateComparison();
-}
+    // Inicia o script
+    initCompare();
+});
