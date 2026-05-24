@@ -98,7 +98,7 @@ btns.forEach(btn => {
                 dinoPeso.innerText = dino.peso;
                 dinoFratura.innerText = dino.fratura;
                 dinoSangramento.innerText = dino.sangramento;
-                dinoNata.innerText = dino.crescimento;
+                dinoNata.innerText = dino.vel_agua;
                 dinoVelo.innerText = dino.vel_terra;
                 dinoVoo.innerText = dino.vel_ar;
             }
