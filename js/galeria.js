@@ -33,7 +33,6 @@ const imgDinoElements = document.querySelectorAll(".img-dino");
 const tabButtons = document.querySelectorAll(".tier-btn");
 const tierContents = document.querySelectorAll(".tier-indicator");
 
-const btnStatusModal = document.getElementById("btn-status-modal");
 
 let dinoDatabase = {};
 
@@ -103,13 +102,6 @@ btns.forEach(btn => {
                 dinoVoo.innerText = dino.vel_ar;
             }
         });
-
-        if (data.idStatus) {
-            btnStatusModal.href = `status.html#${data.idStatus}`;
-            btnStatusModal.style.display = "inline-block"; 
-        } else {
-            btnStatusModal.style.display = "none"; 
-        }
 
         passivesContainer.innerHTML = data.passives.map(createSkillHTML).join('');
         activesContainer.innerHTML = data.actives.map(createSkillHTML).join('');

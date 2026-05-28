@@ -54,7 +54,9 @@ h5, p{
 }
 
 .btn-status, .btn-paleo {
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     padding: 12px 0;
     width: 48%;
     text-align: center;
@@ -71,12 +73,7 @@ h5, p{
     box-sizing: border-box;
 }
 
-.btn-status{
-    background-color: var(--border-color);
-    color:var(--text-primary);
-}
-
-.btn-status:hover, .btn-paleo:hover {
+.btn-paleo:hover {
     background-color: var(--accent);
     color: var(--ink);
     box-shadow: 0 0 10px var(--brilho);
