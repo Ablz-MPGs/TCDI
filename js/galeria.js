@@ -4,6 +4,13 @@ const modalImg = document.getElementById("modal-img");
 const modalName = document.getElementById("modal-dino-name");
 const modalDiet = document.getElementById("modal-diet-icon");
 
+const precoM = document.getElementById("precoM");
+const avatarM = document.getElementById("avatarM");
+
+const totalFree = document.getElementById("gratis");
+const totalGem = document.getElementById("gema");
+const totalCoin = document.getElementById("moeda");
+
 const statGroup = document.getElementById("stat-group");
 const statGrowth = document.getElementById("stat-growth");
 const statPrice = document.getElementById("stat-price");
@@ -102,6 +109,20 @@ function preencherModalDino(dinoKey, data) {
     modalImg.alt = data.shortName || dinoKey;
     modalDiet.innerText = data.diet || "";
 
+    const dicionarioImagens = {
+        "free": "img/free.png",
+        "gema": "img/gema.png", // Ajuste a extensão para a correta do seu projeto (.png, .jpg)
+        "moeda": "img/moeda.png" // Ajuste a extensão para a correta do seu projeto (.png, .jpg)
+    };
+
+    const avatarVal = data.prices?.avatar ?? "free";
+    avatarM.src = avatarVal.includes("/") ? avatarVal : (dicionarioImagens[avatarVal] || avatarVal);
+    avatarM.alt = avatarVal;
+
+    const precoVal = data.prices?.price ?? "free";
+    precoM.src = precoVal.includes("/") ? precoVal : (dicionarioImagens[precoVal] || precoVal);
+    precoM.alt = precoVal;
+
     statGroup.innerText = data.stats?.group ?? "N/A";
     statGrowth.innerText = data.stats?.growth ?? "N/A";
     statPrice.innerText = data.stats?.price ?? "N/A";
@@ -117,7 +138,7 @@ function preencherModalDino(dinoKey, data) {
     activesContainer.innerHTML = (data.actives || []).map(createSkillHTML).join("");
 
     if (paleoButton) {
-        paleoButton.href = `https://pt.wikipedia.org/wiki/${encodeURIComponent(data.shortName || dinoKey)}`;
+        paleoButton.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(data.shortName || dinoKey)}`;
         paleoButton.target = "_blank";
         paleoButton.rel = "noopener noreferrer";
     }

@@ -478,6 +478,22 @@ h5, p{
     background-color: rgba(11, 51, 54, 0.377);
 }
 
+.mostrarMetodoPaga {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding-bottom: 10px;
+    flex-wrap: wrap;
+}
+
+.buy-img{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
 @media (max-width: 800px) {
     .dino-avatar img {
         width: 55px;

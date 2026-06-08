@@ -15,6 +15,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if (searchInput && tabelaCorpo) {
         const originalRows = Array.from(tabelaCorpo.querySelectorAll('tr'));
+        
+        // Organiza as linhas da tabela alfabeticamente logo no carregamento
+        originalRows.sort((a, b) => a.cells[0].textContent.trim().localeCompare(b.cells[0].textContent.trim()));
+        originalRows.forEach(row => tabelaCorpo.appendChild(row));
+
         window.originalRowsData = originalRows.map(row => row.outerHTML);
 
         searchInput.addEventListener('input', function() {

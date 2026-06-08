@@ -66,8 +66,6 @@
   box-sizing: border-box;
 }
 
-/* ⚠️ Atenção: transição universal — pode impactar performance.
-   Considere mover para elementos específicos se houver lentidão. */
 * {
   transition: all 0.3s ease;
 }

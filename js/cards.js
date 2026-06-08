@@ -129,6 +129,9 @@ function buildGalleryCards(database = {}) {
         }));
     });
 
+    // Organiza todos os cards em ordem alfabética pelo nome
+    cards.sort((a, b) => a.name.localeCompare(b.name));
+
     return cards;
 }
 
