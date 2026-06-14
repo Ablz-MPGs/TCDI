@@ -197,7 +197,7 @@ const dinosData = [
         slots: 3,
         ativas: {
             skill1: null,
-            skill2: 791
+            skill2: 812
         }
     },
     {
@@ -257,7 +257,7 @@ const dinosData = [
         slots: 2,
         ativas: {
             skill1: 245,
-            skill2: 669
+            skill2: 686
         }
     },
     {
@@ -397,7 +397,7 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 504,
+            skill1: 518,
             skill2: 457
         }
     },
@@ -595,7 +595,7 @@ const dinosData = [
         slots: 2.5,
         ativas: {
             skill1: 240,
-            skill2: 575
+            skill2: 588
         }
     },
     {
@@ -614,7 +614,7 @@ const dinosData = [
         dieta: "🌿",
         slots: 2.5,
         ativas: {
-            skill1: 767,
+            skill1: "indefinido",
             skill2: null
         }
     },
@@ -635,7 +635,7 @@ const dinosData = [
         slots: 2.5,
         ativas: {
             skill1: 150,
-            skill2: 873
+            skill2: 896
         }
     },
     {

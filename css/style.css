@@ -454,3 +454,91 @@ input:checked + .slider::before {
   opacity: 0.55;
   transform: scale(0.9);
 }
+
+/* ============================================================
+   MAPA DO JOGO
+   ============================================================ */
+.map-section {
+    max-width: 1200px;
+    margin: 0 auto 30px auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 8px;
+    border: 2px solid var(--ink);
+    background-color: var(--back);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.map-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-color: #000;
+    overflow: hidden;
+}
+
+.map-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    border-radius: 0;
+    border: none;
+}
+
+.map-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center center;
+    cursor: grab;
+}
+
+.map-content:active {
+    cursor: grabbing;
+}
+
+#mapImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.1s ease-out;
+    transform: scale(1) translate(0px, 0px);
+    user-select: none;
+}
+
+.map-controls {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 10;
+}
+
+.map-controls button {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 2px solid var(--accent);
+    border-radius: 8px;
+    background-color: var(--header);
+    color: var(--text-primary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.map-controls button:hover {
+    background-color: var(--accent);
+    color: var(--branco);
+}

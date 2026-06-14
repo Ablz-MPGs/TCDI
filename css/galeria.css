@@ -137,6 +137,7 @@ h5, p{
 
 .card-raca:hover,
 .card-raca:focus-visible {
+    background-color: var(--muted-2);
     transform: translateY(-8px);
     box-shadow: 0 10px 25px var(--brilho);
     border-color:var(--base);
