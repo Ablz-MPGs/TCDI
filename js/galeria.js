@@ -53,6 +53,18 @@ const dinoDatabaseReady = (window.dinoDatabaseReady || fetch("data/dinoDataBase.
 
 window.dinoDatabaseReady = dinoDatabaseReady;
 
+function getActiveEffectFromData(dinoKey, activeIndex) {
+    const dinoStatus = getDinoStatus(dinoKey);
+    if (!dinoStatus?.ativas) return null;
+
+    const skillKey = `skill${activeIndex + 1}`;
+    const dano = dinoStatus.ativas[skillKey];
+
+    if (dano == null || dano === "" || dano === "indefinido") return "Nenhum efeito cadastrado!";
+
+    return `Dano: ${dano}`;
+}
+
 function normalizeText(value = "") {
     return String(value)
         .normalize("NFD")
@@ -135,7 +147,17 @@ function preencherModalDino(dinoKey, data) {
     preencherStatusModal(getDinoStatus(dinoKey));
 
     passivesContainer.innerHTML = (data.passives || []).map(createSkillHTML).join("");
-    activesContainer.innerHTML = (data.actives || []).map(createSkillHTML).join("");
+    activesContainer.innerHTML = (data.actives || []).map((skill, index) => {
+        const effectFinal =
+            skill.effect != null && skill.effect !== ""
+                ? skill.effect
+                : getActiveEffectFromData(dinoKey, index);
+
+        return createSkillHTML({
+            ...skill,
+            effect: effectFinal
+        });
+    }).join("");
 
     if (paleoButton) {
         paleoButton.href = `https://en.wikipedia.org/wiki/${encodeURIComponent(data.shortName || dinoKey)}`;

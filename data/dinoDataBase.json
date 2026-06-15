@@ -3,7 +3,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
-        "effect": "Dano base máximo: 672",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -54,13 +54,13 @@
     "actives": [
       {
         "desc": "O dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa effect em área, com chance de atordoar e empurrar inimigos.",
-        "effect": "Dano base: -",
+        "effect": null,
         "icon": "img/skill/pisao.png",
         "title": "Ataque do céu"
       },
       {
         "desc": "Um golpe de cauda em área, causa repulsão.",
-        "effect": "Dano base: 300",
+        "effect": null,
         "icon": "img/skill/cauda.png",
         "title": "Chicote de Cauda"
       }
@@ -123,7 +123,7 @@
     "image": "img/pict/austroperfil.png",
     "passives": [
       {
-        "desc": "Ao atacar, seu dinossauro pode restaurar parte de sua saúde com o effect causado.",
+        "desc": "Ao atacar, seu dinossauro pode restaurar parte de sua saúde com o dano causado.",
         "effect": "HP +25% do dano causado",
         "icon": "img/skill/vamp.png",
         "title": "Vampirismo"
@@ -213,13 +213,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
-        "effect": "Dano base máximo: 560",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       },
       {
         "desc": "Seu dinossauro causa um golpe devastador com dano aumentado, podendo atordoar inimigos.",
-        "effect": "Dano base 245",
+        "effect": null,
         "icon": "img/skill/cranio.png",
         "title": "Crânio de Ferro"
       }
@@ -264,7 +264,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
-        "effect": "Dano base máximo: 616",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -378,13 +378,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro desfere um golpe forte, retirando um pedaço de carne caso atinja um player.",
-        "effect": "Dano base: 125",
+        "effect": null,
         "icon": "img/skill/trofeu.png",
         "title": "Troféu de carne"
       },
       {
         "desc": "Seu dinossauro grita, aumentando o seu dano.",
-        "effect": "+16 dano",
+        "effect": "+20% dano",
         "icon": "img/skill/buffS.png",
         "title": "Grito de guerra"
       }
@@ -435,7 +435,7 @@
     "actives": [
       {
         "desc": "O dinossauro causa um golpe devastador comdano e chance de sangrar aumentados.",
-        "effect": "Dano base: 200",
+        "effect": null,
         "icon": "img/skill/mordida.png",
         "title": "Golpe Esmagador"
       }
@@ -486,7 +486,7 @@
       },
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
-        "effect": "Dano base máximo: 791",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -543,7 +543,7 @@
       },
       {
         "desc": "Desfiere um golpe penetrantes com as garras, causando mais effect e podendo atordoar dinossauros menores.",
-        "effect": "dano base: 160",
+        "effect": null,
         "icon": "img/skill/jump.png",
         "title": "Lâminas Afiadas"
       }
@@ -588,13 +588,13 @@
     "actives": [
       {
         "desc": "Ataque com as garras, tem maior chance de causar sangramento, mas causando menos effect.",
-        "effect": "Dano base: 100",
+        "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Arranhão"
       },
       {
         "desc": "Seu dinossauro desfiere três mordidas com maior chance de causar sangramento.",
-        "effect": "Dano base: 140 (por mordida)",
+        "effect": null,
         "icon": "img/skill/multbite.png",
         "title": "Chuva de Golpes"
       }
@@ -645,7 +645,7 @@
       },
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
-        "effect": "Dano base máximo: 670",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -690,13 +690,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro desfiere duas mordidas rápidas com maior dano e chance de causar sangramento. É possível atordoar.",
-        "effect": "Dano base: 320 (por mordida)",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Mordida dupla"
       },
       {
         "desc": "Seu dinossauro pisa o chão com força, causando dano em área. Pode atordoar e repelir outros dinossauros.",
-        "effect": "Dano base: indefinido",
+        "effect": null,
         "icon": "img/skill/terra.png",
         "title": "Terremoto"
       }
@@ -720,8 +720,8 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Quando seu dinossauro está com pouco HP, o effect e chance de sangrar aumentam.",
-        "effect": "+29 dano, +8,5% chance de sangramento",
+        "desc": "Quando seu dinossauro está com pouco HP, o dano e chance de sangrar aumentam.",
+        "effect": "+10% dano, +8,5% chance de sangramento",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       },
@@ -759,13 +759,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro ataca com as patas traseiras causando dano adicional, tem chance de atordoar e repele alguns dinossauros.",
-        "effect": "Dano base 250",
+        "effect": null,
         "icon": "img/skill/chute.png",
         "title": "Chute"
       },
       {
         "desc": "Seu dinossauro desfiere múltiplas bicadas com maior chance de causar sangramento. Ataques causam menos dano.",
-        "effect": "Dano base 110",
+        "effect": null,
         "icon": "img/skill/chuvagolpes.png",
         "title": "Chuva de Golpes"
       }
@@ -816,7 +816,7 @@
       },
       {
         "desc": "O dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
-        "effect": "Dano base: 336",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -861,7 +861,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro bate a cauda três vezes, causando dano várias vezes ao mesmo alvo.",
-        "effect": "Dano base: 230 (por golpe)",
+        "effect": null,
         "icon": "img/skill/tago.png",
         "title": "Chuva de Golpes"
       },
@@ -924,7 +924,7 @@
       },
       {
         "desc": "O dinossauro faz dois movimentos com suas garras. O ataque tem maiores chances de infligir sangramento.",
-        "effect": "Dano base: 245 (por ataque)",
+        "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Garras Afiadas"
       }
@@ -937,7 +937,7 @@
     "passives": [
       {
         "desc": "Seu primeiro ataque causa dano aumentado, há um tempo de recarga.",
-        "effect": "+70 dano",
+        "effect": "+30% dano",
         "icon": "img/skill/poderacumulado.png",
         "title": "Poder Acumulado"
       },
@@ -981,7 +981,7 @@
       },
       {
         "desc": "Seu dinossauro ataca com as patas traseiras, causando dano adicional, com chance de atordoar e repelir alguns dinossauros.",
-        "effect": "dano base: 150",
+        "effect": null,
         "icon": "img/skill/chute.png",
         "title": "Chute"
       }
@@ -1038,7 +1038,7 @@
       },
       {
         "desc": "Após algum tempo de carregamento, seu dinossauro desfiere um golpe poderoso com a cabeça, causando dano aumentado, aumentando a chance de fratura e podendo atordoar.",
-        "effect": "Dano base máximo: 557",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -1089,7 +1089,7 @@
       },
       {
         "desc": "Seu dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa effect em área, com chance de atordoar e empurrar inimigos, mas o effect é baixo.",
-        "effect": "Dano base: indefinido",
+        "effect": null,
         "icon": "img/skill/terra.png",
         "title": "Terremoto"
       }
@@ -1134,7 +1134,7 @@
     "actives": [
       {
         "desc": "Ataca com as patas traseiras, causando dano adicional e tendo chance de atordoar e repelir outros dinossauros. Não pode ser usada enquanto estiver correndo.",
-        "effect": "Dano base: 350, recarga em 5 segundos",
+        "effect": null,
         "icon": "img/skill/coice.png",
         "title": "Chute"
       },
@@ -1179,7 +1179,7 @@
     "actives": [
       {
         "desc": "Um golpe de cauda em área, que causa repulsão.",
-        "effect": "Dano base: 220, recarga em 5 segundos ",
+        "effect": "Recarga em 5 segundos ",
         "icon": "img/skill/cauda.png",
         "title": "Chicote de cauda"
       }
@@ -1265,7 +1265,7 @@
       "skin2": "70"
     }
   },
-  "Quetzalcoatlus": {
+  "Quetzalcoatlus": {  
     "actives": [
       {
         "desc": "Seu dinossauro agarra uma presa com o bico podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
@@ -1282,7 +1282,7 @@
     "passives": [
       {
         "desc": "Quando os membros da matilha estão perto de você, seu effect é aumentado.",
-        "effect": "Até 3 vezes: +17 dano",
+        "effect": "Até 3 vezes: +10% dano",
         "icon": "img/skill/rebanho.png",
         "title": "O poder do bando"
       },
@@ -1314,13 +1314,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro agarra uma presa com o boca podendo levá-la consigo, gastando stamina para tal. Funciona apenas com animais menores.",
-        "effect": "Dano base: 300",
+        "effect": null,
         "icon": "img/skill/capturaS.png",
         "title": "Capturar"
       },
       {
         "desc": "Uma mordida poderosa que drena o oxigênio e a resistência do inimigo.",
-        "effect": "Dano base: 350",
+        "effect": null,
         "icon": "img/skill/mordida.png",
         "title": "Mordida Mortal"
       }
@@ -1377,13 +1377,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro desfiere três golpes com suas garras. Aumenta a chance de infligir sangramento.",
-        "effect": "Dano base: 180 (por ataque)",
+        "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Chuva de Golpes"
       },
       {
         "desc": "Um golpe de cauda em área, causa repulsão.",
-        "effect": "Dano base: 265",
+        "effect": null,
         "icon": "img/skill/cauda.png",
         "title": "Chicote de Cauda"
       }
@@ -1434,13 +1434,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo três movimentos de cauda em poucos segundos, aumenta a chance de infligir fratura e sangramento, pode causar atordoamento.",
-        "effect": "Dano base máximo: 488 (por golpe)",
+        "effect": null,
         "icon": "img/skill/tago.png",
         "title": "Ataque Carregado"
       },
       {
         "desc": "Seu dinossauro causa um golpe devastador com dano aumentado, pode atordoar inimigos.",
-        "effect": "Dano base: 350",
+        "effect": null,
         "icon": "img/skill/esmaga.png",
         "title": "Golpe Esmagador"
       }
@@ -1485,13 +1485,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro ataca com as patas traseiras causando dano adicional, tem chance de atordoar e repele alguns dinossauros.",
-        "effect": "Dano base: 270",
+        "effect": null,
         "icon": "img/skill/coice.png",
         "title": "Chute"
       },
       {
         "desc": "O dinossauro golpeia com seu chifre, causa dano aumentado, podendo atordoar e repelir os dinossauros.",
-        "effect": "Dano base: 300",
+        "effect": null,
         "icon": "img/skill/cranio.png",
         "title": "Golpe Esmagador"
       }
@@ -1536,13 +1536,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
-        "effect": "null",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       },
       {
         "desc": "O dinossauro faz dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
-        "effect": "null",
+        "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Garras Afiadas"
       }
@@ -1593,7 +1593,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir fratura, pode causar repulsão e atordoamento.",
-        "effect": "Dano base máximo 767",
+        "effect": null,
         "icon": "img/skill/carregadaT.png",
         "title": "Ataque Carregado"
       },
@@ -1638,13 +1638,13 @@
     "actives": [
       {
         "desc": "Seu dinossauro faz dois movimentos com suas garras, aumenta a chance de infligir sangramento.",
-        "effect": "Dano base: 150 (por ataque)",
+        "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Chuva de Golpes"
       },
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
-        "effect": "dano base máximo: 873",
+        "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
       }
@@ -1695,7 +1695,7 @@
       },
       {
         "desc": "Seu dinossauro desfiere um golpe devastador com dano aumentado, pode atordoar e repelir os dinossauros.",
-        "effect": "Dano base: 350",
+        "effect": null,
         "icon": "img/skill/cranio.png",
         "title": "Golpe Esmagador"
       }
@@ -1746,7 +1746,7 @@
       },
       {
         "desc": "Seu dinossauro golpeia com a cabeça, causando dano aumentado e podendo atordoar e repelir os dinossauros.",
-        "effect": "Dano base: 400",
+        "effect": null,
         "icon": "img/skill/cranio.png",
         "title": "Crânio de Ferro"
       }

@@ -36,7 +36,7 @@ const dinosData = [
         dieta: "🌿",
         slots: 2.5,
         ativas: {
-            skill1: "indefinido",
+            skill1: null,
             skill2: 300
         }
     },

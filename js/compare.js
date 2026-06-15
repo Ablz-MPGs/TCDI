@@ -68,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         updateSummary(dinoA, dinoB, infoA, infoB);
         updateStatsTable(dinoA, dinoB);
-        updateSkills(dbKeyA, dbKeyB, infoA, infoB);
+        updateSkills(dbKeyA, dbKeyB, infoA, infoB, dinoA, dinoB);
     }
 
     // 1. Atualiza o grid de resumo (Tier, Dieta, Peso, Crescimento)
@@ -148,15 +148,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3. Atualiza os cards de habilidades
-    function updateSkills(nomeA, nomeB, infoA, infoB) {
+    function updateSkills(nomeA, nomeB, infoA, infoB, dinoA, dinoB) {
         const grid = document.getElementById('skills-grid');
         grid.innerHTML = `
-            ${createSkillColumn(nomeA, infoA)}
-            ${createSkillColumn(nomeB, infoB)}
+            ${createSkillColumn(nomeA, infoA, dinoA)}
+            ${createSkillColumn(nomeB, infoB, dinoB)}
         `;
     }
 
-    function createSkillColumn(nome, info) {
+    function createSkillColumn(nome, info, dino) {
         if (!info) {
             return `
                 <div class="skill-column">
@@ -166,20 +166,40 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        const buildCard = (s) => `
-            <div class="skill-card">
-                <strong>${s.title}</strong>
-                <p>${s.desc}</p>
-                ${s.effect && s.effect !== "null" ? `<p class="text-muted"><small>Efeito: ${s.effect}</small></p>` : ''}
-            </div>
-        `;
+        const buildCard = (s, isActive, index) => {
+            let effectText = s.effect;
+
+            if (isActive && dino && dino.ativas) {
+                const skillKey = `skill${index + 1}`;
+                const skillValue = dino.ativas[skillKey];
+                const hasValidDamage = skillValue !== undefined
+                    && skillValue !== null
+                    && skillValue !== ""
+                    && String(skillValue).trim().toLowerCase() !== "indefinido"
+                    && String(skillValue).trim().toLowerCase() !== "null";
+
+                if (hasValidDamage && (!effectText || effectText === "null" || effectText === "undefined")) {
+                    effectText = String(skillValue);
+                } else if (typeof effectText === 'string' && effectText.includes(`{${skillKey}}`)) {
+                    effectText = effectText.replace(new RegExp(`\\{${skillKey}\\}`, 'g'), String(skillValue ?? ""));
+                }
+            }
+
+            return `
+                <div class="skill-card">
+                    <strong>${s.title}</strong>
+                    <p>${s.desc}</p>
+                    ${effectText && effectText !== "null" ? `<p class="text-muted"><small>Efeito: ${effectText}</small></p>` : ''}
+                </div>
+            `;
+        };
 
         const passivesHtml = (info.passives && info.passives.length) 
-            ? info.passives.map(buildCard).join('') 
+            ? info.passives.map((s) => buildCard(s, false, 0)).join('') 
             : '<span class="empty-skill">Nenhuma passiva disponível</span>';
 
         const activesHtml = (info.actives && info.actives.length) 
-            ? info.actives.map(buildCard).join('') 
+            ? info.actives.map((s, index) => buildCard(s, true, index)).join('') 
             : '<span class="empty-skill">Nenhuma ativa disponível</span>';
 
         return `
