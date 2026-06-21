@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Balanceamento - TCI</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #00ccff;
+            --input-bg: #2d2d2d;
+            --input-border: #444;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            max-width: 800px;
+            width: 100%;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #888;
+            font-size: 0.9em;
+            margin-bottom: 30px;
+        }
+
+        .top-controls {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            align-items: flex-end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            flex: 1;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        select, input {
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid var(--input-border);
+            background-color: var(--input-bg);
+            color: white;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        select:focus, input:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+            display: inline-block;
+        }
+
+        .btn-secondary {
+            background-color: #03dac6;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .output-group {
+            margin-top: 30px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 150px;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid var(--input-border);
+            background-color: #0d0d0d;
+            color: #4CAF50;
+            font-family: monospace;
+            resize: vertical;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .section-title {
+            margin-top: 25px;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 1px solid #333;
+            color: #ddd;
+            font-size: 1.2em;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--accent-color);
+            color: #000;
+            border: none;
+            border-radius: 50%;
+            width: 55px;
+            height: 55px;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            transition: opacity 0.3s, transform 0.2s;
+        }
+
+        .back-to-top:hover {
+            transform: scale(1.1);
+        }
+
+        /* Comparacao Styles */
+        .table-container-balance {
+            margin-top: 15px;
+            width: 100%;
+            overflow-x: auto;
+        }
+        .table-balance {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #252525;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 0.9em;
+        }
+        .table-balance th, .table-balance td {
+            padding: 10px;
+            text-align: center;
+            border-bottom: 1px solid #333;
+        }
+        .table-balance th {
+            background-color: #1a1a1a;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .table-balance tr:hover {
+            background-color: #2d2d2d;
+        }
+        .tier-title {
+            color: #ddd;
+            margin-top: 25px;
+            border-bottom: 1px solid #444;
+            padding-bottom: 8px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 1.2em;
+            background-color: #222;
+            padding: 10px;
+            border-radius: 6px;
+        }
+        .tier-title:hover {
+            background-color: #333;
+        }
+        .tier-title:after {
+            content: '▼';
+            font-size: 0.8em;
+            color: var(--accent-color);
+        }
+        .tier-title.collapsed:after {
+            content: '►';
+        }
+        .tier-content.hidden {
+            display: none;
+        }
+        #comparacaoContainer h2 {
+            text-align: center;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Versionador de Balanceamento</h1>
+        <a href="index.html">Voltar para o Menu</a>
+
+        <div class="top-controls">
+            <div class="form-group" style="flex: 2;">
+                <label for="versionSelect">Versão Atual do Balanceamento:</label>
+                <select id="versionSelect">
+                    <!-- Opções carregadas via JS -->
+                </select>
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <button class="btn btn-secondary" onclick="criarNovaVersao()">+ Nova Versão</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="dinoSelect">Selecione o Jogável para Editar:</label>
+            <select id="dinoSelect">
+                <option value="">-- Escolha um Dinossauro --</option>
+            </select>
+        </div>
+
+        <div id="formContainer" style="display: none;">
+            <div class="section-title">Atributos Principais</div>
+            <div class="form-row">
+                <div class="form-group"><label>Nome</label><input type="text" id="f_nome" readonly></div>
+                <div class="form-group"><label>HP</label><input type="number" id="f_hp"></div>
+                <div class="form-group"><label>Dano</label><input type="number" id="f_dano"></div>
+                <div class="form-group"><label>Peso de Combate</label><input type="number" id="f_pesoCombate"></div>
+                <div class="form-group"><label>Vel. Terra</label><input type="number" id="f_velocidade"></div>
+                <div class="form-group"><label>Vel. Natação</label><input type="number" id="f_natacao"></div>
+                <div class="form-group"><label>Vel. Voo (vazio=null)</label><input type="number" id="f_voo"></div>
+                <div class="form-group"><label>Defesa (ex: 1.0)</label><input type="number" step="0.01" id="f_defesa"></div>
+                <div class="form-group"><label>Tempo Crescimento</label><input type="number" id="f_tempoCrescimento"></div>
+                <div class="form-group"><label>Sangramento</label><input type="number" id="f_sangramento"></div>
+                <div class="form-group"><label>Fratura</label><input type="number" id="f_fratura"></div>
+            </div>
+
+            <div class="action-buttons">
+                <button class="btn" style="flex: 1;" onclick="salvarDinoNaMemoria()">Salvar Modificação do Dino</button>
+            </div>
+            
+            <div class="action-buttons" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
+                <button class="btn btn-secondary" style="flex: 1;" onclick="gerarSQLDaVersao()">Gerar SQL</button>
+                <button class="btn" style="flex: 1; background-color: #4CAF50;" onclick="gerarJSONParaSalvar()">Exportar JSON</button>
+                <button class="btn" style="flex: 1; background-color: #f44336; color: white;" onclick="limparCache()">Limpar Auto-Save</button>
+            </div>
+        </div>
+
+        <div class="output-group">
+            <label id="outputLabel">Código Gerado:</label>
+            <textarea id="sqlOutput" readonly placeholder="O resultado aparecerá aqui..."></textarea>
+        </div>
+
+        <div id="comparacaoContainer" style="margin-top: 50px; display: none;">
+            <h2>Comparação da Versão Atual por Tiers</h2>
+            <p style="text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px;">Analise todos os dinossauros da versão selecionada agrupados por tier.</p>
+            <div id="tabelas-comparacao"></div>
+        </div>
+    </div>
+
+    <button class="back-to-top" id="backToTopBtn" onclick="voltarAoTopo()" title="Voltar ao Topo">↑</button>
+
+    <script src="data/data.js"></script>
+    <script src="data/versoes_balanceamento.js"></script>
+
+    <script>
+        const versionSelect = document.getElementById('versionSelect');
+        const dinoSelect = document.getElementById('dinoSelect');
+        const formContainer = document.getElementById('formContainer');
+
+        let memoriaVersoes = {};
+        let versaoAtual = localStorage.getItem("versao") || "v1.0";
+
+        // Inicializar a memória
+        function inicializarDados() {
+            let dadosArquivo = typeof versoesBalanceamento !== 'undefined' ? JSON.parse(JSON.stringify(versoesBalanceamento)) : {};
+            let dadosCache = localStorage.getItem('tci_balance_versions');
+
+            if (dadosCache) {
+                memoriaVersoes = JSON.parse(dadosCache);
+                // Mesclar o que tem no arquivo que não tem no cache (caso tenha atualizado via GitHub)
+                for (let v in dadosArquivo) {
+                    if (!memoriaVersoes[v]) {
+                        memoriaVersoes[v] = dadosArquivo[v];
+                    }
+                }
+            } else {
+                memoriaVersoes = dadosArquivo;
+            }
+
+            // Garante que v1.0 exista. Se for null, popule com os dados originais.
+            if (!memoriaVersoes["v1.0"]) {
+                memoriaVersoes["v1.0"] = gerarVersaoAPartirDoOriginal();
+            }
+
+            salvarNoLocalStorage(); // Salva logo na inicialização para propagar os defaults (1.00)
+            atualizarDropdownVersoes();
+        }
+
+        // Auto Save
+        function salvarNoLocalStorage() {
+            localStorage.setItem('tci_balance_versions', JSON.stringify(memoriaVersoes));
+        }
+
+        function limparCache() {
+            if(confirm('Tem certeza que deseja apagar o rascunho salvo no navegador? As versões voltarão a ser exatamente como estão no arquivo original do projeto (versoes_balanceamento.js).')) {
+                localStorage.removeItem('tci_balance_versions');
+                localStorage.removeItem('versao');
+                location.reload();
+            }
+        }
+
+        // Converte o array dinosData original para um formato rico para nossa tabela
+        function gerarVersaoAPartirDoOriginal() {
+            let dadosV1 = {};
+            if (typeof dinosData !== 'undefined') {
+                dinosData.forEach((dino) => {
+                    let nomeCurto = dino.nome.split(' ')[0];
+                    if(nomeCurto === "Allosaurus") nomeCurto = "Allo";
+                    if(nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
+
+                    dadosV1[nomeCurto] = {
+                        nome: nomeCurto,
+                        hp: dino.hp || null,
+                        dano: dino.dano_base || null,
+                        pesoCombate: dino.peso || null,
+                        velocidade: dino.vel_terra || null,
+                        natacao: dino.vel_agua || null,
+                        voo: dino.vel_ar || null,
+                        defesa: "1.00",
+                        tempoCrescimento: dino.crescimento || null,
+                        sangramento: dino.sangramento || 0,
+                        fratura: dino.fratura || 0
+                    };
+                });
+            }
+            return dadosV1;
+        }
+
+        function atualizarDropdownVersoes() {
+            versionSelect.innerHTML = '';
+            for (let v in memoriaVersoes) {
+                const opt = document.createElement('option');
+                opt.value = v;
+                opt.textContent = v;
+                versionSelect.appendChild(opt);
+            }
+            versionSelect.value = versaoAtual;
+            atualizarDropdownDinos();
+            renderizarTabelasDeComparacao();
+        }
+
+        function atualizarDropdownDinos() {
+            dinoSelect.innerHTML = '<option value="">-- Escolha um Dinossauro --</option>';
+            const dadosDaVersao = memoriaVersoes[versaoAtual];
+            if(dadosDaVersao) {
+                for (let nomeCurto in dadosDaVersao) {
+                    const opt = document.createElement('option');
+                    opt.value = nomeCurto;
+                    opt.textContent = nomeCurto;
+                    dinoSelect.appendChild(opt);
+                }
+            }
+            formContainer.style.display = 'none';
+        }
+
+        versionSelect.addEventListener('change', (e) => {
+            versaoAtual = e.target.value;
+            localStorage.setItem("versao", versaoAtual);
+            atualizarDropdownDinos();
+            renderizarTabelasDeComparacao();
+        });
+
+        dinoSelect.addEventListener('change', (e) => {
+            const nomeCurto = e.target.value;
+            if (!nomeCurto) {
+                formContainer.style.display = 'none';
+                return;
+            }
+            carregarNoFormulario(nomeCurto);
+        });
+
+        function carregarNoFormulario(nomeCurto) {
+            const dino = memoriaVersoes[versaoAtual][nomeCurto];
+            formContainer.style.display = 'block';
+
+            document.getElementById('f_nome').value = dino.nome;
+            document.getElementById('f_hp').value = dino.hp !== null ? dino.hp : '';
+            document.getElementById('f_dano').value = dino.dano !== null ? dino.dano : '';
+            document.getElementById('f_pesoCombate').value = dino.pesoCombate !== null ? dino.pesoCombate : '';
+            document.getElementById('f_velocidade').value = dino.velocidade !== null ? dino.velocidade : '';
+            document.getElementById('f_natacao').value = dino.natacao !== null ? dino.natacao : '';
+            document.getElementById('f_voo').value = dino.voo !== null ? dino.voo : '';
+            document.getElementById('f_defesa').value = dino.defesa !== null ? dino.defesa : '';
+            document.getElementById('f_tempoCrescimento').value = dino.tempoCrescimento !== null ? dino.tempoCrescimento : '';
+            document.getElementById('f_sangramento').value = dino.sangramento !== null ? dino.sangramento : '';
+            document.getElementById('f_fratura').value = dino.fratura !== null ? dino.fratura : '';
+            document.getElementById('f_giro').value = dino.giro !== null && dino.giro !== undefined ? dino.giro : '';
+            document.getElementById('f_giroAgua').value = dino.giroAgua !== null && dino.giroAgua !== undefined ? dino.giroAgua : '';
+            document.getElementById('f_giroAr').value = dino.giroAr !== null && dino.giroAr !== undefined ? dino.giroAr : '';
+
+            const secCampos = ['trote', 'vigorRegem', 'vigorConsumo', 'vigorConsumoVoo', 'vigorConsumoNado', 'hpRegem', 'oxigenio', 'oxigenioRegem', 'oxigenioConsumo', 'fome', 'fomeConsumo', 'sede', 'sedeConsumo', 'vigor', 'cadencia'];
+            secCampos.forEach(c => {
+                document.getElementById('f_' + c).value = dino[c] || '-';
+            });
+        }
+
+        function salvarDinoNaMemoria() {
+            const nomeCurto = document.getElementById('f_nome').value;
+            const dino = memoriaVersoes[versaoAtual][nomeCurto];
+            
+            dino.hp = document.getElementById('f_hp').value || null;
+            dino.dano = document.getElementById('f_dano').value || null;
+            dino.pesoCombate = document.getElementById('f_pesoCombate').value || null;
+            dino.velocidade = document.getElementById('f_velocidade').value || null;
+            dino.natacao = document.getElementById('f_natacao').value || null;
+            dino.voo = document.getElementById('f_voo').value || null;
+            dino.defesa = document.getElementById('f_defesa').value || null;
+            dino.tempoCrescimento = document.getElementById('f_tempoCrescimento').value || null;
+            dino.sangramento = document.getElementById('f_sangramento').value || null;
+            dino.fratura = document.getElementById('f_fratura').value || null;
+            dino.giro = document.getElementById('f_giro').value || null;
+            dino.giroAgua = document.getElementById('f_giroAgua').value || null;
+            dino.giroAr = document.getElementById('f_giroAr').value || null;
+
+            const secCampos = ['trote', 'vigorRegem', 'vigorConsumo', 'vigorConsumoVoo', 'vigorConsumoNado', 'hpRegem', 'oxigenio', 'oxigenioRegem', 'oxigenioConsumo', 'fome', 'fomeConsumo', 'sede', 'sedeConsumo', 'vigor', 'cadencia'];
+            secCampos.forEach(c => {
+                dino[c] = document.getElementById('f_' + c).value || '-';
+            });
+
+            salvarNoLocalStorage(); // Ativa o Auto-Save
+            renderizarTabelasDeComparacao();
+            alert(`Modificações do ${nomeCurto} salvas na versão ${versaoAtual} (Auto-Save no navegador realizado)!`);
+        }
+
+        function criarNovaVersao() {
+            const nomeNova = prompt("Qual o nome da nova versão? (ex: v1.1)");
+            if (!nomeNova || memoriaVersoes[nomeNova]) {
+                if(memoriaVersoes[nomeNova]) alert("Essa versão já existe!");
+                return;
+            }
+            // Clona a versão atual
+            memoriaVersoes[nomeNova] = JSON.parse(JSON.stringify(memoriaVersoes[versaoAtual]));
+            versaoAtual = nomeNova;
+            localStorage.setItem("versao", versaoAtual);
+            salvarNoLocalStorage(); // Ativa o Auto-Save da nova versão
+            atualizarDropdownVersoes();
+            alert(`Versão ${nomeNova} criada com sucesso e guardada no Auto-Save!`);
+        }
+
+        function tratarValor(val, isString = false) {
+            if (val === '' || val === null || val === undefined) return 'null';
+            if (isString) return `"${val}"`;
+            return val;
+        }
+
+        function gerarSQLDaVersao() {
+            const dados = memoriaVersoes[versaoAtual];
+            let inserts = [];
+            
+            for (let k in dados) {
+                let dino = dados[k];
+                const values = [
+                    tratarValor(dino.nome, true),
+                    tratarValor(versaoAtual, true),
+                    tratarValor(dino.hp),
+                    tratarValor(dino.dano),
+                    tratarValor(dino.pesoCombate),
+                    tratarValor(dino.velocidade),
+                    tratarValor(dino.natacao),
+                    tratarValor(dino.voo),
+                    tratarValor(dino.defesa),
+                    tratarValor(dino.tempoCrescimento),
+                    tratarValor(dino.sangramento),
+                    tratarValor(dino.fratura),
+                    
+                    tratarValor(dino.giro),
+                    tratarValor(dino.giroAgua),
+                    tratarValor(dino.giroAr),
+
+                    tratarValor(dino.trote, true),
+                    tratarValor(dino.vigorRegem, true),
+                    tratarValor(dino.vigorConsumo, true),
+                    tratarValor(dino.vigorConsumoVoo, true),
+                    tratarValor(dino.vigorConsumoNado, true),
+                    tratarValor(dino.hpRegem, true),
+                    tratarValor(dino.oxigenio, true),
+                    tratarValor(dino.oxigenioRegem, true),
+                    tratarValor(dino.oxigenioConsumo, true),
+                    tratarValor(dino.fome, true),
+                    tratarValor(dino.fomeConsumo, true),
+                    tratarValor(dino.sede, true),
+                    tratarValor(dino.sedeConsumo, true),
+                    tratarValor(dino.vigor, true),
+                    tratarValor(dino.cadencia, true)
+                ];
+                inserts.push(`(${values.join(', ')})`);
+            }
+
+            const sql = `insert into playble\nvalues\n${inserts.join(',\n')};`;
+            document.getElementById('outputLabel').innerText = "Código SQL Gerado:";
+            document.getElementById('sqlOutput').value = sql;
+        }
+
+        function gerarJSONParaSalvar() {
+            const outputText = `const versoesBalanceamento = ${JSON.stringify(memoriaVersoes, null, 4)};`;
+            document.getElementById('outputLabel').innerText = "Copie o código abaixo e cole no arquivo data/versoes_balanceamento.js para salvar permanentemente:";
+            document.getElementById('sqlOutput').value = outputText;
+        }
+
+        // Lógica do botão Voltar ao Topo
+        const backToTopBtn = document.getElementById('backToTopBtn');
+        window.onscroll = function() {
+            if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
+                backToTopBtn.style.display = "flex";
+            } else {
+                backToTopBtn.style.display = "none";
+            }
+        };
+
+        function voltarAoTopo() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Run startup
+        inicializarDados();
+
+        function renderizarTabelasDeComparacao() {
+            const container = document.getElementById('tabelas-comparacao');
+            const dadosDaVersao = memoriaVersoes[versaoAtual];
+            if (!dadosDaVersao || typeof dinosData === 'undefined') {
+                document.getElementById('comparacaoContainer').style.display = 'none';
+                return;
+            }
+            document.getElementById('comparacaoContainer').style.display = 'block';
+
+            // Mapear nomeCurto para tier
+            const mapTier = {};
+            dinosData.forEach((dino) => {
+                let nomeCurto = dino.nome.split(' ')[0];
+                if(nomeCurto === "Allosaurus") nomeCurto = "Allo";
+                if(nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
+                mapTier[nomeCurto] = dino.tier || 0;
+            });
+
+            const tierMap = { 5: [], 4: [], 3: [], 2: [], 1: [], 0: [] };
+            
+            for (let nomeCurto in dadosDaVersao) {
+                let tier = mapTier[nomeCurto] || 0;
+                if(tierMap[tier]) {
+                    tierMap[tier].push(dadosDaVersao[nomeCurto]);
+                }
+            }
+
+            let html = '';
+            for (let tier = 5; tier >= 0; tier--) {
+                if (tierMap[tier].length === 0) continue;
+
+                let tierName = tier === 0 ? 'Sem Tier' : `Tier ${tier}`;
+
+                html += `
+                <h3 class="tier-title collapsed" onclick="this.classList.toggle('collapsed'); this.nextElementSibling.classList.toggle('hidden')">${tierName}</h3>
+                <div class="tier-content hidden table-container-balance">
+                    <table class="table-balance">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>HP</th>
+                                <th>Dano</th>
+                                <th>Peso</th>
+                                <th>Fratura</th>
+                                <th>Sangramento</th>
+                                <th>Vel. Terra</th>
+                                <th>Vel. Água</th>
+                                <th>Vel. Ar</th>
+                                <th>Defesa</th>
+                            </tr>
+                        </thead>
+                        <tbody>`;
+
+                tierMap[tier].forEach(dino => {
+                    html += `
+                            <tr>
+                                <td>${dino.nome}</td>
+                                <td>${dino.hp !== null ? dino.hp : '-'}</td>
+                                <td>${dino.dano !== null ? dino.dano : '-'}</td>
+                                <td>${dino.pesoCombate !== null ? dino.pesoCombate : '-'}</td>
+                                <td>${dino.fratura !== null ? dino.fratura : '-'}</td>
+                                <td>${dino.sangramento !== null ? dino.sangramento : '-'}</td>
+                                <td>${dino.velocidade !== null ? dino.velocidade : '-'}</td>
+                                <td>${dino.natacao !== null ? dino.natacao : '-'}</td>
+                                <td>${dino.voo !== null ? dino.voo : '-'}</td>
+                                <td>${dino.defesa !== null ? dino.defesa : '-'}</td>
+                            </tr>`;
+                });
+
+                html += `
+                        </tbody>
+                    </table>
+                </div>`;
+            }
+            
+            container.innerHTML = html;
+        }
+    </script>
+</body>
+</html>
