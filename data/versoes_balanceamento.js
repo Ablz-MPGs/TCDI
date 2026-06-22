@@ -1,5 +1,3 @@
-// Este arquivo armazena as diferentes versões de balanceamento do servidor.
-// Você pode adicionar novas chaves aqui copiando o JSON gerado pelo balance_tool.html
 const versoesBalanceamento = {
     "v1.0": {
         "Allo": {
@@ -1067,7 +1065,7 @@ const versoesBalanceamento = {
             "natacao": "500",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "40",
+            "tempoCrescimento": "42",
             "sangramento": "30",
             "fratura": "0",
             "trote": "-",
@@ -1087,7 +1085,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "2700"
         },
         "Amarga": {
             "nome": "Amarga",
@@ -1118,15 +1117,16 @@ const versoesBalanceamento = {
             "cadencia": "nerff",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "4000"
         },
         "Austroraptor": {
             "nome": "Austroraptor",
-            "hp": "1750",
+            "hp": "1800",
             "dano": "140",
-            "pesoCombate": "1200",
-            "velocidade": "1800",
-            "natacao": "700",
+            "pesoCombate": "1150",
+            "velocidade": "1820",
+            "natacao": "720",
             "voo": null,
             "defesa": "1.00",
             "tempoCrescimento": "28",
@@ -1149,18 +1149,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "300"
         },
         "Barbaridactylus": {
             "nome": "Barbaridactylus",
-            "hp": "800",
+            "hp": "750",
             "dano": "130",
             "pesoCombate": "1000",
             "velocidade": "1250",
             "natacao": "650",
-            "voo": "2800",
+            "voo": "2500",
             "defesa": "1.00",
-            "tempoCrescimento": "24",
+            "tempoCrescimento": "23",
             "sangramento": "12",
             "fratura": "0",
             "trote": "-",
@@ -1180,7 +1181,8 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "1.05",
             "giroAgua": "1.10",
-            "giroAr": "1.10"
+            "giroAr": "1.10",
+            "pesoSugerido": "50"
         },
         "Carnotaurus": {
             "nome": "Carnotaurus",
@@ -1191,7 +1193,7 @@ const versoesBalanceamento = {
             "natacao": "450",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "36",
+            "tempoCrescimento": "38",
             "sangramento": "22",
             "fratura": "0",
             "trote": "buff",
@@ -1211,18 +1213,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "1900"
         },
         "Changyuraptor": {
             "nome": "Changyuraptor",
-            "hp": "450",
+            "hp": "500",
             "dano": "75",
             "pesoCombate": "750",
             "velocidade": "1920",
             "natacao": "320",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "15",
+            "tempoCrescimento": "16",
             "sangramento": "20",
             "fratura": "0",
             "trote": "-",
@@ -1242,7 +1245,8 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "10"
         },
         "Ceratosaurus": {
             "nome": "Ceratosaurus",
@@ -1252,7 +1256,7 @@ const versoesBalanceamento = {
             "velocidade": "1680",
             "natacao": "650",
             "voo": null,
-            "defesa": "1.10",
+            "defesa": "1.05",
             "tempoCrescimento": "36",
             "sangramento": "20",
             "fratura": "0",
@@ -1273,19 +1277,20 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.10",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "1200"
         },
         "Coelophysis": {
             "nome": "Coelophysis",
             "hp": "650",
-            "dano": "85",
-            "pesoCombate": "750",
+            "dano": "80",
+            "pesoCombate": "800",
             "velocidade": "2000",
             "natacao": "480",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "15",
-            "sangramento": "24",
+            "tempoCrescimento": "18",
+            "sangramento": "22",
             "fratura": "0",
             "trote": "-",
             "vigorRegem": "-",
@@ -1304,18 +1309,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "40"
         },
         "Concavenator": {
             "nome": "Concavenator",
-            "hp": "2200",
-            "dano": "150",
+            "hp": "2100",
+            "dano": "155",
             "pesoCombate": "1200",
             "velocidade": "1750",
             "natacao": "600",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "28",
+            "tempoCrescimento": "30",
             "sangramento": "28",
             "fratura": "0",
             "trote": "-",
@@ -1335,7 +1341,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "600"
         },
         "Deinocheirus": {
             "nome": "Deinocheirus",
@@ -1366,18 +1373,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "7000"
         },
         "Deinonychus": {
             "nome": "Deinonychus",
             "hp": "850",
             "dano": "135",
             "pesoCombate": "950",
-            "velocidade": "1880",
+            "velocidade": "1900",
             "natacao": "400",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "18",
+            "tempoCrescimento": "20",
             "sangramento": "20",
             "fratura": "0",
             "trote": "-",
@@ -1397,19 +1405,20 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "80"
         },
         "Dilophosaurus": {
             "nome": "Dilophosaurus",
             "hp": "2000",
-            "dano": "160",
+            "dano": "170",
             "pesoCombate": "1200",
             "velocidade": "1750",
             "natacao": "520",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "28",
-            "sangramento": "22",
+            "tempoCrescimento": "30",
+            "sangramento": "18",
             "fratura": "0",
             "trote": "-",
             "vigorRegem": "-",
@@ -1428,18 +1437,19 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "500"
         },
         "Fasolasuchus": {
             "nome": "Fasolasuchus",
             "hp": "3100",
-            "dano": "245",
+            "dano": "250",
             "pesoCombate": "1350",
             "velocidade": "1500",
             "natacao": "625",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "32",
+            "tempoCrescimento": "38",
             "sangramento": "8",
             "fratura": "15",
             "trote": "-",
@@ -1459,7 +1469,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.10",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "2000"
         },
         "Giganotosaurus": {
             "nome": "Giganotosaurus",
@@ -1490,7 +1501,8 @@ const versoesBalanceamento = {
             "cadencia": "nerff",
             "giro": "0.95",
             "giroAgua": "1.05",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "8500"
         },
         "Gigantoraptor": {
             "nome": "Gigantoraptor",
@@ -1521,18 +1533,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.05",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "2000"
         },
         "Guanlong": {
             "nome": "Guanlong",
-            "hp": "1150",
+            "hp": "1250",
             "dano": "130",
-            "pesoCombate": "1000",
+            "pesoCombate": "1050",
             "velocidade": "1900",
             "natacao": "500",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "24",
+            "tempoCrescimento": "23",
             "sangramento": "25",
             "fratura": "0",
             "trote": "-",
@@ -1552,18 +1565,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "125"
         },
         "Kentrosaurus": {
             "nome": "Kentrosaurus",
             "hp": "2750",
             "dano": "250",
             "pesoCombate": "1450",
-            "velocidade": "1550",
+            "velocidade": "1520",
             "natacao": "500",
             "voo": null,
             "defesa": "1.10",
-            "tempoCrescimento": "36",
+            "tempoCrescimento": "38",
             "sangramento": "34",
             "fratura": "0",
             "trote": "-",
@@ -1583,12 +1597,13 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "1400"
         },
         "Megaraptor": {
             "nome": "Megaraptor",
             "hp": "2700",
-            "dano": "250",
+            "dano": "255",
             "pesoCombate": "1300",
             "velocidade": "1700",
             "natacao": "420",
@@ -1614,7 +1629,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.10",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "1300"
         },
         "Ornithomimus": {
             "nome": "Ornithomimus",
@@ -1625,7 +1641,7 @@ const versoesBalanceamento = {
             "natacao": "450",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "18",
+            "tempoCrescimento": "26",
             "sangramento": "7",
             "fratura": "0",
             "trote": "-",
@@ -1645,7 +1661,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "0.950",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "135"
         },
         "Pachycephalosaurus": {
             "nome": "Pachycephalosaurus",
@@ -1653,10 +1670,10 @@ const versoesBalanceamento = {
             "dano": "175",
             "pesoCombate": "1200",
             "velocidade": "1650",
-            "natacao": "420",
+            "natacao": "450",
             "voo": null,
-            "defesa": "1.10",
-            "tempoCrescimento": "28",
+            "defesa": "1.05",
+            "tempoCrescimento": "30",
             "sangramento": "0",
             "fratura": "14",
             "trote": "buff",
@@ -1676,7 +1693,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "500"
         },
         "Pachyrhinosaurus": {
             "nome": "Pachyrhinosaurus",
@@ -1687,7 +1705,7 @@ const versoesBalanceamento = {
             "natacao": "500",
             "voo": null,
             "defesa": "1.10",
-            "tempoCrescimento": "44",
+            "tempoCrescimento": "45",
             "sangramento": "0",
             "fratura": "15",
             "trote": "-",
@@ -1707,18 +1725,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "4000"
         },
         "Parasaurolophus": {
             "nome": "Parasaurolophus",
             "hp": "3800",
-            "dano": "210",
+            "dano": "205",
             "pesoCombate": "1550",
             "velocidade": "1480",
             "natacao": "580",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "38",
+            "tempoCrescimento": "45",
             "sangramento": "0",
             "fratura": "9",
             "trote": "buff",
@@ -1738,7 +1757,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "0.95",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "5000"
         },
         "Plateosaurus": {
             "nome": "Plateosaurus",
@@ -1749,7 +1769,7 @@ const versoesBalanceamento = {
             "natacao": "650",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "38",
+            "tempoCrescimento": "42",
             "sangramento": "16",
             "fratura": "0",
             "trote": "-",
@@ -1769,18 +1789,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "4000"
         },
         "Psittacosaurus": {
             "nome": "Psittacosaurus",
-            "hp": "780",
+            "hp": "750",
             "dano": "100",
             "pesoCombate": "1000",
             "velocidade": "1880",
             "natacao": "550",
             "voo": null,
-            "defesa": "1.00",
-            "tempoCrescimento": "15",
+            "defesa": "1.05",
+            "tempoCrescimento": "22",
             "sangramento": "9",
             "fratura": "0",
             "trote": "buff",
@@ -1800,19 +1821,20 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.10",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "75"
         },
         "Quetzalcoatlus": {
             "nome": "Quetzalcoatlus",
-            "hp": "1600",
-            "dano": "160",
-            "pesoCombate": "1300",
-            "velocidade": "1420",
-            "natacao": "450",
-            "voo": "2200",
+            "hp": "1750",
+            "dano": "165",
+            "pesoCombate": "1250",
+            "velocidade": "1450",
+            "natacao": "350",
+            "voo": "2100",
             "defesa": "1.00",
-            "tempoCrescimento": "36",
-            "sangramento": "14",
+            "tempoCrescimento": "32",
+            "sangramento": "15",
             "fratura": "0",
             "trote": "-",
             "vigorRegem": "-",
@@ -1831,7 +1853,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "250"
         },
         "Sarcosuchus": {
             "nome": "Sarcosuchus",
@@ -1862,7 +1885,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "0.95",
             "giroAgua": "1.10",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "4300"
         },
         "Spinosaurus": {
             "nome": "Spinosaurus",
@@ -1872,7 +1896,7 @@ const versoesBalanceamento = {
             "velocidade": "1260",
             "natacao": "1250",
             "voo": null,
-            "defesa": "1.05",
+            "defesa": "1.10",
             "tempoCrescimento": "56",
             "sangramento": "28",
             "fratura": "1",
@@ -1893,20 +1917,21 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "0.95",
             "giroAgua": "1.15",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "8500"
         },
         "Stegosaurus": {
             "nome": "Stegosaurus",
-            "hp": "4100",
-            "dano": "335",
+            "hp": "4300",
+            "dano": "345",
             "pesoCombate": "1650",
-            "velocidade": "1300",
+            "velocidade": "1290",
             "natacao": "480",
             "voo": null,
             "defesa": "1.10",
-            "tempoCrescimento": "40",
-            "sangramento": "26",
-            "fratura": "6",
+            "tempoCrescimento": "50",
+            "sangramento": "29",
+            "fratura": "7",
             "trote": "-",
             "vigorRegem": "-",
             "vigorConsumo": "-",
@@ -1924,18 +1949,19 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "7000"
         },
         "Styracosaurus": {
             "nome": "Styracosaurus",
             "hp": "3300",
-            "dano": "230",
+            "dano": "235",
             "pesoCombate": "1400",
             "velocidade": "1450",
             "natacao": "500",
             "voo": null,
             "defesa": "1.10",
-            "tempoCrescimento": "38",
+            "tempoCrescimento": "42",
             "sangramento": "24",
             "fratura": "0",
             "trote": "-",
@@ -1955,7 +1981,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "2750"
         },
         "Suchomimus": {
             "nome": "Suchomimus",
@@ -1966,7 +1993,7 @@ const versoesBalanceamento = {
             "natacao": "920",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "48",
+            "tempoCrescimento": "45",
             "sangramento": "26",
             "fratura": "0",
             "trote": "-",
@@ -1986,18 +2013,19 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.05",
             "giroAgua": "1.10",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "5000"
         },
         "Tarchia": {
             "nome": "Tarchia",
             "hp": "3450",
-            "dano": "330",
+            "dano": "335",
             "pesoCombate": "1550",
-            "velocidade": "1230",
+            "velocidade": "1235",
             "natacao": "420",
             "voo": null,
             "defesa": "1.15",
-            "tempoCrescimento": "44",
+            "tempoCrescimento": "45",
             "sangramento": "0",
             "fratura": "25",
             "trote": "buff",
@@ -2017,19 +2045,20 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.05",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "3500"
         },
         "Therizinosaurus": {
             "nome": "Therizinosaurus",
             "hp": "3800",
             "dano": "270",
             "pesoCombate": "1550",
-            "velocidade": "1330",
+            "velocidade": "1340",
             "natacao": "450",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "48",
-            "sangramento": "28",
+            "tempoCrescimento": "50",
+            "sangramento": "29",
             "fratura": "0",
             "trote": "-",
             "vigorRegem": "-",
@@ -2048,7 +2077,8 @@ const versoesBalanceamento = {
             "cadencia": "buff",
             "giro": "1.10",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "5000"
         },
         "Triceratops": {
             "nome": "Triceratops",
@@ -2056,12 +2086,12 @@ const versoesBalanceamento = {
             "dano": "275",
             "pesoCombate": "1750",
             "velocidade": "1285",
-            "natacao": "500",
+            "natacao": "550",
             "voo": null,
             "defesa": "1.10",
             "tempoCrescimento": "56",
-            "sangramento": "24",
-            "fratura": "5",
+            "sangramento": "26",
+            "fratura": "6",
             "trote": "buff",
             "vigorRegem": "-",
             "vigorConsumo": "-",
@@ -2079,7 +2109,8 @@ const versoesBalanceamento = {
             "cadencia": "-",
             "giro": "1.00",
             "giroAgua": "1.05",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "11500"
         },
         "Tyrannosaurus": {
             "nome": "Tyrannosaurus",
@@ -2087,12 +2118,12 @@ const versoesBalanceamento = {
             "dano": "350",
             "pesoCombate": "1750",
             "velocidade": "1300",
-            "natacao": "520",
+            "natacao": "550",
             "voo": null,
             "defesa": "1.00",
             "tempoCrescimento": "56",
             "sangramento": "4",
-            "fratura": "22",
+            "fratura": "23",
             "trote": "buff",
             "vigorRegem": "-",
             "vigorConsumo": "-",
@@ -2110,7 +2141,8 @@ const versoesBalanceamento = {
             "cadencia": "nerff",
             "giro": "1.05",
             "giroAgua": "1.00",
-            "giroAr": "1.00"
+            "giroAr": "1.00",
+            "pesoSugerido": "10000"
         }
     }
 };

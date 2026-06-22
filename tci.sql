@@ -10,10 +10,10 @@ create table if not exists playble(
     pesoCombate int,
     velocidade int,
     natacao int,
-    voo int,
+    voo int,       
+    pesoSugerido int,
     defesa decimal(5, 4),
-    tempoCrescimento int,
-    
+    tempoCrescimento int,         
     sangramento int,
     fratura int
 );
