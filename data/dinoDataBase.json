@@ -384,7 +384,7 @@
       },
       {
         "desc": "Seu dinossauro grita, aumentando o seu dano.",
-        "effect": "+20% dano",
+        "effect": "+20% dano durante 25 segundos. Recarga em 40s.",
         "icon": "img/skill/buffS.png",
         "title": "Grito de guerra"
       }
