@@ -11,7 +11,7 @@ const versoesBalanceamento = {
             "defesa": "1.00",
             "tempoCrescimento": 38,
             "sangramento": 29,
-            "fratura": 0,
+            "fratura": 0
         },
         "Amarga": {
             "nome": "Amarga",
@@ -545,7 +545,7 @@ const versoesBalanceamento = {
         "Coelophysis": {
             "nome": "Coelophysis",
             "hp": "650",
-            "dano": "80",
+            "dano": "85",
             "pesoCombate": "800",
             "velocidade": "2000",
             "natacao": "480",
@@ -575,7 +575,7 @@ const versoesBalanceamento = {
             "hp": "4300",
             "dano": "255",
             "pesoCombate": "1700",
-            "velocidade": "1320",
+            "velocidade": "1300",
             "natacao": "850",
             "voo": null,
             "defesa": "1.10",
@@ -603,7 +603,7 @@ const versoesBalanceamento = {
             "hp": "2000",
             "dano": "170",
             "pesoCombate": "1200",
-            "velocidade": "1750",
+            "velocidade": "1780",
             "natacao": "520",
             "voo": null,
             "defesa": "1.00",
@@ -663,7 +663,7 @@ const versoesBalanceamento = {
             "natacao": "500",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "23",
+            "tempoCrescimento": "25",
             "sangramento": "25",
             "fratura": "0",
             "pesoSugerido": "125"
@@ -705,7 +705,7 @@ const versoesBalanceamento = {
             "natacao": "450",
             "voo": null,
             "defesa": "1.00",
-            "tempoCrescimento": "26",
+            "tempoCrescimento": "22",
             "sangramento": "7",
             "fratura": "0",
             "pesoSugerido": "135"
@@ -895,14 +895,14 @@ const versoesBalanceamento = {
         "Triceratops": {
             "nome": "Triceratops",
             "hp": "4750",
-            "dano": "275",
+            "dano": "285",
             "pesoCombate": "1750",
             "velocidade": "1285",
             "natacao": "550",
             "voo": null,
             "defesa": "1.10",
             "tempoCrescimento": "56",
-            "sangramento": "26",
+            "sangramento": "22",
             "fratura": "6",
             "pesoSugerido": "11500"
         },

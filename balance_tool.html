@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Balanceamento - TCI</title>
+    <script>
+        if (localStorage.getItem('light') === 'active') {
+            document.documentElement.classList.add('light');
+        }
+    </script>
+    <link href="img/logo.svg" rel="icon">
     <style>
         :root {
             --bg-color: #121212;
@@ -28,7 +35,7 @@
             background-color: var(--container-bg);
             padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
             max-width: 800px;
             width: 100%;
         }
@@ -38,7 +45,7 @@
             color: var(--accent-color);
             margin-bottom: 5px;
         }
-        
+
         .subtitle {
             text-align: center;
             color: #888;
@@ -77,7 +84,8 @@
             color: #aaa;
         }
 
-        select, input {
+        select,
+        input {
             padding: 10px;
             border-radius: 6px;
             border: 1px solid var(--input-border);
@@ -87,7 +95,8 @@
             transition: border-color 0.3s;
         }
 
-        select:focus, input:focus {
+        select:focus,
+        input:focus {
             outline: none;
             border-color: var(--accent-color);
         }
@@ -162,7 +171,7 @@
             height: 55px;
             font-size: 1.8em;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
             display: none;
             align-items: center;
             justify-content: center;
@@ -180,6 +189,7 @@
             width: 100%;
             overflow-x: auto;
         }
+
         .table-balance {
             width: 100%;
             border-collapse: collapse;
@@ -188,19 +198,24 @@
             overflow: hidden;
             font-size: 0.9em;
         }
-        .table-balance th, .table-balance td {
+
+        .table-balance th,
+        .table-balance td {
             padding: 10px;
             text-align: center;
             border-bottom: 1px solid #333;
         }
+
         .table-balance th {
             background-color: #1a1a1a;
             color: var(--accent-color);
             font-weight: bold;
         }
+
         .table-balance tr:hover {
             background-color: #2d2d2d;
         }
+
         .tier-title {
             color: #ddd;
             margin-top: 25px;
@@ -215,20 +230,25 @@
             padding: 10px;
             border-radius: 6px;
         }
+
         .tier-title:hover {
             background-color: #333;
         }
+
         .tier-title:after {
             content: '▼';
             font-size: 0.8em;
             color: var(--accent-color);
         }
+
         .tier-title.collapsed:after {
             content: '►';
         }
+
         .tier-content.hidden {
             display: none;
         }
+
         #comparacaoContainer h2 {
             text-align: center;
             color: var(--accent-color);
@@ -237,6 +257,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
@@ -258,11 +279,13 @@
         <div class="form-group">
             <label for="dinoSelect">Selecione o Jogável para Editar:</label>
             <div style="display: flex; gap: 10px; align-items: center;">
-                <button class="btn btn-secondary" onclick="navegarDino(-1)" title="Espécie Anterior" style="padding: 10px 15px; font-weight: bold; min-width: 45px;">◀</button>
+                <button class="btn btn-secondary" onclick="navegarDino(-1)" title="Espécie Anterior"
+                    style="padding: 10px 15px; font-weight: bold; min-width: 45px;">◀</button>
                 <select id="dinoSelect" style="flex: 1;">
                     <option value="">-- Escolha um Dinossauro --</option>
                 </select>
-                <button class="btn btn-secondary" onclick="navegarDino(1)" title="Próxima Espécie" style="padding: 10px 15px; font-weight: bold; min-width: 45px;">▶</button>
+                <button class="btn btn-secondary" onclick="navegarDino(1)" title="Próxima Espécie"
+                    style="padding: 10px 15px; font-weight: bold; min-width: 45px;">▶</button>
             </div>
         </div>
 
@@ -277,8 +300,10 @@
                 <div class="form-group"><label>Vel. Natação</label><input type="number" id="f_natacao"></div>
                 <div class="form-group"><label>Vel. Voo (vazio=null)</label><input type="number" id="f_voo"></div>
                 <div class="form-group"><label>Peso Sugerido</label><input type="number" id="f_pesoSugerido"></div>
-                <div class="form-group"><label>Defesa (ex: 1.0)</label><input type="number" step="0.01" id="f_defesa"></div>
-                <div class="form-group"><label>Tempo Crescimento</label><input type="number" id="f_tempoCrescimento"></div>
+                <div class="form-group"><label>Defesa (ex: 1.0)</label><input type="number" step="0.01" id="f_defesa">
+                </div>
+                <div class="form-group"><label>Tempo Crescimento</label><input type="number" id="f_tempoCrescimento">
+                </div>
                 <div class="form-group"><label>Sangramento</label><input type="number" id="f_sangramento"></div>
                 <div class="form-group"><label>Fratura</label><input type="number" id="f_fratura"></div>
             </div>
@@ -290,8 +315,10 @@
 
         <div class="action-buttons" style="margin-top: 30px; border-top: 1px solid #333; padding-top: 20px;">
             <button class="btn btn-secondary" style="flex: 1;" onclick="gerarSQLDaVersao()">Gerar SQL</button>
-            <button class="btn" style="flex: 1; background-color: #4CAF50;" onclick="gerarJSONParaSalvar()">Exportar JSON</button>
-            <button class="btn" style="flex: 1; background-color: #f44336; color: white;" onclick="limparCache()">Limpar Auto-Save</button>
+            <button class="btn" style="flex: 1; background-color: #4CAF50;" onclick="gerarJSONParaSalvar()">Exportar
+                JSON</button>
+            <button class="btn" style="flex: 1; background-color: #f44336; color: white;" onclick="limparCache()">Limpar
+                Auto-Save</button>
         </div>
 
         <div class="output-group">
@@ -301,15 +328,16 @@
 
         <div id="comparacaoContainer" style="margin-top: 50px; display: none;">
             <h2>Comparação da Versão Atual por Tiers</h2>
-            <p style="text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px;">Analise todos os dinossauros da versão selecionada agrupados por tier.</p>
+            <p style="text-align: center; color: #888; font-size: 0.9em; margin-bottom: 20px;">Analise todos os
+                dinossauros da versão selecionada agrupados por tier.</p>
             <div id="tabelas-comparacao"></div>
         </div>
     </div>
 
     <button class="back-to-top" id="backToTopBtn" onclick="voltarAoTopo()" title="Voltar ao Topo">↑</button>
 
-    <script src="data/data.js"></script>
-    <script src="data/versoes_balanceamento.js"></script>
+    <script src="data/data.js" defer></script>
+    <script src="data/versoes_balanceamento.js" defer></script>
 
     <script>
         const versionSelect = document.getElementById('versionSelect');
@@ -351,7 +379,7 @@
         }
 
         function limparCache() {
-            if(confirm('Tem certeza que deseja apagar o rascunho salvo no navegador? As versões voltarão a ser exatamente como estão no arquivo original do projeto (versoes_balanceamento.js).')) {
+            if (confirm('Tem certeza que deseja apagar o rascunho salvo no navegador? As versões voltarão a ser exatamente como estão no arquivo original do projeto (versoes_balanceamento.js).')) {
                 localStorage.removeItem('tci_balance_versions');
                 localStorage.removeItem('versao');
                 location.reload();
@@ -364,8 +392,8 @@
             if (typeof dinosData !== 'undefined') {
                 dinosData.forEach((dino) => {
                     let nomeCurto = dino.nome.split(' ')[0];
-                    if(nomeCurto === "Allosaurus") nomeCurto = "Allo";
-                    if(nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
+                    if (nomeCurto === "Allosaurus") nomeCurto = "Allo";
+                    if (nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
 
                     dadosV1[nomeCurto] = {
                         nome: nomeCurto,
@@ -402,7 +430,7 @@
         function atualizarDropdownDinos() {
             dinoSelect.innerHTML = '<option value="">-- Escolha um Dinossauro --</option>';
             const dadosDaVersao = memoriaVersoes[versaoAtual];
-            if(dadosDaVersao) {
+            if (dadosDaVersao) {
                 for (let nomeCurto in dadosDaVersao) {
                     const opt = document.createElement('option');
                     opt.value = nomeCurto;
@@ -418,7 +446,7 @@
             if (totalOpcoes <= 1) return;
 
             let indexAtual = dinoSelect.selectedIndex;
-            
+
             if (indexAtual === -1 || indexAtual === 0) {
                 if (direcao === 1) {
                     indexAtual = 1;
@@ -433,7 +461,7 @@
                     indexAtual = totalOpcoes - 1;
                 }
             }
-            
+
             dinoSelect.selectedIndex = indexAtual;
             dinoSelect.dispatchEvent(new Event('change'));
         }
@@ -475,7 +503,7 @@
         function salvarDinoNaMemoria() {
             const nomeCurto = document.getElementById('f_nome').value;
             const dino = memoriaVersoes[versaoAtual][nomeCurto];
-            
+
             dino.hp = document.getElementById('f_hp').value || null;
             dino.dano = document.getElementById('f_dano').value || null;
             dino.pesoCombate = document.getElementById('f_pesoCombate').value || null;
@@ -487,7 +515,7 @@
             dino.tempoCrescimento = document.getElementById('f_tempoCrescimento').value || null;
             dino.sangramento = document.getElementById('f_sangramento').value || null;
             dino.fratura = document.getElementById('f_fratura').value || null;
-            
+
             salvarNoLocalStorage(); // Ativa o Auto-Save
             renderizarTabelasDeComparacao();
             alert(`Modificações do ${nomeCurto} salvas na versão ${versaoAtual} (Auto-Save no navegador realizado)!`);
@@ -496,7 +524,7 @@
         function criarNovaVersao() {
             const nomeNova = prompt("Qual o nome da nova versão? (ex: v1.1)");
             if (!nomeNova || memoriaVersoes[nomeNova]) {
-                if(memoriaVersoes[nomeNova]) alert("Essa versão já existe!");
+                if (memoriaVersoes[nomeNova]) alert("Essa versão já existe!");
                 return;
             }
             // Clona a versão atual
@@ -517,7 +545,7 @@
         function gerarSQLDaVersao() {
             const dados = memoriaVersoes[versaoAtual];
             let inserts = [];
-            
+
             for (let k in dados) {
                 let dino = dados[k];
                 const values = [
@@ -551,7 +579,7 @@
 
         // Lógica do botão Voltar ao Topo
         const backToTopBtn = document.getElementById('backToTopBtn');
-        window.onscroll = function() {
+        window.onscroll = function () {
             if (document.body.scrollTop > 250 || document.documentElement.scrollTop > 250) {
                 backToTopBtn.style.display = "flex";
             } else {
@@ -579,16 +607,16 @@
             const mapTier = {};
             dinosData.forEach((dino) => {
                 let nomeCurto = dino.nome.split(' ')[0];
-                if(nomeCurto === "Allosaurus") nomeCurto = "Allo";
-                if(nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
+                if (nomeCurto === "Allosaurus") nomeCurto = "Allo";
+                if (nomeCurto === "Amargasaurus") nomeCurto = "Amarga";
                 mapTier[nomeCurto] = dino.tier || 0;
             });
 
             const tierMap = { 5: [], 4: [], 3: [], 2: [], 1: [], 0: [] };
-            
+
             for (let nomeCurto in dadosDaVersao) {
                 let tier = mapTier[nomeCurto] || 0;
-                if(tierMap[tier]) {
+                if (tierMap[tier]) {
                     tierMap[tier].push(dadosDaVersao[nomeCurto]);
                 }
             }
@@ -644,9 +672,10 @@
                     </table>
                 </div>`;
             }
-            
+
             container.innerHTML = html;
         }
     </script>
 </body>
+
 </html>

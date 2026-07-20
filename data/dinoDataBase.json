@@ -42,7 +42,7 @@
     "stats": {
       "corgema": "40",
       "cormoeda": "6000",
-      "fotinha": "-",
+      "fotinha": "300",
       "group": "2.5 slots",
       "growth": "38 min",
       "price": "650",
@@ -101,17 +101,75 @@
       "skin2": "-"
     }
   },
-  "Austroraptor": {
+  "Ankylosaurus": {
     "actives": [
       {
+        "desc": "Quando de pé, seu dinossauro ataca em um ângulo de 90°. Quand agachado, golpeia o chão em área.",
+        "effect": null,
+        "icon": "img/skill/martelo.png",
+        "title": "Martelo da justiça"
+      },
+      {
+        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir fratura, pode causar repulsão e atordoamento.",
+        "effect": null,
+        "icon": "img/skill/carregadaT.png",
+        "title": "Ataque Carregado"
+      }
+    ],
+    "desc": "Um grande ankylosaurideo que viveu nos antigos dessertos da atual Mongólia.",
+    "diet": "🌿",
+    "fullName": "ANKYIOSAURUS<br>MAGNIVENTRIS",
+    "idStatus": "anky",
+    "image": "img/pict/ankyperfil.png",
+    "passives": [
+      {
+        "desc": "Quando agachado, sua defesa e velocidade de giro aumentam.",
+        "effect": "+15% defesa, giro aprimorado.",
+        "icon": "img/skill/defesa.png",
+        "title": "Pronto para a batalha"
+      },
+      {
+        "desc": "Quando seu dinossauro está com HP baixo, seu effect e chance de fraturar aumentam.",
+        "effect": "+48 dano, +7,5% fratura",
+        "icon": "img/skill/poucohp.png",
+        "title": "Surto de poder"
+      },
+      {
+        "desc": "Seu dinossauro possui uma chance de ignorar 1 ponto de efeito sofrido.",
+        "effect": null,
+        "icon": "img/skill/defesa.png",
+        "title": "Escudo Ósseo"
+      }
+    ],
+    "prices": {
+      "avatar": "moeda",
+      "price": "moeda"
+    },
+    "release": "10 / 10 / 2023",
+    "shortName": "Ankylo",
+    "stats": {
+      "corgema": "25",
+      "cormoeda": "2500",
+      "fotinha": "8000",
+      "group": "2.5 slots",
+      "growth": "39 min",
+      "price": "135000",
+      "skin1": "12000",
+      "skin2": "-"
+    }
+  },
+  "Austroraptor": {
+    "actives": [
+      
+      {
         "desc": "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa.",
-        "effect": "-15% defesa inimiga. Dano base: 200",
+        "effect": "-15% defesa inimiga durante 20 segundos. Dano base: 200, recarga em 15s.",
         "icon": "img/skill/mordida.png",
         "title": "Ataque do céu"
       },
       {
         "desc": "Salte para alcançar o inimigo ou escapar velozmente, pode ser usado na água.",
-        "effect": null,
+        "effect": "Recarga em 10s",
         "icon": "img/skill/dash.png",
         "title": "Disparada"
       }
@@ -306,10 +364,10 @@
     }
   },
   "Changyuraptor": {
-    "actives": [
+    "actives": [      
       {
         "desc": "Capaz de escalar ao precionar salto próximo a uma superfície adequada.",
-        "effect": null,
+        "effect": "",
         "icon": "img/skill/park.png",
         "title": "Parkour"
       },
@@ -327,13 +385,13 @@
       },
       {
         "desc": "O dinossauro se impulsiona para a direção em que estiver olhando, funciona apenas no ar.",
-        "effect": null,
+        "effect": "Recarga em 20s.",
         "icon": "img/skill/impulso.png",
         "title": "Disparada"
       },
       {
         "desc": "Seu dinossauro executa um grande salto.",
-        "effect": null,
+        "effect": "Recarga em 15s.",
         "icon": "img/skill/puloC.png",
         "title": "Corrida alta"
       }
@@ -537,7 +595,7 @@
     "actives": [
       {
         "desc": "O dinossauro ruge, elevando seu moral e o da matilha, diminuindo seu consumo de vigor por um tempo.",
-        "effect": "-20% gasto de vigor",
+        "effect": "-20% gasto de vigor por 25s. Recarga em 40s.",
         "icon": "img/skill/buffS.png",
         "title": "Grito de Guerra."
       },
@@ -638,17 +696,17 @@
   "Fasolasuchus": {
     "actives": [
       {
-        "desc": "Seu dinossauro agarra uma presa com o boca podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
-        "effect": "-15% velocidade. Dano base: 245",
-        "icon": "img/skill/capturarf.png",
-        "title": "Capturar"
-      },
-      {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
         "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
-      }
+      },
+      {
+        "desc": "Seu dinossauro agarra uma presa com o boca podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
+        "effect": "-15% velocidade. Dano base: 245",
+        "icon": "img/skill/capturarf.png",
+        "title": "Capturar"
+      }      
     ],
     "desc": "Um poderoso arcossauro predador, considerado o maior rauisuquiano que ja existiu.",
     "diet": "🥩",
@@ -689,9 +747,9 @@
   "Giganotosaurus": {
     "actives": [
       {
-        "desc": "Seu dinossauro desfiere duas mordidas rápidas com maior dano e chance de causar sangramento. É possível atordoar.",
+        "desc": "Seu dinossauro desfiere duas mordidas rápidas com maior dano e chance de causar sangramento.",
         "effect": null,
-        "icon": "img/skill/carregada.png",
+        "icon": "img/skill/cranio.png",
         "title": "Mordida dupla"
       },
       {
@@ -747,7 +805,7 @@
     "stats": {
       "corgema": "50",
       "cormoeda": "8000",
-      "fotinha": "-",
+      "fotinha": "40000",
       "group": "3 slots",
       "growth": "48 min",
       "price": "140000",
@@ -867,7 +925,7 @@
       },
       {
         "desc": "Seu dinossauro se levanta, ganha força e então cai. Suas placas se movem, aumentando temporariamente a defesa.",
-        "effect": "+25% defesa",
+        "effect": "+25% defesa durante 20 segundos. Recarga em 50s.",
         "icon": "img/skill/defesa.png",
         "title": "Armadura"
       }
@@ -917,16 +975,16 @@
   "Megaraptor": {
     "actives": [
       {
-        "desc": "Seu dinossauro ruge, fazendo com que os jogadores próximos fiquem com medo e percam parte do conforto, manter-se próximo fará com que o efeito se torne continuo.",
-        "effect": "-30% conforto imediato, podendo escalar",
-        "icon": "img/skill/rugido.png",
-        "title": "Rugido Aterrorizante"
-      },
-      {
         "desc": "O dinossauro faz dois movimentos com suas garras. O ataque tem maiores chances de infligir sangramento.",
         "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Garras Afiadas"
+      },
+      {
+        "desc": "Seu dinossauro ruge, fazendo com que os jogadores próximos fiquem com medo e percam parte do conforto, manter-se próximo fará com que o efeito se torne continuo.",
+        "effect": "-30% conforto imediato, podendo escalar",
+        "icon": "img/skill/rugido.png",
+        "title": "Rugido Aterrorizante"
       }
     ],
     "desc": "Um teropode veloz e formidavel, famoso por suas garras de mao gigantescas e curvas.",
@@ -955,7 +1013,7 @@
       }
     ],
     "prices": {
-      "avatar": "free",
+      "avatar": "moeda",
       "price": "gema"
     },
     "release": "12 / 11 / 2025",
@@ -963,10 +1021,10 @@
     "stats": {
       "corgema": "50",
       "cormoeda": "8000",
-      "fotinha": "-",
+      "fotinha": "2000",
       "group": "2.5 slots",
       "growth": "38 min",
-      "price": "600",
+      "price": "2000",
       "skin1": "40000",
       "skin2": "450"
     }
@@ -974,13 +1032,13 @@
   "Ornithomimus": {
     "actives": [
       {
-        "desc": "Seu dinossauro emite um grito alto, reduzindo o consumo de vigor dos membros da matilha.",
-        "effect": "-15% gasto de vigor",
+        "desc": "Seu dinossauro emite um grito alto, reduzindo o consumo de vigor dos membros da matilha. Recarga em 35 segundos.",
+        "effect": "-15% gasto de vigor durante 20 segundos. Recarga em 35s.",
         "icon": "img/skill/buffS.png",
         "title": "Incentivo"
       },
       {
-        "desc": "Seu dinossauro ataca com as patas traseiras, causando dano adicional, com chance de atordoar e repelir alguns dinossauros.",
+        "desc": "Seu dinossauro ataca com as patas traseiras, causando dano adicional, com chance de atordoar e repelir alguns dinossauros. Recarga em 10 segundos.",
         "effect": null,
         "icon": "img/skill/chute.png",
         "title": "Chute"
@@ -1126,8 +1184,8 @@
       "group": "2 slots",
       "growth": "36 min",
       "price": "75000",
-      "skin1": "-",
-      "skin2": "-"
+      "skin1": "18000",
+      "skin2": "150"
     }
   },
   "Parasaurolophus": {
@@ -1140,7 +1198,7 @@
       },
       {
         "desc": "Solta um rugido que causa medo nos dinossauros, reduzindo sua defesa.",
-        "effect": "-15% defesa inimiga",
+        "effect": "-15% defesa inimiga por 20s. Recarga em 50s",
         "icon": "img/skill/rugido.png",
         "title": "Um rugido aterrorizante"
       }
@@ -1224,7 +1282,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro emite um grito que acelera a própria regeneração de HP e dos membros da matilha próximos.",
-        "effect": "+20% regeneração de HP",
+        "effect": "+20% regeneração de HP durante 20 segundos. Recarga em 40s.",
         "icon": "img/skill/buffC.png",
         "title": "Grito de Cura"
       }
@@ -1586,51 +1644,6 @@
       "growth": "41 min",
       "price": "110000",
       "skin1": "-",
-      "skin2": "-"
-    }
-  },
-  "Tarchia": {
-    "actives": [
-      {
-        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir fratura, pode causar repulsão e atordoamento.",
-        "effect": null,
-        "icon": "img/skill/carregadaT.png",
-        "title": "Ataque Carregado"
-      },
-      {
-        "desc": "Seu dinossauro chacoalha o corpo por alguns segundos, após isso, ganha defesa e perde velocidade.",
-        "effect": "+30% defesa, -12% velocidade",
-        "icon": "img/skill/defesa.png",
-        "title": "Armadura Resistente"
-      }
-    ],
-    "desc": "Um grande ankylosaurideo que viveu nos antigos dessertos da atual Mongólia.",
-    "diet": "🌿",
-    "fullName": "TARCHIA<br>KIELANAE",
-    "idStatus": "tarchia",
-    "image": "img/pict/tarchiaperfil.png",
-    "passives": [
-      {
-        "desc": "Quando seu dinossauro está com HP baixo, seu effect e chance de fraturar aumentam.",
-        "effect": "+48 dano, +7,5% fratura",
-        "icon": "img/skill/poucohp.png",
-        "title": "Surto de poder"
-      }
-    ],
-    "prices": {
-      "avatar": "moeda",
-      "price": "moeda"
-    },
-    "release": "10 / 10 / 2023",
-    "shortName": "Tarchia",
-    "stats": {
-      "corgema": "25",
-      "cormoeda": "2500",
-      "fotinha": "8000",
-      "group": "2.5 slots",
-      "growth": "39 min",
-      "price": "35000",
-      "skin1": "12000",
       "skin2": "-"
     }
   },

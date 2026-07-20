@@ -465,7 +465,7 @@ h5, p{
 .skill-text p {
     margin: 0;
     font-size: 0.8rem;
-    line-height: 1.3;
+    line-height: 1.6;
     color: var(--text-secondary);
     font-weight: 500;
 }
@@ -477,6 +477,7 @@ h5, p{
     padding: 10px;
     margin-bottom: 20px;
     background-color: rgba(11, 51, 54, 0.377);
+    line-height: 1.6;
 }
 
 .mostrarMetodoPaga {

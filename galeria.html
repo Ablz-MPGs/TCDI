@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TCDI | Galeria</title>
+    <meta name="description" content="Explore a galeria completa de espécies de dinossauros e criaturas de The Cursed Dinosaur Isle (TCDI). Conheça seus atributos, dietas e habilidades.">
+    <title>TCDI | Galeria de Espécies - The Cursed Dinosaur Isle</title>    
+    <script>
+        if(localStorage.getItem('light') === 'active'){
+            document.documentElement.classList.add('light');
+        }
+    </script>
     <link href="img/logo.svg" rel="icon">
+    <link rel="preload" href="img/logo.svg" as="image" type="image/svg+xml">
+    <link rel="preload" href="css/style.css" as="style">
+    <link rel="preload" href="css/galeria.css" as="style">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/cabecalho.css">
     <link rel="stylesheet" href="css/style.css">
@@ -49,8 +58,7 @@
         <h1 style="border-bottom: none;">Galeria de Espécies</h1>
         <div class="container">
             <div class="container-menor">
-            <input class="searchInput" type="text" id="dinoEspecifico" placeholder="🔎  Pesquisar espécie...">
-                
+                <input class="searchInput" type="text" id="dinoEspecifico" placeholder="🔎  Pesquisar espécie...">
             </div>
             <h2>Explore os habitantes da ilha amaldiçoada</h2>
             <select id="filtroAtributo" class="selectOrder">
@@ -124,12 +132,12 @@
 
         <div id="myModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-dino-name">
             <div class="modal-content dino-card-style">
-                <span class="close" role="button" tabindex="0" aria-label="Fechar modal">&times;</span>
+                <span class="close" role="button" tabindex="0" aria-label="Fechar modal"><span aria-hidden="true">&times;</span><span class="sr-only" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0;">Fechar</span></span>
 
                 <div class="header">
                     <div class="header-left">
                         <div class="dino-avatar">
-                            <img id="modal-img" src="" alt="Dino Avatar">
+                            <img id="modal-img" src="" alt="Retrato do dinossauro">
                         </div>
                         <div class="dino-name" id="modal-dino-name">
                             NOME DO DINO
@@ -257,7 +265,7 @@
                     <p>O dano atribuído às habilidades ativas é calculado em testes, não possui respaldo oficial.</p>
                 </div>
                 <div class="btn-container">
-                    <a id="btn-paleo-modal" class="btn-paleo" href="#">Paleontologia</a>
+                    <button id="btn-paleo-modal" class="btn-paleo" type="button">Paleontologia</button>
                 </div>
             </div>
         </div>
@@ -295,9 +303,9 @@
         </div>
     </footer>
 
-    <script src="data/data.js"></script>
-    <script src="js/cards.js"></script>
-    <script src="js/galeria.js"></script>
-    <script src="js/index.js"></script>
+    <script src="data/data.js" defer></script>
+    <script src="js/cards.js" defer></script>
+    <script src="js/galeria.js" defer></script>
+    <script src="js/index.js" defer></script>
 </body>
 </html>

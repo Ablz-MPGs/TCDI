@@ -1,25 +1,28 @@
 //herbívoro = 1, carnívoro = 2, ceratopsideo = 3, voador = 4, barba = 5 
 
-const dinosData = [
+(function () {
+    const rawDinosData = [
+    // Allosaurus
     {
         nome: "Allosaurus fragilis",
         classe: 2,
         tier: 3,
         peso: 1350,
-        hp: 3300,
-        dano_base: 240,
+        hp: 3365,
+        dano_base: 235,
         fratura: 0,
-        sangramento: 29,
-        vel_terra: 1500,
+        sangramento: 32,
+        vel_terra: 1540,
         vel_agua: 550,
         vel_ar: null,
         crescimento: 38,
         dieta: "🥩",
         slots: 2.5,
         ativas: {
-            skill1: 672
+            skill1: { dano: 672, tr: 20 },
         }
     },
+    // Amargasaurus
     {
         nome: "Amargasaurus cazaui",
         classe: 1,
@@ -29,17 +32,39 @@ const dinosData = [
         dano_base: 250,
         fratura: 5,
         sangramento: 20,
-        vel_terra: 1390,
+        vel_terra: 1400,
         vel_agua: 500,
         vel_ar: null,
         crescimento: 48,
         dieta: "🌿",
         slots: 2.5,
         ativas: {
-            skill1: null,
-            skill2: 300
+            skill1: { dano: null },
+            skill2: { dano: 300 }
         }
     },
+    // Ankylosaurus
+    {
+        nome: "Ankylosaurus magniventris",
+        classe: 1,
+        tier: 5,
+        peso: 1650,
+        hp: 4250,
+        dano_base: 340,
+        fratura: 25,
+        sangramento: 0,
+        vel_terra: 1000,
+        vel_agua: 400,
+        vel_ar: null,
+        crescimento: 39,
+        dieta: "🌿",
+        slots: 2.5,
+        ativas: {
+            skill1: { dano: "indefinido" },
+            skill2: { dano: 492, tr: 0 }
+        }
+    },
+    // Austroraptor
     {
         nome: "Austroraptor cabazai",
         classe: 2,
@@ -56,10 +81,11 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2,
         ativas: {
-            skill1: 200,
-            skill2: null
+            skill2: { dano: null, tr:10 },
+            skill1: { dano: 200, tr:15 }
         }
     },
+    // Barbaridactylus
     {
         nome: "Barbaridactylus grandis",
         classe: 5,
@@ -76,15 +102,16 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2,
         ativas: {
-            skill1: null
+            skill1: { dano: null }
         }
     },
+    // Carnotaurus
     {
         nome: "Carnotaurus satrei",
         classe: 2,
         tier: 3,
         peso: 1350,
-        hp: 3000,
+        hp: 3170,
         dano_base: 200,
         fratura: 0,
         sangramento: 24,
@@ -95,10 +122,11 @@ const dinosData = [
         dieta: "🥩",
         slots: 2.5,
         ativas: {
-            skill1: 560,
-            skill2: 245
+            skill1: { dano: 560, tr: 20 },
+            skill2: { dano: 245 }
         }
     },
+    // Changyuraptor
     {
         nome: "Changyuraptor yangi",
         classe: 2,
@@ -115,13 +143,11 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 1,
         ativas: {
-            skill1: null,
-            skill2: null,
-            skill3: null,
-            skill4: null,
-            skill5: null
+            skill1: { dano: null }/*TR: 15, dura: null*/,
+            skill2: { dano: null } /*TR: 20, dura: null*/,
         }
     },
+    // Ceratosaurus
     {
         nome: "Ceratosaurus nasicornis",
         classe: 2,
@@ -138,9 +164,10 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2.5,
         ativas: {
-            skill1: 616
+            skill1: { dano: 616, tr: 20}
         }
     },
+    // Coelophysis
     {
         nome: "Coelophysis bauri",
         classe: 2,
@@ -157,10 +184,11 @@ const dinosData = [
         dieta: "🥩",
         slots: 1,
         ativas: {
-            skill1: 125,
-            skill2: null
+            skill1: { dano: 125, tr: 25},
+            skill2: { dano: null }
         }
     },
+    // Concavenator
     {
         nome: "Concavenator corcovatus",
         classe: 2,
@@ -177,9 +205,31 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2,
         ativas: {
-            skill1: 200
+            skill1: { dano: 200 }
         }
     },
+    // Cristatosaurus
+    {
+        nome: "Cristatosaurus paradoxus",
+        classe: 2,
+        tier: 4,
+        peso: 1450,
+        hp: 3770,
+        dano_base: 220,
+        fratura: 0,
+        sangramento: 28,
+        vel_terra: 1425,
+        vel_agua: 980,
+        vel_ar: null,
+        crescimento: 41,
+        dieta: "🥩🦈",
+        slots: 2.5,
+        ativas: {
+            skill1: { dano: 240 },
+            skill2: { dano: 588, tr: 20 }
+        }
+    },
+    // Deinocheirus
     {
         nome: "Deinocheirus mirificus",
         classe: 1,
@@ -196,10 +246,11 @@ const dinosData = [
         dieta: "🌿🦈",
         slots: 3,
         ativas: {
-            skill1: null,
-            skill2: 812
+            skill1: { dano: null },
+            skill2: { dano: 812, tr: 20 }
         }
     },
+    // Deinonychus
     {
         nome: "Deinonychus antirrhopus",
         classe: 2,
@@ -216,10 +267,11 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 1.5,
         ativas: {
-            skill1: null,
-            skill2: 160
+            skill1: { dano: null },
+            skill2: { dano: 160, tr: 10 }
         }
     },
+    // Dilophosaurus
     {
         nome: "Dilophosaurus wetherilli",
         classe: 2,
@@ -236,10 +288,11 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2,
         ativas: {
-            skill1: 100,
-            skill2: 140
+            skill1: { dano: 100 },
+            skill2: { dano: 140 }
         }
     },
+    // Fasolasuchus
     {
         nome: "Fasolasuchus tenax",
         classe: 2,
@@ -256,10 +309,11 @@ const dinosData = [
         dieta: "🥩",
         slots: 2,
         ativas: {
-            skill1: 245,
-            skill2: 686
+            skill1: { dano: 245 },
+            skill2: { dano: 686, tr:20 }
         }
     },
+    // Giganotosaurus
     {
         nome: "Giganotosaurus carolini",
         classe: 2,
@@ -269,23 +323,24 @@ const dinosData = [
         dano_base: 280,
         fratura: 3,
         sangramento: 34,
-        vel_terra: 1335,
+        vel_terra: 1300,
         vel_agua: 520,
         vel_ar: null,
         crescimento: 48,
         dieta: "🥩",
         slots: 3,
         ativas: {
-            skill1: 320,
-            skill2: "undefined"
+            skill1: { dano: 320, tr: 7 },
+            skill2: { dano: "undefined", tr: 12 }
         }
     },
+    // Gigantoraptor
     {
         nome: "Gigantoraptor erlianensis",
         classe: 1,
         tier: 3,
         peso: 1350,
-        hp: 3100,
+        hp: 3320,
         dano_base: 180,
         fratura: 0,
         sangramento: 15,
@@ -296,10 +351,11 @@ const dinosData = [
         dieta: "🥩🌿",
         slots: 2,
         ativas: {
-            skill1: 250,
-            skill2: 110
+            skill1: { dano: 250 },
+            skill2: { dano: 110 }
         }
     },
+    // Guanlong
     {
         nome: "Guanlong wucaii",
         classe: 2,
@@ -316,10 +372,11 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 1.5,
         ativas: {
-            skill1: null,
-            skill2: 336
+            skill1: { dano: null },
+            skill2: { dano: 336 }
         }
     },
+    // Kentrosaurus
     {
         nome: "Kentrosaurus aethiopicus",
         classe: 1,
@@ -337,16 +394,17 @@ const dinosData = [
         slots: 2,
         fome: 150,
         ativas: {
-            skill1: 0,
-            skill2: null
+            skill1: { dano: 230, tr:35 },
+            skill2: { dano: null }
         }
     },
+    // Megaraptor
     {
         nome: "Megaraptor namunhuaiquii",
         classe: 2,
         tier: 3,
         peso: 1300,
-        hp: 2845,
+        hp: 2745,
         dano_base: 245,
         fratura: 0,
         sangramento: 25,
@@ -357,10 +415,11 @@ const dinosData = [
         dieta: "🥩",
         slots: 2.5,
         ativas: {
-            skill1: null,
-            skill2: 245
+            skill2: { dano: 245 },
+            skill1: { dano: null }
         }
     },
+    // Ornithomimus
     {
         nome: "Ornithomimus velox",
         classe: 1,
@@ -377,10 +436,11 @@ const dinosData = [
         dieta: "🌿",
         slots: 1,
         ativas: {
-            skill1: null,
-            skill2: 150
+            skill1: { dano: null },
+            skill2: { dano: 150, tr: 10 }
         }
     },
+    // Pachycephalosaurus
     {
         nome: "Pachycephalosaurus wyomingensis",
         classe: 1,
@@ -397,10 +457,11 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 518,
-            skill2: 457
+            skill1: { dano: 518, tr: 20 },
+            skill2: { dano: 457, tr: 45 }
         }
     },
+    // Pachyrhinosaurus
     {
         nome: "Pachyrhinosaurus canadensis",
         classe: 3,
@@ -417,18 +478,19 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 618,
-            skill2: "indefinido"
+            skill1: { dano: 618 },
+            skill2: { dano: "indefinido" }
         }
     },
+    // Parasaurolophus
     {
         nome: "Parasaurolophus walkeri",
         classe: 1,
         tier: 4,
         peso: 1550,
-        hp: 3600,
+        hp: 3720,
         dano_base: 200,
-        fratura: 7,
+        fratura: 9,
         sangramento: 0,
         vel_terra: 1500,
         vel_agua: 500,
@@ -437,10 +499,11 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 350,
-            skill2: null
+            skill1: { dano: 350, tr: 7 },
+            skill2: { dano: null }
         }
     },
+    // Plateosaurus
     {
         nome: "Plateosaurus trossingensis",
         classe: 1,
@@ -457,9 +520,10 @@ const dinosData = [
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 220
+            skill1: { dano: 220 }
         }
     },
+    // Psittacosaurus
     {
         nome: "Psittacosaurus sibiricus",
         classe: 1,
@@ -476,9 +540,10 @@ const dinosData = [
         dieta: "🌿",
         slots: 1,
         ativas: {
-            skill1: null
+            skill1: { dano: null } /*tr: 40, dura: 22*/
         }
     },
+    // Quetzalcoatlus
     {
         nome: "Quetzalcoatlus northropi",
         tier: 2,
@@ -495,9 +560,10 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 3,
         ativas: {
-            skill1: 160
+            skill1: { dano: 160 }
         }
     },
+    // Sarcosuchus
     {
         nome: "Sarcosuchus imperator",
         classe: 2,
@@ -514,19 +580,20 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 2.5,
         ativas: {
-            skill1: 300,
-            skill2: 350
+            skill1: { dano: 300 },
+            skill2: { dano: 350 }
         }
     },
+    // Spinosaurus
     {
         nome: "Spinosaurus aegyptiacus",
         classe: 2,
         tier: 5,
         peso: 1750,
-        hp: 4440,
+        hp: 4495,
         dano_base: 265,
-        fratura: 2,
-        sangramento: 25,
+        fratura: 1,
+        sangramento: 29,
         vel_terra: 1250,
         vel_agua: 1250,
         vel_ar: null,
@@ -534,19 +601,20 @@ const dinosData = [
         dieta: "🥩🦈",
         slots: 3,
         ativas: {
-            skill1: 180,
-            skill2: 265
+            skill1: { dano: 180 },
+            skill2: { dano: 265 }
         }
     },
+    // Stegosaurus
     {
         nome: "Stegosaurus ungulatus",
         classe: 1,
         tier: 4,
         peso: 1500,
         hp: 3900,
-        dano_base: 300,
-        fratura: 6,
-        sangramento: 18,
+        dano_base: 325,
+        fratura: 10,
+        sangramento: 22,
         vel_terra: 1310,
         vel_agua: 450,
         vel_ar: null,
@@ -554,90 +622,53 @@ const dinosData = [
         dieta: "🌿",
         slots: 3,
         ativas: {
-            skill1: 488,
-            skill2: 350
+            skill1: { dano: 488 },
+            skill2: { dano: 350 }
         }
     },
+    // Styracosaurus
     {
         nome: "Styracosaurus albertensis",
         tier: 3,
         classe: 3,
         peso: 1400,
-        hp: 3000,
-        dano_base: 220,
+        hp: 2925,
+        dano_base: 235,
         fratura: 0,
-        sangramento: 23,
-        vel_terra: 1450,
+        sangramento: 27,
+        vel_terra: 1490,
         vel_agua: 500,
         vel_ar: null,
         crescimento: 39,
         dieta: "🌿",
         slots: 2,
         ativas: {
-            skill1: 270,
-            skill2: 300
+            skill1: { dano: 270 },
+            skill2: { dano: 300 }
         }
     },
-    {
-        nome: "Suchomimus tenerensis",
-        classe: 2,
-        tier: 4,
-        peso: 1450,
-        hp: 3700,
-        dano_base: 210,
-        fratura: 2,
-        sangramento: 25,
-        vel_terra: 1425,
-        vel_agua: 850,
-        vel_ar: null,
-        crescimento: 41,
-        dieta: "🥩🦈",
-        slots: 2.5,
-        ativas: {
-            skill1: 240,
-            skill2: 588
-        }
-    },
-    {
-        nome: "Tarchia kielanae",
-        classe: 1,
-        tier: 4,
-        peso: 1500,
-        hp: 3735,
-        dano_base: 325,
-        fratura: 25,
-        sangramento: 0,
-        vel_terra: 1215,
-        vel_agua: 400,
-        vel_ar: null,
-        crescimento: 39,
-        dieta: "🌿",
-        slots: 2.5,
-        ativas: {
-            skill1: "indefinido",
-            skill2: null
-        }
-    },
+    // Therizinosaurus
     {
         nome: "Therizinosaurus cheloniformis",
         classe: 1,
         tier: 4,
         peso: 1500,
-        hp: 3700,
+        hp: 3830,
         dano_base: 305,
         fratura: 0,
-        sangramento: 19,
-        vel_terra: 1365,
+        sangramento: 23,
+        vel_terra: 1380,
         vel_agua: 450,
         vel_ar: null,
         crescimento: 48,
         dieta: "🌿",
         slots: 2.5,
         ativas: {
-            skill1: 150,
-            skill2: 896
+            skill1: { dano: 150 },
+            skill2: { dano: 896, tr: 20 }
         }
     },
+    // Triceratops
     {
         nome: "Triceratops horridus",
         classe: 3,
@@ -654,16 +685,17 @@ const dinosData = [
         dieta: "🌿",
         slots: 3,       
         ativas: {
-            skill1: 668,
-            skill2: 350
+            skill1: { dano: 668 },
+            skill2: { dano: 350 }
         }  
     },
+    // Tyrannosaurus
     {
         nome: "Tyrannosaurus rex",
         classe: 2,
         tier: 5,
         peso: 1750,
-        hp: 4500,
+        hp: 4560,
         dano_base: 340,
         fratura: 22,
         sangramento: 4,
@@ -674,8 +706,23 @@ const dinosData = [
         dieta: "🥩",
         slots: 3,
         ativas: {
-            skill1: null,
-            skill2: 400 
+            skill1: { dano: null },
+            skill2: { dano: 400 }
         }
     }
-];
+    ];
+
+    // Validador de schema simples para garantir a integridade dos dados e tipos corretos
+    function validateDinosSchema(data) {
+        if (!Array.isArray(data)) return [];
+        return data.map(dino => {
+            if (typeof dino.nome !== "string") console.warn("Dado inválido: nome ausente ou incorreto em dinossauro.", dino);
+            if (dino.tier !== undefined && typeof dino.tier !== "number") console.warn(`Dado inválido: tier incorreto para ${dino.nome}`);
+            if (dino.hp !== undefined && typeof dino.hp !== "number") console.warn(`Dado inválido: hp incorreto para ${dino.nome}`);
+            if (dino.peso !== undefined && typeof dino.peso !== "number") console.warn(`Dado inválido: peso incorreto para ${dino.nome}`);
+            return dino;
+        });
+    }
+
+    window.dinosData = validateDinosSchema(rawDinosData);
+})();

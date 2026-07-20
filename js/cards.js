@@ -1,35 +1,78 @@
-const cardsDinoDatabaseReady = window.dinoDatabaseReady || fetch("data/dinoDataBase.json")
+/**
+ * js/cards.js
+ * Script responsável por buscar os dados, construir e renderizar os cards da galeria.
+ */
+
+const cardsDinoDatabaseReady = window.dinoDatabaseReady || fetch("data/dinoDataBase.json", { credentials: 'omit' })
     .then(response => {
         if (!response.ok) {
             throw new Error(`HTTP ${response.status}`);
         }
-
         return response.json();
     })
     .catch(error => {
         console.error("Erro ao carregar os dados dos cards:", error);
-        return {};
+        return null;
     });
 
 window.dinoDatabaseReady = cardsDinoDatabaseReady;
 
 let galleryCards = [];
 
+const DIET_ICONS = {
+    herbivoro: "\u{1f33f}", // 🌿
+    carnivoro: "\u{1f969}", // 🥩
+    peixe: "\u{1f988}"      // 🦈
+};
+
 const DIET_GROUPS = {
     herbivoros: {
         id: "diet1",
-        matches: diet => diet.includes("\u{1f33f}") && !diet.includes("\u{1f969}") && !diet.includes("\u{1f988}")
+        matches: diet => diet.includes(DIET_ICONS.herbivoro) && !diet.includes(DIET_ICONS.carnivoro) && !diet.includes(DIET_ICONS.peixe)
     },
     carnivoros: {
         id: "diet2",
-        matches: diet => diet.includes("\u{1f969}") && !diet.includes("\u{1f33f}")
+        matches: diet => diet.includes(DIET_ICONS.carnivoro) && !diet.includes(DIET_ICONS.herbivoro)
     },
     onivoros: {
         id: "diet3",
-        matches: diet => diet.includes("\u{1f33f}") && (diet.includes("\u{1f969}") || diet.includes("\u{1f988}"))
+        matches: diet => diet.includes(DIET_ICONS.herbivoro) && (diet.includes(DIET_ICONS.carnivoro) || diet.includes(DIET_ICONS.peixe))
     }
 };
 
+// Cache de seletores de contêineres do DOM
+let cachedContainers = null;
+
+/**
+ * Obtém e faz cache dos contêineres DOM das listas de cards.
+ * @returns {Object} Contêineres cacheados
+ */
+function getContainers() {
+    if (!cachedContainers) {
+        cachedContainers = {
+            todos: document.querySelector("#todos .linha-racas"),
+            tiers: {
+                1: document.querySelector("#tier1 .linha-racas"),
+                2: document.querySelector("#tier2 .linha-racas"),
+                3: document.querySelector("#tier3 .linha-racas"),
+                4: document.querySelector("#tier4 .linha-racas"),
+                5: document.querySelector("#tier5 .linha-racas")
+            },
+            diets: {
+                herbivoros: document.querySelector("#diet1 .linha-racas"),
+                carnivoros: document.querySelector("#diet2 .linha-racas"),
+                onivoros: document.querySelector("#diet3 .linha-racas")
+            }
+        };
+    }
+    return cachedContainers;
+}
+
+/**
+ * Normaliza o texto removendo acentos e convertendo para letras minúsculas.
+ * @param {string} value - O texto a ser normalizado.
+ * @returns {string} Texto normalizado.
+ */
 function normalizeText(value = "") {
     return String(value)
         .normalize("NFD")
@@ -38,37 +81,75 @@ function normalizeText(value = "") {
         .trim();
 }
 
+/**
+ * Remove as tags HTML de uma string.
+ * @param {string} value - String contendo HTML.
+ * @returns {string} Texto limpo sem tags HTML.
+ */
 function stripHtml(value = "") {
     const wrapper = document.createElement("div");
     wrapper.innerHTML = value;
     return wrapper.textContent || wrapper.innerText || "";
 }
 
+/**
+ * Obtém a primeira palavra de um texto normalizado (usado para indexar espécies).
+ * @param {string} value - Nome completo ou texto.
+ * @returns {string} Primeira palavra normalizada.
+ */
 function getFirstName(value = "") {
     return normalizeText(value).split(/\s+/)[0] || "";
 }
 
+/**
+ * Retorna os itens da base de dados global dinosData.
+ * @returns {Array} Array de status dos dinossauros.
+ */
 function getStatusItems() {
     return typeof dinosData !== "undefined" && Array.isArray(dinosData) ? dinosData : [];
 }
 
+/**
+ * Constrói um mapa de indexação dos status baseado no primeiro nome.
+ * @returns {Map<string, Object>} Mapa de status.
+ */
 function getStatusIndex() {
     return new Map(getStatusItems().map(status => [getFirstName(status.nome), status]));
 }
 
+/**
+ * Constrói um mapa de indexação do banco de dados baseado no primeiro nome.
+ * @param {Object} database - Objeto JSON contendo as informações.
+ * @returns {Map<string, Object>} Mapa do banco de dados.
+ */
 function getDatabaseIndex(database) {
     return new Map(Object.entries(database).map(([key, info]) => [getFirstName(key), { key, info }]));
 }
 
+/**
+ * Determina o grupo de dieta baseado na string de dieta fornecida.
+ * @param {string} diet - String contendo os ícones da dieta.
+ * @returns {string} Nome do grupo de dieta.
+ */
 function getDietGroup(diet = "") {
     const match = Object.entries(DIET_GROUPS).find(([, group]) => group.matches(diet));
     return match ? match[0] : "carnivoros";
 }
 
+/**
+ * Adapta a imagem do perfil para o modelo 3D correspondente.
+ * @param {string} image - Caminho da imagem original.
+ * @returns {string} Caminho da imagem modificada.
+ */
 function getCardImage(image = "") {
     return image.includes("perfil") ? image.replace("perfil", "model") : image;
 }
 
+/**
+ * Obtém a string de pesquisa combinada de um card.
+ * @param {Object} card - Objeto do card.
+ * @returns {string} Texto de busca normalizado.
+ */
 function getCardSearchText(card) {
     return normalizeText([
         card.name,
@@ -76,6 +157,11 @@ function getCardSearchText(card) {
     ].join(" "));
 }
 
+/**
+ * Constrói a estrutura de dados de um card de galeria.
+ * @param {Object} params - Parâmetros contendo chave, info do JSON e status global.
+ * @returns {Object} Objeto do card estruturado.
+ */
 function buildGalleryCard({ key, info, status }) {
     const name = info.shortName || key;
     const fullName = status?.nome || stripHtml(info.fullName) || name;
@@ -100,6 +186,11 @@ function buildGalleryCard({ key, info, status }) {
     return card;
 }
 
+/**
+ * Constrói a lista completa de cards mesclando dinosData e o arquivo JSON.
+ * @param {Object} database - Banco de dados JSON.
+ * @returns {Array<Object>} Lista de cards ordenados.
+ */
 function buildGalleryCards(database = {}) {
     const statusIndex = getStatusIndex();
     const databaseIndex = getDatabaseIndex(database);
@@ -108,7 +199,6 @@ function buildGalleryCards(database = {}) {
 
     getStatusItems().forEach(status => {
         const databaseEntry = databaseIndex.get(getFirstName(status.nome));
-
         if (!databaseEntry) return;
 
         usedKeys.add(databaseEntry.key);
@@ -129,12 +219,18 @@ function buildGalleryCards(database = {}) {
         }));
     });
 
-    // Organiza todos os cards em ordem alfabética pelo nome
+    // Organiza todos os cards em ordem alfabética pelo nome (garante consistência na listagem)
     cards.sort((a, b) => a.name.localeCompare(b.name));
 
     return cards;
 }
 
+/**
+ * Cria o elemento DOM do card do dinossauro.
+ * @param {Object} cardData - Dados do card.
+ * @param {string} idSuffix - Sufixo opcional para evitar colisão de IDs nas abas.
+ * @returns {HTMLElement} Elemento da coluna contendo o card.
+ */
 function createDinoCard(cardData, idSuffix = "") {
     const column = document.createElement("div");
     column.className = "col-md-4 gallery-card-item";
@@ -173,9 +269,14 @@ function createDinoCard(cardData, idSuffix = "") {
     return column;
 }
 
+/**
+ * Obtém ou cria a mensagem de estado vazio, garantindo que apenas uma exista.
+ * @param {HTMLElement} container - Contêiner dos cards.
+ * @returns {HTMLElement} Elemento da mensagem de vazio.
+ */
 function getOrCreateEmptyMessage(container) {
     const parent = container.parentElement;
-    let message = Array.from(parent.children).find(child => child.classList.contains("gallery-empty"));
+    let message = parent.querySelector(".gallery-empty");
 
     if (!message) {
         message = document.createElement("p");
@@ -187,25 +288,46 @@ function getOrCreateEmptyMessage(container) {
     return message;
 }
 
+/**
+ * Renderiza uma lista de cards em um contêiner utilizando DocumentFragment para performance.
+ * @param {HTMLElement} container - Elemento contêiner.
+ * @param {Array<Object>} cards - Lista de cards.
+ * @param {string} idSuffix - Sufixo para IDs.
+ */
 function renderCardsInContainer(container, cards, idSuffix) {
     if (!container) return;
 
     container.innerHTML = "";
+    const fragment = document.createDocumentFragment();
     cards.forEach(card => {
-        container.appendChild(createDinoCard(card, idSuffix));
+        fragment.appendChild(createDinoCard(card, idSuffix));
     });
+    container.appendChild(fragment);
 
     getOrCreateEmptyMessage(container);
 }
 
+/**
+ * Renderiza todos os cards nas respectivas seções e trata erros de rede/banco vazio.
+ * @param {Object} database - Banco de dados JSON.
+ */
 function renderDinoCards(database = {}) {
+    const containers = getContainers();
+
+    if (!database || Object.keys(database).length === 0) {
+        if (containers.todos) {
+            containers.todos.innerHTML = "<p class='error-message gallery-empty' style='display:block;'>Falha ao carregar os dados dos dinossauros. Tente novamente mais tarde.</p>";
+        }
+        return;
+    }
+
     galleryCards = buildGalleryCards(database);
 
-    renderCardsInContainer(document.querySelector("#todos .linha-racas"), galleryCards, "");
+    renderCardsInContainer(containers.todos, galleryCards, "");
 
     for (let tier = 1; tier <= 5; tier += 1) {
         renderCardsInContainer(
-            document.querySelector(`#tier${tier} .linha-racas`),
+            containers.tiers[tier],
             galleryCards.filter(card => card.tier === tier),
             `tier${tier}`
         );
@@ -213,7 +335,7 @@ function renderDinoCards(database = {}) {
 
     Object.entries(DIET_GROUPS).forEach(([groupName, group]) => {
         renderCardsInContainer(
-            document.querySelector(`#${group.id} .linha-racas`),
+            containers.diets[groupName],
             galleryCards.filter(card => card.dietGroup === groupName),
             group.id
         );
@@ -222,6 +344,9 @@ function renderDinoCards(database = {}) {
     applyGallerySearch(document.getElementById("dinoEspecifico")?.value || "");
 }
 
+/**
+ * Atualiza a visibilidade das mensagens de estado vazio.
+ */
 function updateEmptyMessages() {
     document.querySelectorAll(".linha-racas").forEach(container => {
         const hasVisibleCards = Array.from(container.querySelectorAll(".gallery-card-item"))
@@ -231,6 +356,10 @@ function updateEmptyMessages() {
     });
 }
 
+/**
+ * Filtra a galeria com base no termo de busca.
+ * @param {string} term - Termo pesquisado.
+ */
 function applyGallerySearch(term = "") {
     const normalizedTerm = normalizeText(term);
 
@@ -242,12 +371,28 @@ function applyGallerySearch(term = "") {
     updateEmptyMessages();
 }
 
+let searchTimeout = null;
+
+/**
+ * Versão com debounce da busca para evitar processamento excessivo a cada tecla digitada.
+ * @param {string} term - Termo pesquisado.
+ */
+function debouncedGallerySearch(term = "") {
+    if (searchTimeout) clearTimeout(searchTimeout);
+    searchTimeout = setTimeout(() => {
+        applyGallerySearch(term);
+    }, 200);
+}
+
+/**
+ * Executa o callback quando o DOM estiver pronto.
+ * @param {Function} callback - Função callback.
+ */
 function whenDocumentIsReady(callback) {
     if (document.readyState === "loading") {
         document.addEventListener("DOMContentLoaded", callback, { once: true });
         return;
     }
-
     callback();
 }
 
@@ -258,52 +403,46 @@ const dinoCardsReady = cardsDinoDatabaseReady.then(database => new Promise(resol
     });
 }));
 
-function ordemPeso(){
+/**
+ * Alterna a ordenação por peso usando a propriedade CSS order para evitar layout thrashing.
+ */
+function ordemPeso() {
     const toggle = document.getElementById("toggleOrdem");
     const labelTexto = document.getElementById("ordemPeso");
+    if (!toggle || !labelTexto) return;
+
     const isDecrescente = toggle.checked;
-
-    // 2. Atualiza o texto do Switch
     labelTexto.textContent = isDecrescente ? "Decrescente" : "Crescente";
-
-    // 3. Obtém o índice de status gerado pelo seu script 
-    // Isso cria um Map ligando o 'primeiro nome' ao objeto completo no dinosData
     const statusIndex = getStatusIndex();
 
-    // 4. Itera sobre todas as divs contêineres dos cards (Aba todos, Tiers e Dietas)
     document.querySelectorAll(".linha-racas").forEach(container => {
-        
-        // Converte os NodeLists de cards num Array para usar o método .sort()
         const cards = Array.from(container.querySelectorAll(".gallery-card-item"));
 
         cards.sort((a, b) => {
-            // Acessa o elemento <article> interno para resgatar o data-dino
             const articleA = a.querySelector(".card-raca");
             const articleB = b.querySelector(".card-raca");
 
-            // Extrai as keys usando a sua própria função de normalização
             const keyA = articleA ? getFirstName(articleA.dataset.dino) : "";
             const keyB = articleB ? getFirstName(articleB.dataset.dino) : "";
 
-            // Busca as informações completas no dinosData
             const statusA = statusIndex.get(keyA);
             const statusB = statusIndex.get(keyB);
 
-            // Evita erros garantindo que o peso é um número ou cai para 0 caso falte a informação
             const pesoA = statusA ? Number(statusA.peso) || 0 : 0;
             const pesoB = statusB ? Number(statusB.peso) || 0 : 0;
 
-            // Retorna a ordem correta baseada no toggle
             return isDecrescente ? pesoB - pesoA : pesoA - pesoB;
         });
 
-        // 5. Reanexa os cards ordenados. 
-        // Nota: O método appendChild em um elemento que já existe no DOM o move 
-        // para a nova posição sem duplicá-lo e de maneira muito performática.
-        cards.forEach(card => container.appendChild(card));
+        // Utiliza a propriedade CSS order para reordenar sem manipular posições pesadas no DOM
+        cards.forEach((card, index) => {
+            card.style.order = index;
+        });
     });
 }
 
 window.renderDinoCards = renderDinoCards;
 window.applyGallerySearch = applyGallerySearch;
+window.debouncedGallerySearch = debouncedGallerySearch;
 window.dinoCardsReady = dinoCardsReady;
+window.getGalleryCards = () => galleryCards;

@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCDI | Status</title>
+    <script>
+        if(localStorage.getItem('light') === 'active'){
+            document.documentElement.classList.add('light');
+        }
+    </script>
     <link href="img/logo.svg" rel="icon">   
     <link rel="stylesheet" href="css/reset.css">    
     <link rel="stylesheet" href="css/cabecalho.css">
@@ -147,7 +152,6 @@
                     </section>
         </section>
     </main>
-
     <footer class="rodape">
         <div class="rodape-conteudo">
             <div class="rodape-logo">
@@ -176,9 +180,9 @@
         </div>
     </footer>
 
-    <script src="data/data.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/status.js"></script>
-    <script src="js/compare.js"></script>
+    <script src="data/data.js" defer></script>
+    <script src="js/index.js" defer></script>
+    <script src="js/status.js" defer></script>
+    <script src="js/compare.js" defer></script>
 </body>
 </html>
