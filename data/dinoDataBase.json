@@ -43,7 +43,7 @@
       "corgema": "40",
       "cormoeda": "6000",
       "fotinha": "300",
-      "group": "2.5 slots",
+      "group": "2 slots",
       "growth": "38 min",
       "price": "650",
       "skin1": "-",
@@ -130,13 +130,13 @@
       },
       {
         "desc": "Quando seu dinossauro está com HP baixo, seu effect e chance de fraturar aumentam.",
-        "effect": "+48 dano, +7,5% fratura",
+        "effect": "+ dano, +7,5% fratura",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       },
       {
         "desc": "Seu dinossauro possui uma chance de ignorar 1 ponto de efeito sofrido.",
-        "effect": null,
+        "effect": "-1 efeito de sangramento ou fratura",
         "icon": "img/skill/escudoosseo.png",
         "title": "Escudo Ósseo"
       }
@@ -160,7 +160,6 @@
   },
   "Austroraptor": {
     "actives": [
-      
       {
         "desc": "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa.",
         "effect": "-15% defesa inimiga durante 20 segundos. Dano base: 200, recarga em 15s.",
@@ -311,7 +310,7 @@
       "corgema": "25",
       "cormoeda": "2500",
       "fotinha": "150",
-      "group": "2.5 slots",
+      "group": "2 slots",
       "growth": "29 min",
       "price": "90000",
       "skin1": "-",
@@ -364,7 +363,7 @@
     }
   },
   "Changyuraptor": {
-    "actives": [      
+    "actives": [
       {
         "desc": "Capaz de escalar ao precionar salto próximo a uma superfície adequada.",
         "effect": "",
@@ -706,7 +705,7 @@
         "effect": "-15% velocidade. Dano base: 245",
         "icon": "img/skill/capturarf.png",
         "title": "Capturar"
-      }      
+      }
     ],
     "desc": "Um poderoso arcossauro predador, considerado o maior rauisuquiano que ja existiu.",
     "diet": "🥩",
@@ -766,25 +765,13 @@
     "image": "img/pict/gigaperfil.png",
     "passives": [
       {
-        "desc": "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento.",
-        "effect": "Até +4% chance de sangramento",
+        "desc": "Se você infrigir sangramento a um inimigo ganha buffs temporários.",
+        "effect": "+4% velocidade, -10% consumo de vigor.",
         "icon": "img/skill/sedesangue.png",
         "title": "Sede de Sangue"
       },
       {
-        "desc": "Quando os membros da matilha estão perto de você, sua defesa aumenta.",
-        "effect": "+7% defesa",
-        "icon": "img/skill/rebanho.png",
-        "title": "O poder do bando"
-      },
-      {
-        "desc": "Quando seu dinossauro está com pouco HP, o dano e chance de sangrar aumentam.",
-        "effect": "+10% dano, +8,5% chance de sangramento",
-        "icon": "img/skill/poucohp.png",
-        "title": "Surto de poder"
-      },
-      {
-        "desc": "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na defesa.",
+        "desc": "Ser atacado por um inimigo dentro de um curto período de tempo após o ataque anterior encadeará um aumento temporário na sua defesa.",
         "effect": "Até +5% defesa",
         "icon": "img/skill/furia.png",
         "title": "Fúria insaciável"
@@ -1300,7 +1287,7 @@
         "title": "Surto de poder"
       },
       {
-        "desc": "Quando perto de seu ninho, seu dano aumenta para cada ovo nele.",
+        "desc": "Quando perto de seu ninho, seu dano aumenta para cada ovo nele, o consumo de fome  e sede é reduzido.",
         "effect": "Até: +30 dano",
         "icon": "img/skill/ninho.png",
         "title": "Instinto materno"
@@ -1323,7 +1310,7 @@
       "skin2": "70"
     }
   },
-  "Quetzalcoatlus": {  
+  "Quetzalcoatlus": {
     "actives": [
       {
         "desc": "Seu dinossauro agarra uma presa com o bico podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
@@ -1408,8 +1395,8 @@
         "title": "Surto de poder"
       },
       {
-        "desc": "quando seu dinossauro nada, sua defesa aumenta.",
-        "effect": "+10% defesa",
+        "desc": "quando seu dinossauro nada, sua defesa e dano aumentam.",
+        "effect": "+25% defesa, +10% dano",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
       }
@@ -1459,8 +1446,8 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Quando seu dinossauro nada, a defesa aumenta.",
-        "effect": "+15% defesa",
+        "desc": "Quando seu dinossauro nada, o dano aumenta.",
+        "effect": "+15% defesa e +8% dano, dura 25s mesmo após sair da água.",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
       },
@@ -1590,7 +1577,7 @@
       "skin2": "250"
     }
   },
-  "Suchomimus": {
+  "Cristatusaurus": {
     "actives": [
       {
         "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
@@ -1599,7 +1586,7 @@
         "title": "Ataque Carregado"
       },
       {
-        "desc": "O dinossauro faz dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
+        "desc": "O dinossauro realiza dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
         "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Garras Afiadas"
@@ -1607,9 +1594,9 @@
     ],
     "desc": "Espinossaurídeo baryonichinae de grande porte, teoriza-se ser um dos mais terrestres de sua família.",
     "diet": "🥩🦈",
-    "fullName": "SUCHOMIMUS<br>TENERENSIS",
-    "idStatus": "sucho",
-    "image": "img/pict/suchoperfil.png",
+    "fullName": "CRISTATUSAURUS<br>PARADOXUS",
+    "idStatus": "crista",
+    "image": "img/pict/cristaperfil.png",
     "passives": [
       {
         "desc": "Quando os membros da matilha estão perto de você, sua defesa é aumentada.",
@@ -1618,8 +1605,8 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Quando seu dinossauro nada, seu dano aumenta.",
-        "effect": "+31 dano",
+        "desc": "Quando seu dinossauro nada, sua velocidade aumenta e o custo de vigor é reduzido.",
+        "effect": "+5% velocidade, -20% gasto de vigor",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
       },
@@ -1635,7 +1622,7 @@
       "price": "moeda"
     },
     "release": "02 / 04 / 2025",
-    "shortName": "Suchomimus",
+    "shortName": "Cristatusaurus",
     "stats": {
       "corgema": "20",
       "cormoeda": "2000",

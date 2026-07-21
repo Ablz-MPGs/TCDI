@@ -377,8 +377,8 @@ const versoesBalanceamento = {
             "sangramento": 23,
             "fratura": 0
         },
-        "Suchomimus": {
-            "nome": "Suchomimus",
+        "Cristatusaurus": {
+            "nome": "Cristatusaurus",
             "hp": 3700,
             "dano": 210,
             "pesoCombate": 1450,
@@ -850,8 +850,8 @@ const versoesBalanceamento = {
             "fratura": "0",
             "pesoSugerido": "2750"
         },
-        "Suchomimus": {
-            "nome": "Suchomimus",
+        "Cristatusaurus": {
+            "nome": "Cristatusaurus",
             "hp": "3800",
             "dano": "235",
             "pesoCombate": "1550",
