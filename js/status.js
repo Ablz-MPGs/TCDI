@@ -145,7 +145,7 @@ const NOMES_ATAQUE = {
 const NOMES_DEFESA = {
     1: 'Cauda',
     2: 'Corpo',
-    3: 'Cabeca'
+    3: 'Cabeça'
 };
 
 function ehDanoValido(valor) {
@@ -156,8 +156,8 @@ function obterDanoAtaque(atacante, tipoAtaque) {
     const ativas = atacante.ativas || {};
     const ATAQUE_DANO = {
         1: atacante.dano_base,
-        2: ativas.skill1,
-        3: ativas.skill2
+        2: ativas.skill1.dano,
+        3: ativas.skill2.dano
     };
 
     const avisos = [];

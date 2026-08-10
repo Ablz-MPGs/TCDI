@@ -9,13 +9,13 @@ Deinocheirus mirificus: HP: 4375, Dano base: 250, Fratura: 4%, Sangramento: 28-3
 Ankylosaurus magniventris: HP: 4250, Dano base: 340-3, Fratura: 25-32%, Sangramento: 0%, Vel. terra: 1000, Vel. água: 400, Vel. ar: N/A
 
 Tiers 4
-Stegosaurus ungulatus: HP: 3900, Dano base: 300, Fratura: 6%, Sangramento: 18-20%, Vel. terra: 1310, Vel. água: 450, Vel. ar: N/A
+Stegosaurus ungulatus: HP: 3900, Dano base: 300, Fratura: 6%, Sangramento: 22-%, Vel. terra: 1310, Vel. água: 450, Vel. ar: N/A
 Therizinosaurus cheloniformis: HP: 3700, Dano base: 305-350, Fratura: 0%, Sangramento: 19-22%, Vel. terra: 1365, Vel. água: 450, Vel. ar: N/A
 Parasaurolophus walkeri: HP: 3600, Dano base: 200, Fratura: 7%, Sangramento: 0%, Vel. terra: 1500-1544, Vel. água: 500-525, Vel. ar: N/A
 Cristatusaurus paradoxos: HP: 3700, Dano base: 210-241, Fratura: 2%, Sangramento: 25%, Vel. terra: 1425, Vel. água: 850, Vel. ar: N/A
 Sarcosuchus imperator: HP: 3650, Dano base: 300, Fratura: 11-12%, Sangramento: 21%, Vel. terra: 1100, Vel. água: 2100, Vel. ar: N/A
 Amargasaurus cazaui: HP: 4000, Dano base: 250, Fratura: 5%, Sangramento: 20-25%, Vel. terra: 1390, Vel. água: 500, Vel. ar: N/A
-Pachyrhinosaurus canadensis: HP: 3600, Dano base: 250, Fratura: 13%, Sangramento: 0%, Vel. terra: 1370-1438 / 1712-1780, Vel. água: 500-525 / 625-650, Vel. ar: N/A
+Pachyrhinosaurus canadensis: HP: 3600, Dano base: 250, Fratura: 15%, Sangramento: 0%, Vel. terra: 1370-1438 / 1712-1780, Vel. água: 500-525 / 625-650, Vel. ar: N/A
 Plateosaurus trossingensis: HP: 3450, Dano base: 180, Fratura: 0%, Sangramento: 10%, Vel. terra: 1500-1574, Vel. água: 700-734, Vel. ar: N/A
 
 Tiers 3

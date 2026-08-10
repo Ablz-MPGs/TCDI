@@ -60,7 +60,7 @@
             dieta: "🌿",
             slots: 2.5,
             ativas: {
-                skill1: { dano: "indefinido" },
+                skill1: { dano: null },
                 skill2: { dano: 492, tr: 0 }
             }
         },
@@ -331,7 +331,7 @@
             slots: 3,
             ativas: {
                 skill1: { dano: 400, tr: 9 },
-                skill2: { dano: "undefined", tr: 12 } //efeito de lentidão por 5s?
+                skill2: { dano: null, tr: 12 } //efeito de lentidão por 5s?
             }
         },
         // Gigantoraptor
