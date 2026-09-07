@@ -101,6 +101,7 @@ function obterStatusDino(chaveDino) {
  * @returns {string} Descrição do efeito da habilidade
  */
 function obterEfeitoAtiva(chaveDino, indiceAtiva) {
+
     const statusDino = obterStatusDino(chaveDino);
     if (!statusDino?.ativas) return null;
 
@@ -229,14 +230,22 @@ function preencherModalDino(chaveDino, dados) {
     }
     if (containerAtivas) {
         containerAtivas.innerHTML = (dados.actives || []).map((habilidade, indice) => {
-            const efeitoFinal = habilidade.effect != null && habilidade.effect !== ""
-                ? habilidade.effect
-                : obterEfeitoAtiva(chaveDino, indice);
+            if(habilidade.icon === "img/skill/investida.png") {
+                const efeitoFinal1 = `+25% velocidade, +15% consumo de vigor. Dano base máximo ${obterEfeitoAtiva(chaveDino, indice)}`;
+                return criarHtmlHabilidade({
+                    ...habilidade,
+                    effect: efeitoFinal1
+                });
+            } else{
+                const efeitoFinal = habilidade.effect != null && habilidade.effect !== "" 
+                    ? habilidade.effect
+                    : obterEfeitoAtiva(chaveDino, indice);
 
-            return criarHtmlHabilidade({
-                ...habilidade,
-                effect: efeitoFinal
-            });
+                return criarHtmlHabilidade({
+                    ...habilidade,
+                    effect: efeitoFinal
+                });
+            }
         }).join("");
     }
 

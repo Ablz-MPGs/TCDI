@@ -171,14 +171,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (isActive && dino && dino.ativas) {
                 const skillKey = `skill${index + 1}`;
-                const skillValue = dino.ativas[skillKey];
+                const skillValue = dino.ativas[skillKey]?.dano;
                 const hasValidDamage = skillValue !== undefined
                     && skillValue !== null
                     && skillValue !== ""
                     && String(skillValue).trim().toLowerCase() !== "indefinido"
                     && String(skillValue).trim().toLowerCase() !== "null";
 
-                if (hasValidDamage && (!effectText || effectText === "null" || effectText === "undefined")) {
+                if (hasValidDamage && (!effectText || effectText === "null" || effectText === "undefined"  || effectText === "" )) {
                     effectText = String(skillValue);
                 } else if (typeof effectText === 'string' && effectText.includes(`{${skillKey}}`)) {
                     effectText = effectText.replace(new RegExp(`\\{${skillKey}\\}`, 'g'), String(skillValue ?? ""));

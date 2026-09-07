@@ -19,7 +19,7 @@
             dieta: "🥩",
             slots: 2,
             ativas: {
-                skill1: { dano: 672, tr: 20 },
+                skill1: { dano: 672, tr: 20 }
             }
         },
         // Amargasaurus
@@ -39,8 +39,8 @@
             dieta: "🌿",
             slots: 2.5,
             ativas: {
-                skill1: { dano: undefined, },
-                skill2: { dano: 300, tr: 3.5 }
+                skill1: { dano: 300, tr: 3.5 },
+                skill2: { dano: null }
             }
         },
         // Ankylosaurus
@@ -616,7 +616,7 @@
             fratura: 10,
             sangramento: 22,
             vel_terra: 1310,
-            vel_agua: 450,
+            vel_agua: 500,
             vel_ar: null,
             crescimento: 40,
             dieta: "🌿",

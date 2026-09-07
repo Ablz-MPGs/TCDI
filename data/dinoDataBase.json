@@ -53,16 +53,16 @@
   "Amargasaurus": {
     "actives": [
       {
-        "desc": "O dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa effect em área, com chance de atordoar e empurrar inimigos.",
-        "effect": null,
-        "icon": "img/skill/pisao.png",
-        "title": "Ataque do céu"
-      },
-      {
         "desc": "Um golpe de cauda em área, causa repulsão.",
         "effect": null,
         "icon": "img/skill/cauda.png",
         "title": "Chicote de Cauda"
+      },
+      {
+        "desc": "O dinossauro levanta as patas dianteiras, acumulando energia, e então as bate com força no chão. O golpe causa effect em área, com chance de atordoar e empurrar inimigos.",
+        "effect": null,
+        "icon": "img/skill/pisao.png",
+        "title": "Ataque do céu"
       }
     ],
     "desc": "Sauropode argentino dotado de grandes espihos dorsais, pequeno quando comparado com seus primos.",
@@ -161,16 +161,16 @@
   "Austroraptor": {
     "actives": [
       {
-        "desc": "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa.",
-        "effect": "-15% defesa inimiga durante 20 segundos. Dano base: 200, recarga em 15s.",
-        "icon": "img/skill/mordida.png",
-        "title": "Ataque do céu"
-      },
-      {
         "desc": "Salte para alcançar o inimigo ou escapar velozmente, pode ser usado na água.",
         "effect": "Recarga em 10s",
         "icon": "img/skill/dash.png",
         "title": "Disparada"
+      },
+      {
+        "desc": "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa.",
+        "effect": "-15% defesa inimiga durante 20 segundos. Dano base: 200, recarga em 15s.",
+        "icon": "img/skill/mordida.png",
+        "title": "Ataque do céu"
       }
     ],
     "desc": "Um raptor de grande porte com focinho longo e dentes conicos.",
@@ -1077,7 +1077,7 @@
     "actives": [
       {
         "desc": "O dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade.",
-        "effect": "+25% velocidade, +15% consumo de vigor. Dano base máximo: 457",
+        "effect": null,
         "icon": "img/skill/investidaP.png",
         "title": "Bater"
       },
@@ -1128,7 +1128,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade.",
-        "effect": "+25% velocidade, +15% consumo de vigor. Dano base máximo: 618",
+        "effect": null,
         "icon": "img/skill/investida.png",
         "title": "Bater"
       },
@@ -1689,7 +1689,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro avança, aumentando sua velocidade a cada segundo, ao atingir um inimigo causa dano aumentado, tem chance de infligir fratura e sangramento. Pode repelir e atordoar inimigos, o dano aumenta de acordo com a distância e velocidade.",
-        "effect": "+25% velocidade, +15% consumo de vigor. Dano base máximo: 668",
+        "effect": null,
         "icon": "img/skill/investida.png",
         "title": "Bater"
       },

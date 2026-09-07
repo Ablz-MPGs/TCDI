@@ -156,8 +156,8 @@ function obterDanoAtaque(atacante, tipoAtaque) {
     const ativas = atacante.ativas || {};
     const ATAQUE_DANO = {
         1: atacante.dano_base,
-        2: ativas.skill1.dano,
-        3: ativas.skill2.dano
+        2: ativas.skill1?.dano,
+        3: ativas.skill2?.dano
     };
 
     const avisos = [];
