@@ -41,6 +41,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <th>Velocidade: terra</th>
                             <th>Velocidade: água</th>
                             <th>Velocidade: ar</th>
+                            <th>Peso de combate (relativo)</th>
                         </tr>
                     </thead>
                     <tbody>`;
@@ -57,6 +58,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const dispVelTerra = dino.vel_terra || 'N/A';
                 const dispVelAgua = dino.vel_agua || 'N/A';
                 const dispVelAr = dino.vel_ar || 'N/A';
+                const dispPC = dino.peso || 'N/A';
 
                 html += `
                         <tr id="${idStatus}">
@@ -68,6 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <td>${dispVelTerra}</td>
                             <td>${dispVelAgua}</td>
                             <td>${dispVelAr}</td>
+                            <td>${dispPC}</td>
                         </tr>`;
             });
 

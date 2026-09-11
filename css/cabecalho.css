@@ -2,7 +2,6 @@
    HEADER / NAVEGAÇÃO
    ============================================================ */
 
-/* Cabeçalho fixo principal */
 .cabecalho {
   position: fixed;
   z-index: 1000;
@@ -19,7 +18,6 @@
   border-bottom: 3px solid var(--base);
 }
 
-/* Container da barra de navegação completa */
 .topnav {
   display: flex;
   justify-content: space-between;
@@ -27,7 +25,6 @@
   width: 100%;
 }
 
-/* Logo */
 .logo {
   display: flex;
   align-items: center;
@@ -44,7 +41,6 @@
   border-radius: 25%;
 }
 
-/* Lista de links de navegação */
 .navbar {
   display: flex;
   gap: 20px;
@@ -72,7 +68,6 @@
   font-weight: bold;
 }
 
-/* Menu hambúrguer (mobile) */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -97,7 +92,7 @@
 }
 
 .dropdown-toggle {
-  display: flex;                    /* Garante que align-items funcione */
+  display: flex;                   
   align-items: center;
 }
 

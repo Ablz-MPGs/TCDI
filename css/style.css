@@ -345,11 +345,11 @@ input:checked + .slider::before {
 
 ::-webkit-scrollbar-thumb {
   border-radius: 5px;
-  background: var(--panel);
+  background: var(--accent);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent);
+  background: var(--text-highlight);
 }
 
 

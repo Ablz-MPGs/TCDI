@@ -49,52 +49,6 @@
         </nav>
     </header>
     <main>
-        <section class="containerB" id="comparador">
-        <h1>Comparar Espécies</h1>
-        <h2>Selecione duas criaturas para avaliar seus dados lado a lado</h2>
-
-        <section class="compare-panel" aria-labelledby="compare-controls-title">
-            <h3 id="compare-controls-title">Escolha as espécies</h3>
-            <div class="compare-controls">
-                <label class="select-group" for="species-a">
-                    <span>Espécie A</span>
-                    <select id="species-a"></select>
-                </label>
-
-                <span class="compare-versus" aria-hidden="true">VS</span>
-
-                <label class="select-group" for="species-b">
-                    <span>Espécie B</span>
-                    <select id="species-b"></select>
-                </label>
-            </div>
-        </section>
-
-        <section class="summary-grid" id="summary-grid" aria-live="polite"></section>
-
-        <section class="comparison-section" aria-labelledby="stats-title">
-            <h2 id="stats-title">Atributos</h2>
-            <div class="table-container comparison-table-wrap">
-                <table class="comparison-table">
-                    <thead>
-                        <tr>
-                            <th>Atributo</th>
-                            <th id="table-species-a">Espécie A</th>
-                            <th id="table-species-b">Espécie B</th>
-                            <th>Diferença</th>
-                        </tr>
-                    </thead>
-                    <tbody id="comparison-body"></tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="skills-comparison" aria-labelledby="skills-title">
-            <h2 id="skills-title">Habilidades</h2>
-            <div class="skills-grid" id="skills-grid"></div>
-        </section>
-        </section>
-
         <section class="containerB" id="status-geral" class="texto-info-2">
             <h1>Comparação de status geral</h1>
             <p>Analise os status de cada espécie separadas por seu tier.</p>
@@ -150,6 +104,52 @@
                             <p>O dano atribuído às habilidades ativas é calculado em testes, <a href="balance_tool.html">não</a> possui respaldo oficial.</p>
                         </div>
                     </section>
+        </section>
+
+        <section class="containerB" id="comparador">
+            <h1>Comparar Espécies</h1>
+            <h2>Selecione duas criaturas para avaliar seus dados lado a lado</h2>
+
+            <section class="compare-panel" aria-labelledby="compare-controls-title">
+                <h3 id="compare-controls-title">Escolha as espécies</h3>
+                <div class="compare-controls">
+                    <label class="select-group" for="species-a">
+                        <span>Espécie A</span>
+                        <select id="species-a"></select>
+                    </label>
+
+                    <span class="compare-versus" aria-hidden="true">VS</span>
+
+                    <label class="select-group" for="species-b">
+                        <span>Espécie B</span>
+                        <select id="species-b"></select>
+                    </label>
+                </div>
+            </section>
+
+            <section class="summary-grid" id="summary-grid" aria-live="polite"></section>
+
+            <section class="comparison-section" aria-labelledby="stats-title">
+                <h2 id="stats-title">Atributos</h2>
+                <div class="table-container comparison-table-wrap">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Atributo</th>
+                                <th id="table-species-a">Espécie A</th>
+                                <th id="table-species-b">Espécie B</th>
+                                <th>Diferença</th>
+                            </tr>
+                        </thead>
+                        <tbody id="comparison-body"></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="skills-comparison" aria-labelledby="skills-title">
+                <h2 id="skills-title">Habilidades</h2>
+                <div class="skills-grid" id="skills-grid"></div>
+            </section>
         </section>
     </main>
     <footer class="rodape">

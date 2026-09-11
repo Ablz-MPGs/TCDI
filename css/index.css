@@ -118,7 +118,7 @@
     max-width: 1200px;
     margin: 0 auto 40px auto;
     padding: 40px 20px;
-    background-color: var(--back);
+    background-color: var(--black);
     border-radius: 14px;
     border-left: 5px solid var(--text-secondary);
 }

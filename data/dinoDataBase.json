@@ -619,7 +619,7 @@
       },
       {
         "desc": "Quando seu dinossauro está com pouco HP, o dano e chance de sangramento aumentam.",
-        "effect": "+24 dano, 4% chance de sangramento",
+        "effect": "+20% dano, 4% chance de sangramento",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       }
@@ -1657,7 +1657,7 @@
     "passives": [
       {
         "desc": "quando seu dinossauro está com pouco HP, seu dano e chance de sangrar aumentam.",
-        "effect": "+45 dano, +15% chance de sangramento",
+        "effect": "+15% dano, +15% chance de sangramento",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       },

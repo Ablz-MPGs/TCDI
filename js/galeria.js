@@ -230,7 +230,7 @@ function preencherModalDino(chaveDino, dados) {
     }
     if (containerAtivas) {
         containerAtivas.innerHTML = (dados.actives || []).map((habilidade, indice) => {
-            if(habilidade.icon === "img/skill/investida.png") {
+            if(habilidade.icon === "img/skill/investida.png" || habilidade.icon === "img/skill/investidaP.png") {
                 const efeitoFinal1 = `+25% velocidade, +15% consumo de vigor. Dano base máximo ${obterEfeitoAtiva(chaveDino, indice)}`;
                 return criarHtmlHabilidade({
                     ...habilidade,
