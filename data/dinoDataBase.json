@@ -295,7 +295,7 @@
       },
       {
         "desc": "Quando há membros da matilha perto de você, seu gasto de vigor é reduzido.",
-        "effect": "--% gasto de vigor",
+        "effect": "Até 2 vezes, -10% gasto de vigor",
         "icon": "img/skill/rebanho.png",
         "title": "O poder do bando"
       }
