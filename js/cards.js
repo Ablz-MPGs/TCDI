@@ -143,7 +143,7 @@ function getDietGroup(diet = "") {
  */
 function getCardImage(image = "") {
     if (image.includes("anky")) {
-        image = image.replace(".png", ".jpg");
+        image = image.replace(".png", ".jpeg");
     }
 
     return image.includes("perfil") ? image.replace("perfil", "model") : image;
