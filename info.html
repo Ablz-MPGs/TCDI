@@ -472,20 +472,85 @@
 
     <div id="mapas" class="tabcontent">
       <section id="mapa" class="map-section">
-            <h1>Mapa do jogo</h1>
-            <p></p>
-            <div class="map-container" id="mapContainer">
-              <div class="map-controls">
-                <button id="zoomIn" title="Aumentar Zoom">+</button>
-                <button id="zoomOut" title="Diminuir Zoom">-</button>
-                <button id="resetZoom" title="Resetar Zoom">⟲</button>
-                <button id="expandMap" title="Expandir/Reduzir Tela Cheia">⛶</button>
-              </div>
-              <div class="map-content" id="mapContent">
-                <img src="img/mapa.jpg" alt="Mapa do jogo The Cursed Dinosaur Isle" id="mapImage" loading="lazy"
-                  draggable="false">
-              </div>
+        <div class="map-header">
+          <h1>Mapa do jogo</h1>
+          <div class="map-selector-group" role="group" aria-label="Seletor de tipo de mapa">
+            <span class="map-selector-label">Tipo de mapa:</span>
+            <div class="map-type-buttons">
+              <button type="button" class="map-type-btn active" data-map="padrao" id="btnMapPadrao" title="Exibir Mapa Padrão">
+                <span class="btn-icon">🗺️</span> Padrão
+              </button>
+              <button type="button" class="map-type-btn" data-map="legendado" id="btnMapLegendado" title="Exibir Mapa Legendado">
+                <span class="btn-icon">📍</span> Legendado
+              </button>
+              <button type="button" class="map-type-btn" data-map="vazio" id="btnMapVazio" title="Exibir Mapa Vazio">
+                <span class="btn-icon">🧭</span> Vazio
+              </button>
             </div>
+          </div>
+        </div>
+
+        <div class="map-container" id="mapContainer">
+          <div class="map-controls">
+            <button id="zoomIn" title="Aumentar Zoom">+</button>
+            <button id="zoomOut" title="Diminuir Zoom">-</button>
+            <button id="resetZoom" title="Resetar Zoom">⟲</button>
+            <button id="expandMap" title="Expandir/Reduzir Tela Cheia">⛶</button>
+          </div>
+
+          <!-- Legenda flutuante durante modo Tela Cheia -->
+          <div id="mapFullscreenLegend" class="map-fullscreen-legend" hidden>
+            <h4>Legenda</h4>
+            <div class="fs-legend-item">
+              <span class="legend-indicator indicator-green"></span>
+              <span class="fs-legend-desc">Descrição do indicador verde</span>
+            </div>
+            <div class="fs-legend-item">
+              <span class="legend-indicator indicator-red"></span>
+              <span class="fs-legend-desc">Descrição do indicador vermelho</span>
+            </div>
+            <div class="fs-legend-item">
+              <span class="legend-indicator indicator-blue"></span>
+              <span class="fs-legend-desc">Descrição do indicador azul</span>
+            </div>
+            <div class="fs-legend-item">
+              <span class="legend-indicator indicator-yellow"></span>
+              <span class="fs-legend-desc">Descrição do indicador amarelo</span>
+            </div>
+          </div>
+
+          <div class="map-content" id="mapContent">
+            <img src="img/mapa.png" alt="Mapa Padrão do jogo The Cursed Dinosaur Isle" id="mapImage" class="map-img" loading="lazy" draggable="false">
+            <img src="img/legendado.png" alt="Mapa Legendado do jogo The Cursed Dinosaur Isle" id="mapLegend" class="map-img" loading="lazy" draggable="false" hidden>
+            <img src="img/vazio.png" alt="Mapa Vazio do jogo The Cursed Dinosaur Isle" id="mapEmpty" class="map-img" loading="lazy" draggable="false" hidden>
+          </div>
+        </div>
+
+        <!-- Campo para legenda (exibido quando o mapa legendado for escolhido) -->
+        <div id="mapLegendField" class="map-legend-field" hidden>
+          <div class="map-legend-header">
+            <h3><span>📍</span> Legenda do Mapa</h3>
+          </div>
+          <!-- Edite a descrição de cada indicador abaixo conforme desejar: -->
+          <div class="map-legend-grid">
+            <div class="map-legend-item">
+              <span class="legend-indicator indicator-green" aria-label="Indicador Verde"></span>
+              <span class="legend-text">Plantas comestíveis</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-indicator indicator-red" aria-label="Indicador Vermelho"></span>
+              <span class="legend-text">Carcaças de cenário</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-indicator indicator-blue" aria-label="Indicador Azul"></span>
+              <span class="legend-text">Pontos de pesca</span>
+            </div>
+            <div class="map-legend-item">
+              <span class="legend-indicator indicator-yellow" aria-label="Indicador Amarelo"></span>
+              <a class="legend-text" href="mecanicas.html#pontoSurgimento">Pontos de surgimento</a>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
 

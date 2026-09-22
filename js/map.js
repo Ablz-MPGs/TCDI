@@ -2,13 +2,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const mapContainer = document.getElementById('mapContainer');
     const mapContent = document.getElementById('mapContent');
     const mapImage = document.getElementById('mapImage');
+    const mapLegend = document.getElementById('mapLegend');
+    const mapEmpty = document.getElementById('mapEmpty');
+    
+    const mapLegendField = document.getElementById('mapLegendField');
+    const mapFullscreenLegend = document.getElementById('mapFullscreenLegend');
+    const mapTypeButtons = document.querySelectorAll('.map-type-btn');
     
     const btnZoomIn = document.getElementById('zoomIn');
     const btnZoomOut = document.getElementById('zoomOut');
     const btnReset = document.getElementById('resetZoom');
     const btnExpand = document.getElementById('expandMap');
     
-    if (!mapContainer || !mapImage) return;
+    if (!mapContainer || !mapContent) return;
 
     let scale = 1;
     let isDragging = false;
@@ -21,17 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const step = 0.5;
 
     /**
+     * Retorna a imagem do mapa que está atualmente visível.
+     */
+    function getActiveImage() {
+        const visibleImg = mapContent.querySelector('.map-img:not([hidden])');
+        return visibleImg || mapImage || mapContent.querySelector('img');
+    }
+
+    /**
      * Calcula os limites máximos de translação para evitar que a imagem
      * saia dos limites visíveis do container.
      */
     function getTranslateLimits() {
-        const imgRect = mapImage.getBoundingClientRect();
-        const containerRect = mapContainer.getBoundingClientRect();
+        const activeImg = getActiveImage();
+        if (!activeImg) return { maxX: 0, maxY: 0 };
 
-        // Dimensões reais da imagem sem scale (usar naturalWidth faria sentido,
-        // mas o tamanho renderizado pode ser menor por max-width/max-height)
-        const imgW = mapImage.offsetWidth;
-        const imgH = mapImage.offsetHeight;
+        const containerRect = mapContainer.getBoundingClientRect();
+        const imgW = activeImg.offsetWidth || containerRect.width;
+        const imgH = activeImg.offsetHeight || containerRect.height;
 
         // O espaço extra que a imagem escalonada ocupa além do container
         const overflowX = Math.max(0, (imgW * scale - containerRect.width) / 2);
@@ -53,7 +66,10 @@ document.addEventListener('DOMContentLoaded', () => {
             translateY = Math.max(-maxY, Math.min(maxY, translateY));
         }
 
-        mapImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        const activeImg = getActiveImage();
+        if (activeImg) {
+            activeImg.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
+        }
     }
 
     function zoom(amount) {
@@ -74,12 +90,12 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTransform();
     }
 
-    btnZoomIn.addEventListener('click', () => zoom(step));
-    btnZoomOut.addEventListener('click', () => zoom(-step));
-    btnReset.addEventListener('click', resetZoom);
+    btnZoomIn?.addEventListener('click', () => zoom(step));
+    btnZoomOut?.addEventListener('click', () => zoom(-step));
+    btnReset?.addEventListener('click', resetZoom);
 
     // Expande o container para o modo Fullscreen
-    btnExpand.addEventListener('click', () => {
+    btnExpand?.addEventListener('click', () => {
         mapContainer.classList.toggle('fullscreen');
         if (mapContainer.classList.contains('fullscreen')) {
             document.body.style.overflow = 'hidden';
@@ -92,6 +108,103 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         resetZoom();
     });
+
+    // ============================================
+    // Lógica de Seleção de Mapas e Legenda
+    // ============================================
+    const mapDictionary = {
+        padrao: mapImage,
+        legendado: mapLegend,
+        vazio: mapEmpty
+    };
+
+    /**
+     * Sincroniza as descrições da legenda com a versão de tela cheia.
+     */
+    function syncLegendDescriptions() {
+        if (!mapLegendField || !mapFullscreenLegend) return;
+        const fieldTexts = mapLegendField.querySelectorAll('.legend-text');
+        const fsTexts = mapFullscreenLegend.querySelectorAll('.fs-legend-desc');
+        fieldTexts.forEach((elem, index) => {
+            if (fsTexts[index]) {
+                fsTexts[index].textContent = elem.textContent.trim();
+            }
+        });
+    }
+
+    /**
+     * Altera o mapa exibido e controla a visibilidade da legenda.
+     * @param {'padrao' | 'legendado' | 'vazio'} mapType
+     */
+    function selectMap(mapType) {
+        const targetImg = mapDictionary[mapType];
+        if (!targetImg) return;
+
+        // Atualiza estilo dos botões seletores
+        mapTypeButtons.forEach(btn => {
+            const isActive = (btn.dataset.map === mapType);
+            btn.classList.toggle('active', isActive);
+            btn.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+        });
+
+        // Alterna visibilidade das imagens
+        [mapImage, mapLegend, mapEmpty].forEach(img => {
+            if (!img) return;
+            if (img === targetImg) {
+                img.removeAttribute('hidden');
+                img.style.display = 'block';
+            } else {
+                img.setAttribute('hidden', '');
+                img.style.display = 'none';
+            }
+        });
+
+        // Exibe o campo de legenda somente quando o mapa escolhido for 'legendado'
+        const isLegendado = (mapType === 'legendado');
+        if (mapLegendField) {
+            if (isLegendado) {
+                mapLegendField.removeAttribute('hidden');
+            } else {
+                mapLegendField.setAttribute('hidden', '');
+            }
+        }
+
+        // Overlay da legenda no modo tela cheia
+        if (mapFullscreenLegend) {
+            if (isLegendado) {
+                mapFullscreenLegend.removeAttribute('hidden');
+            } else {
+                mapFullscreenLegend.setAttribute('hidden', '');
+            }
+        }
+
+        // Aplica transformações atuais na nova imagem ativa
+        updateTransform();
+    }
+
+    // Associa eventos de clique aos botões seletores
+    mapTypeButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mapType = btn.dataset.map;
+            selectMap(mapType);
+        });
+    });
+
+    // Pré-carrega as imagens para troca instantânea
+    [mapImage, mapLegend, mapEmpty].forEach(img => {
+        if (img && img.src) {
+            const preloader = new Image();
+            preloader.src = img.src;
+        }
+    });
+
+    // Ao alternar abas para 'mapas', garante cálculo correto de dimensões
+    const tabMapasBtn = document.querySelector('button[onclick*="mapas"]');
+    if (tabMapasBtn) {
+        tabMapasBtn.addEventListener('click', () => {
+            setTimeout(updateTransform, 50);
+        });
+    }
 
     // ============================================
     // Eventos de Mouse (Desktop)
@@ -154,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             translateY = e.touches[0].clientY - startY;
             updateTransform();
         } else if (e.touches.length === 2 && initialPinchDistance) {
-            e.preventDefault(); // Evita scroll ao fazer o movimento de pinça (pinch)
+            e.preventDefault();
             const currentDistance = Math.hypot(
                 e.touches[0].clientX - e.touches[1].clientX,
                 e.touches[0].clientY - e.touches[1].clientY
@@ -173,4 +286,8 @@ document.addEventListener('DOMContentLoaded', () => {
         isDragging = false;
         initialPinchDistance = null;
     });
+
+    // Inicialização
+    syncLegendDescriptions();
+    selectMap('padrao');
 });
