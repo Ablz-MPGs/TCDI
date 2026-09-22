@@ -507,7 +507,8 @@ input:checked + .slider::before {
     max-height: 100%;
     object-fit: contain;
     transition: transform 0.1s ease-out;
-    transform: scale(1) translate(0px, 0px);
+    transform: translate(0px, 0px) scale(1);
+    transform-origin: center center;
     user-select: none;
 }
 

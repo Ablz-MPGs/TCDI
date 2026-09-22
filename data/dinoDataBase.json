@@ -116,7 +116,7 @@
         "title": "Ataque Carregado"
       }
     ],
-    "desc": "Um grande ankylosaurideo que viveu nos antigos dessertos da atual Mongólia.",
+    "desc": "O maior ankylosaurideo conhecido, seu corpo era coberto por uma armadura de ossos e possuía uma cauda poderosa.",
     "diet": "🌿",
     "fullName": "ANKYIOSAURUS<br>MAGNIVENTRIS",
     "idStatus": "anky",
@@ -146,7 +146,7 @@
       "price": "moeda"
     },
     "release": "20 / 07 / 2026",
-    "shortName": "Anky",
+    "shortName": "Ankylosaurus",
     "stats": {
       "corgema": "25",
       "cormoeda": "2500",

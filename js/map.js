@@ -20,22 +20,40 @@ document.addEventListener('DOMContentLoaded', () => {
     const maxScale = 5;
     const step = 0.5;
 
-    // Atualiza a visualização do mapa evitando que saia da tela
+    /**
+     * Calcula os limites máximos de translação para evitar que a imagem
+     * saia dos limites visíveis do container.
+     */
+    function getTranslateLimits() {
+        const imgRect = mapImage.getBoundingClientRect();
+        const containerRect = mapContainer.getBoundingClientRect();
+
+        // Dimensões reais da imagem sem scale (usar naturalWidth faria sentido,
+        // mas o tamanho renderizado pode ser menor por max-width/max-height)
+        const imgW = mapImage.offsetWidth;
+        const imgH = mapImage.offsetHeight;
+
+        // O espaço extra que a imagem escalonada ocupa além do container
+        const overflowX = Math.max(0, (imgW * scale - containerRect.width) / 2);
+        const overflowY = Math.max(0, (imgH * scale - containerRect.height) / 2);
+
+        return { maxX: overflowX, maxY: overflowY };
+    }
+
+    /**
+     * Atualiza a visualização do mapa, restringindo a translação aos limites.
+     */
     function updateTransform() {
-        const maxTranslateX = Math.max(0, (mapImage.clientWidth * scale - mapContainer.clientWidth) / 2);
-        const maxTranslateY = Math.max(0, (mapImage.clientHeight * scale - mapContainer.clientHeight) / 2);
-        
-        if (scale > 1) {
-            if (translateX > maxTranslateX / scale) translateX = maxTranslateX / scale;
-            if (translateX < -maxTranslateX / scale) translateX = -maxTranslateX / scale;
-            if (translateY > maxTranslateY / scale) translateY = maxTranslateY / scale;
-            if (translateY < -maxTranslateY / scale) translateY = -maxTranslateY / scale;
-        } else {
+        if (scale <= 1) {
             translateX = 0;
             translateY = 0;
+        } else {
+            const { maxX, maxY } = getTranslateLimits();
+            translateX = Math.max(-maxX, Math.min(maxX, translateX));
+            translateY = Math.max(-maxY, Math.min(maxY, translateY));
         }
-        
-        mapImage.style.transform = `scale(${scale}) translate(${translateX}px, ${translateY}px)`;
+
+        mapImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${scale})`;
     }
 
     function zoom(amount) {
@@ -49,14 +67,16 @@ document.addEventListener('DOMContentLoaded', () => {
         updateTransform();
     }
 
-    btnZoomIn.addEventListener('click', () => zoom(step));
-    btnZoomOut.addEventListener('click', () => zoom(-step));
-    btnReset.addEventListener('click', () => {
+    function resetZoom() {
         scale = 1;
         translateX = 0;
         translateY = 0;
         updateTransform();
-    });
+    }
+
+    btnZoomIn.addEventListener('click', () => zoom(step));
+    btnZoomOut.addEventListener('click', () => zoom(-step));
+    btnReset.addEventListener('click', resetZoom);
 
     // Expande o container para o modo Fullscreen
     btnExpand.addEventListener('click', () => {
@@ -70,10 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
             btnExpand.textContent = '⛶';
             btnExpand.setAttribute('title', 'Expandir Mapa');
         }
-        scale = 1;
-        translateX = 0;
-        translateY = 0;
-        updateTransform();
+        resetZoom();
     });
 
     // ============================================
@@ -83,8 +100,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (scale > 1) {
             e.preventDefault();
             isDragging = true;
-            startX = e.clientX - translateX * scale;
-            startY = e.clientY - translateY * scale;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
             mapContent.style.cursor = 'grabbing';
         }
     });
@@ -92,15 +109,17 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('mousemove', (e) => {
         if (!isDragging) return;
         if (scale > 1) {
-            translateX = (e.clientX - startX) / scale;
-            translateY = (e.clientY - startY) / scale;
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
             updateTransform();
         }
     });
 
     window.addEventListener('mouseup', () => {
-        isDragging = false;
-        mapContent.style.cursor = 'grab';
+        if (isDragging) {
+            isDragging = false;
+            mapContent.style.cursor = scale > 1 ? 'grab' : '';
+        }
     });
 
     mapContainer.addEventListener('wheel', (e) => {
@@ -117,8 +136,8 @@ document.addEventListener('DOMContentLoaded', () => {
     mapContent.addEventListener('touchstart', (e) => {
         if (e.touches.length === 1 && scale > 1) {
             isDragging = true;
-            startX = e.touches[0].clientX - translateX * scale;
-            startY = e.touches[0].clientY - translateY * scale;
+            startX = e.touches[0].clientX - translateX;
+            startY = e.touches[0].clientY - translateY;
         } else if (e.touches.length === 2) {
             isDragging = false;
             initialPinchDistance = Math.hypot(
@@ -130,8 +149,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('touchmove', (e) => {
         if (isDragging && e.touches.length === 1 && scale > 1) {
-            translateX = (e.touches[0].clientX - startX) / scale;
-            translateY = (e.touches[0].clientY - startY) / scale;
+            e.preventDefault();
+            translateX = e.touches[0].clientX - startX;
+            translateY = e.touches[0].clientY - startY;
             updateTransform();
         } else if (e.touches.length === 2 && initialPinchDistance) {
             e.preventDefault(); // Evita scroll ao fazer o movimento de pinça (pinch)

@@ -37,6 +37,84 @@ const botaoPaleo = document.getElementById("btn-paleo-modal");
 
 const modalImgCont = document.getElementById("imgModal");
 const modalImgContent = document.getElementById("imgModalContent");
+const modalImgTitle = document.getElementById("imgModalTitle");
+
+// Estado de zoom e pan do lightbox
+let imgZoomLevel = 1;
+let imgTranslateX = 0;
+let imgTranslateY = 0;
+let imgIsDragging = false;
+let imgDragStartX = 0;
+let imgDragStartY = 0;
+const IMG_ZOOM_STEP = 0.25;
+const IMG_ZOOM_MIN = 0.5;
+const IMG_ZOOM_MAX = 4;
+
+/**
+ * Calcula os limites de translação para o lightbox com base no zoom atual.
+ */
+function getImgTranslateLimits() {
+    if (!modalImgContent) return { maxX: 0, maxY: 0 };
+    const figure = modalImgContent.closest('.img-modal__figure');
+    if (!figure) return { maxX: 0, maxY: 0 };
+
+    const imgW = modalImgContent.naturalWidth || modalImgContent.offsetWidth;
+    const imgH = modalImgContent.naturalHeight || modalImgContent.offsetHeight;
+
+    // Tamanho renderizado da imagem (sem scale)
+    const renderedW = modalImgContent.offsetWidth;
+    const renderedH = modalImgContent.offsetHeight;
+
+    // Quanto a imagem escalonada excede o container visível
+    const figureRect = figure.getBoundingClientRect();
+    const overflowX = Math.max(0, (renderedW * imgZoomLevel - figureRect.width) / 2);
+    const overflowY = Math.max(0, (renderedH * imgZoomLevel - figureRect.height) / 2);
+
+    return { maxX: overflowX, maxY: overflowY };
+}
+
+/**
+ * Aplica o transform atual (zoom + pan) na imagem do lightbox.
+ */
+function aplicarTransformImagem() {
+    if (!modalImgContent) return;
+
+    if (imgZoomLevel <= 1) {
+        imgTranslateX = 0;
+        imgTranslateY = 0;
+        modalImgContent.classList.remove('zoomed');
+    } else {
+        const { maxX, maxY } = getImgTranslateLimits();
+        imgTranslateX = Math.max(-maxX, Math.min(maxX, imgTranslateX));
+        imgTranslateY = Math.max(-maxY, Math.min(maxY, imgTranslateY));
+        modalImgContent.classList.add('zoomed');
+    }
+
+    modalImgContent.style.transform = `translate(${imgTranslateX}px, ${imgTranslateY}px) scale(${imgZoomLevel})`;
+}
+
+/**
+ * Fecha o lightbox de imagem e restaura o scroll da página.
+ */
+function fecharImagemDino() {
+    if (!modalImgCont) return;
+    modalImgCont.classList.remove("open");
+    document.body.style.overflow = "";
+    imgZoomLevel = 1;
+    imgTranslateX = 0;
+    imgTranslateY = 0;
+    imgIsDragging = false;
+    if (modalImgContent) modalImgContent.style.transform = "translate(0px, 0px) scale(1)";
+}
+
+/**
+ * Aplica o nível de zoom atual na imagem do lightbox.
+ * @param {number} novoZoom - Novo nível de escala
+ */
+function aplicarZoomImagem(novoZoom) {
+    imgZoomLevel = Math.min(IMG_ZOOM_MAX, Math.max(IMG_ZOOM_MIN, novoZoom));
+    aplicarTransformImagem();
+}
 
 const seletorFiltro = document.getElementById("filtroAtributo");
 const campoPesquisa = document.getElementById("dinoEspecifico");
@@ -277,15 +355,23 @@ async function abrirModalDino(chaveDino) {
 }
 
 /**
- * Abre a imagem ampliada em modal próprio.
+ * Abre a imagem ampliada em lightbox com zoom resetado.
  * @param {HTMLImageElement} img - Elemento de imagem clicado
  */
 function abrirImagemDino(img) {
     if (!modalImgCont || !modalImgContent) return;
-    modalImgCont.classList.add("open");
-    modalImgCont.style.display = "flex";
+
+    imgZoomLevel = 1;
+    imgTranslateX = 0;
+    imgTranslateY = 0;
+    imgIsDragging = false;
+    modalImgContent.style.transform = `translate(0px, 0px) scale(1)`;
     modalImgContent.src = img.src;
     modalImgContent.alt = img.alt || "Imagem ampliada";
+    if (modalImgTitle) modalImgTitle.innerText = img.alt || "Imagem ampliada";
+
+    modalImgCont.classList.add("open");
+    document.body.style.overflow = "hidden";
 }
 
 /**
@@ -412,11 +498,18 @@ if (!window.listenersGaleriaConfigurados) {
 
     document.addEventListener("keydown", event => {
         if (event.key === "Escape") {
-            if (modal?.style.display === "block") fecharModal();
-            if (modalImgCont?.style.display === "flex") {
-                modalImgCont.classList.remove("open");
-                modalImgCont.style.display = "none";
+            if (modalImgCont?.classList.contains("open")) {
+                fecharImagemDino();
+            } else if (modal?.style.display === "block") {
+                fecharModal();
             }
+        }
+
+        // Atalhos de zoom: + e -
+        if (modalImgCont?.classList.contains("open")) {
+            if (event.key === "+" || event.key === "=") aplicarZoomImagem(imgZoomLevel + IMG_ZOOM_STEP);
+            if (event.key === "-") aplicarZoomImagem(imgZoomLevel - IMG_ZOOM_STEP);
+            if (event.key === "0") aplicarZoomImagem(1);
         }
     });
 }
@@ -435,9 +528,122 @@ if (modal && !modal.dataset.listener) {
 
 if (modalImgCont && !modalImgCont.dataset.listener) {
     modalImgCont.dataset.listener = "true";
-    modalImgCont.addEventListener("click", () => {
-        modalImgCont.classList.remove("open");
-        modalImgCont.style.display = "none";
+
+    // Fechar ao clicar no overlay ou no botão × (mas não durante/após drag)
+    let imgWasDragged = false;
+
+    modalImgCont.addEventListener("click", event => {
+        if (imgWasDragged) {
+            imgWasDragged = false;
+            return;
+        }
+        if (event.target.closest("[data-close-modal]")) {
+            fecharImagemDino();
+        }
+    });
+
+    // Zoom via scroll do mouse
+    modalImgCont.addEventListener("wheel", event => {
+        event.preventDefault();
+        const delta = event.deltaY > 0 ? -IMG_ZOOM_STEP : IMG_ZOOM_STEP;
+        aplicarZoomImagem(imgZoomLevel + delta);
+    }, { passive: false });
+
+    // ============================================
+    // Drag/Pan da imagem - Mouse (Desktop)
+    // ============================================
+    modalImgContent.addEventListener("mousedown", (e) => {
+        if (imgZoomLevel > 1) {
+            e.preventDefault();
+            imgIsDragging = true;
+            imgWasDragged = false;
+            imgDragStartX = e.clientX - imgTranslateX;
+            imgDragStartY = e.clientY - imgTranslateY;
+            modalImgContent.style.cursor = 'grabbing';
+        }
+    });
+
+    window.addEventListener("mousemove", (e) => {
+        if (!imgIsDragging) return;
+        e.preventDefault();
+        imgTranslateX = e.clientX - imgDragStartX;
+        imgTranslateY = e.clientY - imgDragStartY;
+        imgWasDragged = true;
+        aplicarTransformImagem();
+    });
+
+    window.addEventListener("mouseup", () => {
+        if (imgIsDragging) {
+            imgIsDragging = false;
+            if (modalImgContent) {
+                modalImgContent.style.cursor = imgZoomLevel > 1 ? 'grab' : 'zoom-out';
+            }
+        }
+    });
+
+    // ============================================
+    // Drag/Pan da imagem - Touch (Mobile)
+    // ============================================
+    let imgInitialPinchDist = null;
+
+    modalImgContent.addEventListener("touchstart", (e) => {
+        if (e.touches.length === 1 && imgZoomLevel > 1) {
+            imgIsDragging = true;
+            imgWasDragged = false;
+            imgDragStartX = e.touches[0].clientX - imgTranslateX;
+            imgDragStartY = e.touches[0].clientY - imgTranslateY;
+        } else if (e.touches.length === 2) {
+            imgIsDragging = false;
+            imgInitialPinchDist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+        }
+    }, { passive: false });
+
+    modalImgContent.addEventListener("touchmove", (e) => {
+        if (imgIsDragging && e.touches.length === 1 && imgZoomLevel > 1) {
+            e.preventDefault();
+            imgTranslateX = e.touches[0].clientX - imgDragStartX;
+            imgTranslateY = e.touches[0].clientY - imgDragStartY;
+            imgWasDragged = true;
+            aplicarTransformImagem();
+        } else if (e.touches.length === 2 && imgInitialPinchDist) {
+            e.preventDefault();
+            const currentDist = Math.hypot(
+                e.touches[0].clientX - e.touches[1].clientX,
+                e.touches[0].clientY - e.touches[1].clientY
+            );
+            const delta = currentDist - imgInitialPinchDist;
+            if (Math.abs(delta) > 10) {
+                aplicarZoomImagem(imgZoomLevel + (delta > 0 ? 0.1 : -0.1));
+                imgInitialPinchDist = currentDist;
+            }
+        }
+    }, { passive: false });
+
+    window.addEventListener("touchend", (e) => {
+        // Só resetar drag do lightbox se ele estiver aberto
+        if (modalImgCont?.classList.contains("open")) {
+            imgIsDragging = false;
+            imgInitialPinchDist = null;
+        }
+    });
+
+    // Botões de zoom
+    document.getElementById("imgZoomIn")?.addEventListener("click", event => {
+        event.stopPropagation();
+        aplicarZoomImagem(imgZoomLevel + IMG_ZOOM_STEP);
+    });
+    document.getElementById("imgZoomOut")?.addEventListener("click", event => {
+        event.stopPropagation();
+        aplicarZoomImagem(imgZoomLevel - IMG_ZOOM_STEP);
+    });
+    document.getElementById("imgZoomReset")?.addEventListener("click", event => {
+        event.stopPropagation();
+        imgTranslateX = 0;
+        imgTranslateY = 0;
+        aplicarZoomImagem(1);
     });
 }
 

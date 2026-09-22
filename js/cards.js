@@ -142,11 +142,10 @@ function getDietGroup(diet = "") {
  * @returns {string} Caminho da imagem modificada.
  */
 function getCardImage(image = "") {
-    if (image.includes("anky")) {
-        image = image.replace(".png", ".jpeg");
-    }
+    let castImagem = image.includes("perfil") ? image.replace("perfil", "Model") : image;
+    castImagem = castImagem.includes("pict") ? castImagem.replace("pict", "noBackGround") : castImagem;
 
-    return image.includes("perfil") ? image.replace("perfil", "model") : image;
+    return castImagem;
 }
 
 /**
