@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/info.css">
   <link rel="stylesheet" href="css/media.css">
 </head>
+
 <body>
   <header class="cabecalho">
     <div class="topnav">
@@ -58,415 +59,417 @@
     </div>
     <div id="missoes" class="tabcontent">
       <div id="missoes">
-          <h1>Tabela de Missões</h1>
-          <h2>Acompanhe as recompensas de sobrevivência e crescimento</h2>
+        <h1>Tabela de Missões</h1>
+        <h2>Acompanhe as recompensas de sobrevivência e crescimento</h2>
 
-          <section class="texto-info">
-            <p>Cada espécie possui tempos e recompensas diferentes para as missões de Crescimento e Sobrevivência. Utilize os
-              filtros abaixo para encontrar o melhor dinossauro para o seu objetivo atual, seja focado em farmar XP, Moedas
-              (K) ou Gemas (G).</p>
-          </section>
-          <section class="info-panel">
-            <div class="info-controls-wrapper">
-              <div class="search-wrapper">
-                <label for="searchInputTask" class="sr-only" style="display:none;">Pesquisar espécie</label>
-                <input type="text" class="searchInput" id="searchInputTask" placeholder="Pesquisar espécie...">
-              </div>
-
-              <div class="info-filters">
-                <div class="filtro-grupo">
-                  <label for="criterio">Ordenar por:</label>
-                  <select id="criterio" onchange="aplicarOrdenacao()">
-                    <option value="7">Padrão</option>
-                    <option value="0">Dinossauro (Nome)</option>
-                    <option value="1">Tempo (Sobreviver)</option>
-                    <option value="2-g">Gema (Sobreviver)</option>
-                    <option value="2-k">Moeda (Sobreviver)</option>
-                    <option value="3">XP (Sobreviver)</option>
-                    <option value="4">Tempo (Crescer)</option>
-                    <option value="5-g">Gema (Crescer)</option>
-                    <option value="5-k">Moeda (Crescer)</option>
-                    <option value="6">XP (Crescer)</option>
-                  </select>
-                </div>
-
-                <div class="toggle-container">
-                  <span id="textoOrdem">Crescente</span>
-                  <label class="switch">
-                    <input type="checkbox" id="toggleOrdem" onchange="aplicarOrdenacao()">
-                    <span class="slider"></span>
-                  </label>
-                </div>
-              </div>
+        <section class="texto-info">
+          <p>Cada espécie possui tempos e recompensas diferentes para as missões de Crescimento e Sobrevivência. Utilize
+            os
+            filtros abaixo para encontrar o melhor dinossauro para o seu objetivo atual, seja focado em farmar XP,
+            Moedas
+            (K) ou Gemas (G).</p>
+        </section>
+        <section class="info-panel">
+          <div class="info-controls-wrapper">
+            <div class="search-wrapper">
+              <label for="searchInputTask" class="sr-only" style="display:none;">Pesquisar espécie</label>
+              <input type="text" class="searchInput" id="searchInputTask" placeholder="Pesquisar espécie...">
             </div>
 
-            <div class="table-container info-table">
-              <table class="tabela-simples">
-                <thead>
-                  <tr class="head">
-                    <th>Dino</th>
-                    <th>T. Sobreviver</th>
-                    <th>G / M (Sobreviver)</th>
-                    <th>XP (Sobreviver)</th>
-                    <th>T. Crescer</th>
-                    <th>G / M (Crescer)</th>
-                    <th>XP (Crescer)</th>
-                  </tr>
-                </thead>
-                <tbody id="tabela-corpo">
-                  <tr>
-                    <td><a href="galeria.html#trike" class="dino-link">Triceratops</a></td>
-                    <td>20m</td>
-                    <td>5g / 1.65k</td>
-                    <td>15xp</td>
-                    <td>48m</td>
-                    <td>5g / 1.5k</td>
-                    <td>30xp</td>
-                  </tr>
+            <div class="info-filters">
+              <div class="filtro-grupo">
+                <label for="criterio">Ordenar por:</label>
+                <select id="criterio" onchange="aplicarOrdenacao()">
+                  <option value="7">Padrão</option>
+                  <option value="0">Dinossauro (Nome)</option>
+                  <option value="1">Tempo (Sobreviver)</option>
+                  <option value="2-g">Gema (Sobreviver)</option>
+                  <option value="2-k">Moeda (Sobreviver)</option>
+                  <option value="3">XP (Sobreviver)</option>
+                  <option value="4">Tempo (Crescer)</option>
+                  <option value="5-g">Gema (Crescer)</option>
+                  <option value="5-k">Moeda (Crescer)</option>
+                  <option value="6">XP (Crescer)</option>
+                </select>
+              </div>
 
-                  <tr>
-                    <td><a href="galeria.html#trex" class="dino-link">T. rex</a></td>
-                    <td>30m</td>
-                    <td>5g / 2k</td>
-                    <td>15xp</td>
-                    <td>56m</td>
-                    <td>5g / 2.5k</td>
-                    <td>40xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#giga" class="dino-link">Giganotosaurus</a></td>
-                    <td>25m</td>
-                    <td>5g / 1.5k</td>
-                    <td>10xp</td>
-                    <td>48m</td>
-                    <td>4g / 1.75k</td>
-                    <td>20xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#spino" class="dino-link">Spinosaurus</a></td>
-                    <td>30m</td>
-                    <td>5g / 2k</td>
-                    <td>15xp</td>
-                    <td>48m</td>
-                    <td>5g / 2.5k</td>
-                    <td>30xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#pato" class="dino-link">Deinocheirus</a></td>
-                    <td>30m</td>
-                    <td>5g / 1.7k</td>
-                    <td>20xp</td>
-                    <td>48m</td>
-                    <td>3g / 1.9k</td>
-                    <td>17xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#stego" class="dino-link">Stegosaurus</a></td>
-                    <td>20m</td>
-                    <td>4g / 1.7k</td>
-                    <td>13xp</td>
-                    <td>40m</td>
-                    <td>5g / 1.9k</td>
-                    <td>19xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#theri" class="dino-link">Therizinosaurus</a></td>
-                    <td>25m</td>
-                    <td>3g / 1.55k</td>
-                    <td>13xp</td>
-                    <td>48m</td>
-                    <td>4g / 1.7k</td>
-                    <td>17xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#para" class="dino-link">Parasaurolophus</a></td>
-                    <td>15m</td>
-                    <td>3g /1.2k</td>
-                    <td>15xp</td>
-                    <td>28m</td>
-                    <td>5g / 1.5k</td>
-                    <td>20xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#crista" class="dino-link">Cristatusaurus</a></td>
-                    <td>25m</td>
-                    <td>5g / 1.7k</td>
-                    <td>20xp</td>
-                    <td>41m</td>
-                    <td>4g / 1.8k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#sarco" class="dino-link">Sarcosuchus</a></td>
-                    <td>25m</td>
-                    <td>5g / 1.5k</td>
-                    <td>10xp</td>
-                    <td>48m</td>
-                    <td>5g / 1.5k</td>
-                    <td>10xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#amarga" class="dino-link">Amargasaurus</a></td>
-                    <td>30m</td>
-                    <td>4g / 2.15k</td>
-                    <td>18xp</td>
-                    <td>48m</td>
-                    <td>4g / 1.9k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#rhino" class="dino-link">Pachyrhinosaurus</a></td>
-                    <td>25m</td>
-                    <td>4g / 1.7k</td>
-                    <td>20xp</td>
-                    <td>36m</td>
-                    <td>4g / 1.8k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#plateo" class="dino-link">Plateosaurus</a></td>
-                    <td>30m</td>
-                    <td>5g / 1.85k</td>
-                    <td>15xp</td>
-                    <td>31m</td>
-                    <td>4g / 1.5k</td>
-                    <td>12xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#tarchia" class="dino-link">Tarchia</a></td>
-                    <td>30m</td>
-                    <td>4g / 1.8k</td>
-                    <td>20xp</td>
-                    <td>39m</td>
-                    <td>4g / 1.75k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#styra" class="dino-link">Styracosaurus</a></td>
-                    <td>15m</td>
-                    <td>5g / 2k</td>
-                    <td>15xp</td>
-                    <td>39m</td>
-                    <td>4g / 1.7k</td>
-                    <td>20xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#allo" class="dino-link">Allosaurus</a></td>
-                    <td>30m</td>
-                    <td>4g / 1.8k</td>
-                    <td>15xp</td>
-                    <td>38m</td>
-                    <td>3g / 1.7k</td>
-                    <td>13xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#fasola" class="dino-link">Fasolasuchus</a></td>
-                    <td>25m</td>
-                    <td>5g / 1.85k</td>
-                    <td>12xp</td>
-                    <td>29m</td>
-                    <td>3g / 1.9k</td>
-                    <td>13xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#giganto" class="dino-link">Gigantoraptor</a></td>
-                    <td>25m</td>
-                    <td>3g / 1.8k</td>
-                    <td>15xp</td>
-                    <td>42m</td>
-                    <td>4g / 1.5k</td>
-                    <td>14xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#carno" class="dino-link">Carnotaurus</a></td>
-                    <td>30m</td>
-                    <td>4g / 1.8k</td>
-                    <td>10xp</td>
-                    <td>29m</td>
-                    <td>5g / 2k</td>
-                    <td>35xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#kentro" class="dino-link">Kentrosaurus</a></td>
-                    <td>30m</td>
-                    <td>4g / 2k</td>
-                    <td>25xp</td>
-                    <td>38m</td>
-                    <td>4g / 2.2k</td>
-                    <td>20xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#cerato" class="dino-link">Ceratosaurus</a></td>
-                    <td>30m</td>
-                    <td>4g / 1.5k</td>
-                    <td>15xp</td>
-                    <td>39m</td>
-                    <td>3 / 1.75k</td>
-                    <td>13xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#mega" class="dino-link">Megaraptor</a></td>
-                    <td>30m</td>
-                    <td>5g / 2k</td>
-                    <td>20xp</td>
-                    <td>38m</td>
-                    <td>5g / 1.5k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#dilo" class="dino-link">Dilophosaurus</a></td>
-                    <td>25m</td>
-                    <td>5g / 1.75k</td>
-                    <td>15xp</td>
-                    <td>28m</td>
-                    <td>6g / 1.5k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#conca" class="dino-link">Concavenator</a></td>
-                    <td>25m</td>
-                    <td>4g / 1.75k</td>
-                    <td>13xp</td>
-                    <td>32m</td>
-                    <td>4g / 1.8k</td>
-                    <td>14xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#pachy" class="dino-link">Pachycephalosaurus</a></td>
-                    <td>20m</td>
-                    <td>5g / 2k</td>
-                    <td>20xp</td>
-                    <td>26*m</td>
-                    <td>5g / 1.5k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#austro" class="dino-link">Austroraptor</a></td>
-                    <td>30m</td>
-                    <td>4g / 2k</td>
-                    <td>25xp</td>
-                    <td>24m</td>
-                    <td>4g / 1.8k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#quetzal" class="dino-link">Quetzalcoatlus</a></td>
-                    <td>30m</td>
-                    <td>5g / 2k</td>
-                    <td>14xp</td>
-                    <td>41m</td>
-                    <td>5g / 1.5k</td>
-                    <td>12xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#ornitho" class="dino-link">Ornithomimus</a></td>
-                    <td>20m</td>
-                    <td>3g / 1.5k</td>
-                    <td>13xp</td>
-                    <td>16.4m</td>
-                    <td>5g / 1.2k</td>
-                    <td>10xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#guan" class="dino-link">Guanlong</a></td>
-                    <td>15m</td>
-                    <td>5g / 1.5k</td>
-                    <td>20xp</td>
-                    <td>28m</td>
-                    <td>5g / 2k</td>
-                    <td>18xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#deino" class="dino-link">Deinonychus</a></td>
-                    <td>15m</td>
-                    <td>3g / 2k</td>
-                    <td>25xp</td>
-                    <td>18m</td>
-                    <td>5g / 2k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#psitta" class="dino-link">Psittacosaurus</a></td>
-                    <td>20m</td>
-                    <td>4g / 1.65k</td>
-                    <td>12xp</td>
-                    <td>26m</td>
-                    <td>5g / 1.5k</td>
-                    <td>10xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#coelo" class="dino-link">Coelophysis</a></td>
-                    <td>10m</td>
-                    <td>3g / 1k</td>
-                    <td>10xp</td>
-                    <td>15m</td>
-                    <td>5g / 1.5k</td>
-                    <td>15xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#chang" class="dino-link">Changyuraptor</a></td>
-                    <td>20m</td>
-                    <td>5g / 1.55k</td>
-                    <td>13xp</td>
-                    <td>12m</td>
-                    <td>3g / 1.7k</td>
-                    <td>14xp</td>
-                  </tr>
-
-                  <tr>
-                    <td><a href="galeria.html#barba" class="dino-link">Barbaridatylus</a></td>
-                    <td>25m</td>
-                    <td>3g / 1.5k</td>
-                    <td>13xp</td>
-                    <td>31*m</td>
-                    <td>4g / 1.5k</td>
-                    <td>10xp</td>
-                  </tr>
-
-                  <tr>
-                    <td>Qualquer</td>
-                    <td>30m</td>
-                    <td>5g / 2k</td>
-                    <td>20xp</td>
-                    <td>N/A</td>
-                    <td>0g / 1k</td>
-                    <td>25xp</td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="toggle-container">
+                <span id="textoOrdem">Crescente</span>
+                <label class="switch">
+                  <input type="checkbox" id="toggleOrdem" onchange="aplicarOrdenacao()">
+                  <span class="slider"></span>
+                </label>
+              </div>
             </div>
-          </section>
+          </div>
+
+          <div class="table-container info-table">
+            <table class="tabela-simples">
+              <thead>
+                <tr class="head">
+                  <th>Dino</th>
+                  <th>T. Sobreviver</th>
+                  <th>G / M (Sobreviver)</th>
+                  <th>XP (Sobreviver)</th>
+                  <th>T. Crescer</th>
+                  <th>G / M (Crescer)</th>
+                  <th>XP (Crescer)</th>
+                </tr>
+              </thead>
+              <tbody id="tabela-corpo">
+                <tr>
+                  <td><a href="galeria.html#trike" class="dino-link">Triceratops</a></td>
+                  <td>20m</td>
+                  <td>5g / 1.65k</td>
+                  <td>15xp</td>
+                  <td>48m</td>
+                  <td>5g / 1.5k</td>
+                  <td>30xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#trex" class="dino-link">T. rex</a></td>
+                  <td>30m</td>
+                  <td>5g / 2k</td>
+                  <td>15xp</td>
+                  <td>56m</td>
+                  <td>5g / 2.5k</td>
+                  <td>40xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#giga" class="dino-link">Giganotosaurus</a></td>
+                  <td>25m</td>
+                  <td>5g / 1.5k</td>
+                  <td>10xp</td>
+                  <td>48m</td>
+                  <td>4g / 1.75k</td>
+                  <td>20xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#spino" class="dino-link">Spinosaurus</a></td>
+                  <td>30m</td>
+                  <td>5g / 2k</td>
+                  <td>15xp</td>
+                  <td>48m</td>
+                  <td>5g / 2.5k</td>
+                  <td>30xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#pato" class="dino-link">Deinocheirus</a></td>
+                  <td>30m</td>
+                  <td>5g / 1.7k</td>
+                  <td>20xp</td>
+                  <td>48m</td>
+                  <td>3g / 1.9k</td>
+                  <td>17xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#stego" class="dino-link">Stegosaurus</a></td>
+                  <td>20m</td>
+                  <td>4g / 1.7k</td>
+                  <td>13xp</td>
+                  <td>40m</td>
+                  <td>5g / 1.9k</td>
+                  <td>19xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#theri" class="dino-link">Therizinosaurus</a></td>
+                  <td>25m</td>
+                  <td>3g / 1.55k</td>
+                  <td>13xp</td>
+                  <td>48m</td>
+                  <td>4g / 1.7k</td>
+                  <td>17xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#para" class="dino-link">Parasaurolophus</a></td>
+                  <td>15m</td>
+                  <td>3g /1.2k</td>
+                  <td>15xp</td>
+                  <td>28m</td>
+                  <td>5g / 1.5k</td>
+                  <td>20xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#crista" class="dino-link">Cristatusaurus</a></td>
+                  <td>25m</td>
+                  <td>5g / 1.7k</td>
+                  <td>20xp</td>
+                  <td>41m</td>
+                  <td>4g / 1.8k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#sarco" class="dino-link">Sarcosuchus</a></td>
+                  <td>25m</td>
+                  <td>5g / 1.5k</td>
+                  <td>10xp</td>
+                  <td>48m</td>
+                  <td>5g / 1.5k</td>
+                  <td>10xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#amarga" class="dino-link">Amargasaurus</a></td>
+                  <td>30m</td>
+                  <td>4g / 2.15k</td>
+                  <td>18xp</td>
+                  <td>48m</td>
+                  <td>4g / 1.9k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#rhino" class="dino-link">Pachyrhinosaurus</a></td>
+                  <td>25m</td>
+                  <td>4g / 1.7k</td>
+                  <td>20xp</td>
+                  <td>36m</td>
+                  <td>4g / 1.8k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#plateo" class="dino-link">Plateosaurus</a></td>
+                  <td>30m</td>
+                  <td>5g / 1.85k</td>
+                  <td>15xp</td>
+                  <td>31m</td>
+                  <td>4g / 1.5k</td>
+                  <td>12xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#tarchia" class="dino-link">Tarchia</a></td>
+                  <td>30m</td>
+                  <td>4g / 1.8k</td>
+                  <td>20xp</td>
+                  <td>39m</td>
+                  <td>4g / 1.75k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#styra" class="dino-link">Styracosaurus</a></td>
+                  <td>15m</td>
+                  <td>5g / 2k</td>
+                  <td>15xp</td>
+                  <td>39m</td>
+                  <td>4g / 1.7k</td>
+                  <td>20xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#allo" class="dino-link">Allosaurus</a></td>
+                  <td>30m</td>
+                  <td>4g / 1.8k</td>
+                  <td>15xp</td>
+                  <td>38m</td>
+                  <td>3g / 1.7k</td>
+                  <td>13xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#fasola" class="dino-link">Fasolasuchus</a></td>
+                  <td>25m</td>
+                  <td>5g / 1.85k</td>
+                  <td>12xp</td>
+                  <td>29m</td>
+                  <td>3g / 1.9k</td>
+                  <td>13xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#giganto" class="dino-link">Gigantoraptor</a></td>
+                  <td>25m</td>
+                  <td>3g / 1.8k</td>
+                  <td>15xp</td>
+                  <td>42m</td>
+                  <td>4g / 1.5k</td>
+                  <td>14xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#carno" class="dino-link">Carnotaurus</a></td>
+                  <td>30m</td>
+                  <td>4g / 1.8k</td>
+                  <td>10xp</td>
+                  <td>29m</td>
+                  <td>5g / 2k</td>
+                  <td>35xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#kentro" class="dino-link">Kentrosaurus</a></td>
+                  <td>30m</td>
+                  <td>4g / 2k</td>
+                  <td>25xp</td>
+                  <td>38m</td>
+                  <td>4g / 2.2k</td>
+                  <td>20xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#cerato" class="dino-link">Ceratosaurus</a></td>
+                  <td>30m</td>
+                  <td>4g / 1.5k</td>
+                  <td>15xp</td>
+                  <td>39m</td>
+                  <td>3 / 1.75k</td>
+                  <td>13xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#mega" class="dino-link">Megaraptor</a></td>
+                  <td>30m</td>
+                  <td>5g / 2k</td>
+                  <td>20xp</td>
+                  <td>38m</td>
+                  <td>5g / 1.5k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#dilo" class="dino-link">Dilophosaurus</a></td>
+                  <td>25m</td>
+                  <td>5g / 1.75k</td>
+                  <td>15xp</td>
+                  <td>28m</td>
+                  <td>6g / 1.5k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#conca" class="dino-link">Concavenator</a></td>
+                  <td>25m</td>
+                  <td>4g / 1.75k</td>
+                  <td>13xp</td>
+                  <td>32m</td>
+                  <td>4g / 1.8k</td>
+                  <td>14xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#pachy" class="dino-link">Pachycephalosaurus</a></td>
+                  <td>20m</td>
+                  <td>5g / 2k</td>
+                  <td>20xp</td>
+                  <td>26*m</td>
+                  <td>5g / 1.5k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#austro" class="dino-link">Austroraptor</a></td>
+                  <td>30m</td>
+                  <td>4g / 2k</td>
+                  <td>25xp</td>
+                  <td>24m</td>
+                  <td>4g / 1.8k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#quetzal" class="dino-link">Quetzalcoatlus</a></td>
+                  <td>30m</td>
+                  <td>5g / 2k</td>
+                  <td>14xp</td>
+                  <td>41m</td>
+                  <td>5g / 1.5k</td>
+                  <td>12xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#ornitho" class="dino-link">Ornithomimus</a></td>
+                  <td>20m</td>
+                  <td>3g / 1.5k</td>
+                  <td>13xp</td>
+                  <td>16.4m</td>
+                  <td>5g / 1.2k</td>
+                  <td>10xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#guan" class="dino-link">Guanlong</a></td>
+                  <td>15m</td>
+                  <td>5g / 1.5k</td>
+                  <td>20xp</td>
+                  <td>28m</td>
+                  <td>5g / 2k</td>
+                  <td>18xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#deino" class="dino-link">Deinonychus</a></td>
+                  <td>15m</td>
+                  <td>3g / 2k</td>
+                  <td>25xp</td>
+                  <td>18m</td>
+                  <td>5g / 2k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#psitta" class="dino-link">Psittacosaurus</a></td>
+                  <td>20m</td>
+                  <td>4g / 1.65k</td>
+                  <td>12xp</td>
+                  <td>26m</td>
+                  <td>5g / 1.5k</td>
+                  <td>10xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#coelo" class="dino-link">Coelophysis</a></td>
+                  <td>10m</td>
+                  <td>3g / 1k</td>
+                  <td>10xp</td>
+                  <td>15m</td>
+                  <td>5g / 1.5k</td>
+                  <td>15xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#chang" class="dino-link">Changyuraptor</a></td>
+                  <td>20m</td>
+                  <td>5g / 1.55k</td>
+                  <td>13xp</td>
+                  <td>12m</td>
+                  <td>3g / 1.7k</td>
+                  <td>14xp</td>
+                </tr>
+
+                <tr>
+                  <td><a href="galeria.html#barba" class="dino-link">Barbaridatylus</a></td>
+                  <td>25m</td>
+                  <td>3g / 1.5k</td>
+                  <td>13xp</td>
+                  <td>31*m</td>
+                  <td>4g / 1.5k</td>
+                  <td>10xp</td>
+                </tr>
+
+                <tr>
+                  <td>Qualquer</td>
+                  <td>30m</td>
+                  <td>5g / 2k</td>
+                  <td>20xp</td>
+                  <td>N/A</td>
+                  <td>0g / 1k</td>
+                  <td>25xp</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
       </div>
     </div>
 
@@ -477,10 +480,12 @@
           <div class="map-selector-group" role="group" aria-label="Seletor de tipo de mapa">
             <span class="map-selector-label">Tipo de mapa:</span>
             <div class="map-type-buttons">
-              <button type="button" class="map-type-btn active" data-map="padrao" id="btnMapPadrao" title="Exibir Mapa Padrão">
+              <button type="button" class="map-type-btn active" data-map="padrao" id="btnMapPadrao"
+                title="Exibir Mapa Padrão">
                 <span class="btn-icon">🗺️</span> Padrão
               </button>
-              <button type="button" class="map-type-btn" data-map="legendado" id="btnMapLegendado" title="Exibir Mapa Legendado">
+              <button type="button" class="map-type-btn" data-map="legendado" id="btnMapLegendado"
+                title="Exibir Mapa Legendado">
                 <span class="btn-icon">📍</span> Legendado
               </button>
               <button type="button" class="map-type-btn" data-map="vazio" id="btnMapVazio" title="Exibir Mapa Vazio">
@@ -520,9 +525,12 @@
           </div>
 
           <div class="map-content" id="mapContent">
-            <img src="img/mapa.png" alt="Mapa Padrão do jogo The Cursed Dinosaur Isle" id="mapImage" class="map-img" loading="lazy" draggable="false">
-            <img src="img/legendado.png" alt="Mapa Legendado do jogo The Cursed Dinosaur Isle" id="mapLegend" class="map-img" loading="lazy" draggable="false" hidden>
-            <img src="img/vazio.png" alt="Mapa Vazio do jogo The Cursed Dinosaur Isle" id="mapEmpty" class="map-img" loading="lazy" draggable="false" hidden>
+            <img src="img/mapa.png" alt="Mapa Padrão do jogo The Cursed Dinosaur Isle" id="mapImage" class="map-img"
+              loading="lazy" draggable="false">
+            <img src="img/legendado.png" alt="Mapa Legendado do jogo The Cursed Dinosaur Isle" id="mapLegend"
+              class="map-img" loading="lazy" draggable="false" hidden>
+            <img src="img/vazio.png" alt="Mapa Vazio do jogo The Cursed Dinosaur Isle" id="mapEmpty" class="map-img"
+              loading="lazy" draggable="false" hidden>
           </div>
         </div>
 
@@ -556,22 +564,22 @@
 
     <div id="ordem_lancamento" class="tabcontent">
       <section id="lancamento" class="texto-info">
-            <h2 class="tier-toggle collapsed" tabindex="0" role="button" aria-expanded="false">Ordem de lançamento<span
-                class="arrow"></span></h2>
-            <div class="table-container hidden">
-              <table class="tabela-simples">
-                <thead>
-                  <tr>
-                    <th>Personagem</th>
-                    <th>Lançamento</th>
-                  </tr>
-                </thead>
-                <tbody id="tabela-lancamento">
-                  <!-- Preenchido dinamicamente via JS -->
-                </tbody>
-              </table>
-            </div>
-          </section>
+        <h2 class="tier-toggle collapsed" tabindex="0" role="button" aria-expanded="false">Ordem de lançamento<span
+            class="arrow"></span></h2>
+        <div class="table-container hidden">
+          <table class="tabela-simples">
+            <thead>
+              <tr>
+                <th>Personagem</th>
+                <th>Lançamento</th>
+              </tr>
+            </thead>
+            <tbody id="tabela-lancamento">
+              <!-- Preenchido dinamicamente via JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
 
     <div class="container">
@@ -604,8 +612,9 @@
       <div class="rodape-sociais">
         <h4>Comunidade</h4>
         <div class="sociais-icones">
-          <a href="https://discord.com/invite/dreamdustofficial"><img src="img/discorde.svg"></a>
-          <a href="https://youtube.com/@dreamdustgames?si=ociapI6gkQNDoi-J"><img src="img/youtube.svg"></a>
+            <a href="https://t.me/The_Cursed_Isle"><img src="img/telegram-svgrepo-com.svg"></a>
+            <a href="https://discord.com/invite/dreamdustofficial"><img src="img/discorde.svg"></a>
+            <a href="https://youtube.com/@dreamdustgames?si=ociapI6gkQNDoi-J"><img src="img/youtube.svg"></a>
         </div>
       </div>
     </div>

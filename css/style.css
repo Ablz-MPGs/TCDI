@@ -25,6 +25,8 @@
   --so-hover: rgba(68, 151, 165, 0.253);
   --brilho: rgba(99, 245, 255, 0.14);
   --base: rgb(0, 231, 231);
+  --hero1: rgba(0, 0, 0, 0.491);
+  --hero2: rgba(0, 0, 0, 0.683);
 
   /* Constantes (não variam com tema) */
   --header-height: 90px;
@@ -53,6 +55,8 @@
   --so-hover: rgba(29, 138, 154, 0.1);
   --brilho: rgba(11, 216, 216, 0.178);
   --base: rgb(0, 180, 180);
+  --hero1: rgba(0, 0, 0, 0.164);
+  --hero2: rgba(0, 0, 0, 0.196);
 }
 
 

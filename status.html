@@ -1,42 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TCDI | Status</title>
     <script>
-        if(localStorage.getItem('light') === 'active'){
+        if (localStorage.getItem('light') === 'active') {
             document.documentElement.classList.add('light');
         }
     </script>
-    <link href="img/logo.svg" rel="icon">   
-    <link rel="stylesheet" href="css/reset.css">    
+    <link href="img/logo.svg" rel="icon">
+    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/cabecalho.css">
-    <link rel="stylesheet" href="css/style.css">    
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/status.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
+
 <body>
     <header class="cabecalho">
         <div class="topnav">
             <a class="logo" href="index.html">
-                <img class="logo_imagem" src="img/logo.png" alt="Logo The Cursed Dinosaur Isle"> 
-                <span id="titulo">The Cursed Dinosaur Isle</span>           
+                <img class="logo_imagem" src="img/logo.png" alt="Logo The Cursed Dinosaur Isle">
+                <span id="titulo">The Cursed Dinosaur Isle</span>
             </a>
         </div>
         <nav class="navbar">
             <ul class="nav-menu">
                 <li><button id="modeView" type="button">
-                    <span>🌞</span>
-                    <span>🌒</span>
-                </button></li>
+                        <span>🌞</span>
+                        <span>🌒</span>
+                    </button></li>
                 <li class="nav-item"><a href="index.html" class="nav-link">Início</a></li>
                 <li class="nav-item"><a href="galeria.html" class="nav-link">Galeria</a></li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false" role="button">Mais</a>
+                    <a class="nav-link dropdown-toggle active" href="#" data-bs-toggle="dropdown" aria-expanded="false"
+                        role="button">Mais</a>
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="info.html">Info</a></li>
-                        <li><a class="dropdown-item active" href="status.html" aria-current="page">Status</a></li>                        
+                        <li><a class="dropdown-item active" href="status.html" aria-current="page">Status</a></li>
                         <li><a class="dropdown-item" href="mecanicas.html">Mecânicas</a></li>
                     </ul>
                 </li>
@@ -53,57 +56,59 @@
             <h1>Comparação de status geral</h1>
             <p>Analise os status de cada espécie separadas por seu tier.</p>
             <div id="tabelas-container"></div>
-        </section> 
-    
+        </section>
+
         <section class="containerB combat-simulator">
-                    <h1>Simulação de Combate</h1>
+            <h1>Simulação de Combate</h1>
 
-                    <section class="texto-info">
-                        <p>Descubra a quantidade de dano que um personagem causa em outro, aqui você pode testar o dano base ou de habilidades ativas e até mesmo o ponto de ataque para prever o dano causado. </p>
-                        <p>Capacidades passivas ainda não são suportadas. O dano causado por sangramento não é calculado.</p>
-                    </section>
-                    
-                    <section class="controls">
-                        <div class="form-group">
-                            <label for="combat-species-a">Atacante:</label>
-                            <select id="combat-species-a"></select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="combat-species-b">Alvo:</label>
-                            <select id="combat-species-b"></select>
-                        </div>
-                    </section>
+            <section class="texto-info">
+                <p>Descubra a quantidade de dano que um personagem causa em outro, aqui você pode testar o dano base ou
+                    de habilidades ativas e até mesmo o ponto de ataque para prever o dano causado. </p>
+                <p>Capacidades passivas ainda não são suportadas. O dano causado por sangramento não é calculado.</p>
+            </section>
 
-                    <div class="dadosContainers">
-                        <section class="defense-modes">
-                            <p>Ponto de ataque:</p>
-                            <div class="buttons">
-                                <button class="alvo active" value="1" onclick="defender(this)">Cauda</button>
-                                <button class="alvo" value="2" onclick="defender(this)">Corpo</button>
-                                <button class="alvo" value="3" onclick="defender(this)">Cabeça</button>
-                            </div>
-                        </section>
+            <section class="controls">
+                <div class="form-group">
+                    <label for="combat-species-a">Atacante:</label>
+                    <select id="combat-species-a"></select>
+                </div>
 
-                        <section class="defense-modes">
-                            <p>Meio de ataque:</p>
-                            <div class="buttons">
-                                <button class="atacante active" value="1" onclick="atacar(this)">Dano base</button>
-                                <button class="atacante" value="2" onclick="atacar(this)">Skill 1</button>
-                                <button class="atacante" value="3" onclick="atacar(this)">Skill 2</button>
-                            </div>
-                        </section>
+                <div class="form-group">
+                    <label for="combat-species-b">Alvo:</label>
+                    <select id="combat-species-b"></select>
+                </div>
+            </section>
+
+            <div class="dadosContainers">
+                <section class="defense-modes">
+                    <p>Ponto de ataque:</p>
+                    <div class="buttons">
+                        <button class="alvo active" value="1" onclick="defender(this)">Cauda</button>
+                        <button class="alvo" value="2" onclick="defender(this)">Corpo</button>
+                        <button class="alvo" value="3" onclick="defender(this)">Cabeça</button>
                     </div>
+                </section>
 
-                    
-                    <section class="results-container">                        
-                        <h2>Resultado</h2>
-                        <div id="results">
-                        </div>
-                        <div class="texto-info-2">
-                            <p>O dano atribuído às habilidades ativas é calculado em testes, <a href="balance_tool.html">não</a> possui respaldo oficial.</p>
-                        </div>
-                    </section>
+                <section class="defense-modes">
+                    <p>Meio de ataque:</p>
+                    <div class="buttons">
+                        <button class="atacante active" value="1" onclick="atacar(this)">Dano base</button>
+                        <button class="atacante" value="2" onclick="atacar(this)">Skill 1</button>
+                        <button class="atacante" value="3" onclick="atacar(this)">Skill 2</button>
+                    </div>
+                </section>
+            </div>
+
+
+            <section class="results-container">
+                <h2>Resultado</h2>
+                <div id="results">
+                </div>
+                <div class="texto-info-2">
+                    <p>O dano atribuído às habilidades ativas é calculado em testes, <a href="balance_tool.html">não</a>
+                        possui respaldo oficial.</p>
+                </div>
+            </section>
         </section>
 
         <section class="containerB" id="comparador">
@@ -155,21 +160,26 @@
     <footer class="rodape">
         <div class="rodape-conteudo">
             <div class="rodape-logo">
-                 <img src="img/logo.png" alt="Logo The Cursed Dinosaur Isle" loading="lazy">
+                <img src="img/logo.png" alt="Logo The Cursed Dinosaur Isle" loading="lazy">
                 <h3>The Cursed Dinosaur Isle</h3>
                 <p>Página fanmade, sem ligações com os DEVs.</p>
             </div>
             <div class="rodape-links">
                 <h4>Baixe agora!</h4>
                 <ul class="dawn-icones">
-                    <li><a href="https://play.google.com/store/search?q=the%20cursed%20isle&c=apps&hl=pt_BR"><img src="img/playstore.svg"></a></li>
-                    <li><a href="https://apps.apple.com/br/app/the-cursed-dinosaur-isle-games/id1611891807" id="apple"><img src="img/applew.svg"><img src="img/appleb.svg"></a></li>
-                    <li><a href="https://play.google.com/pc-store/games/details?id=com.jurassic.world.the.cursed.isle.dinosaurs.carnivores.dino.hunter.dinos.online.trex.tyrannosaurus.simulator&hl=pt_BR"><img src="img/playgames.svg"></a></li>
+                    <li><a href="https://play.google.com/store/search?q=the%20cursed%20isle&c=apps&hl=pt_BR"><img
+                                src="img/playstore.svg"></a></li>
+                    <li><a href="https://apps.apple.com/br/app/the-cursed-dinosaur-isle-games/id1611891807"
+                            id="apple"><img src="img/applew.svg"><img src="img/appleb.svg"></a></li>
+                    <li><a
+                            href="https://play.google.com/pc-store/games/details?id=com.jurassic.world.the.cursed.isle.dinosaurs.carnivores.dino.hunter.dinos.online.trex.tyrannosaurus.simulator&hl=pt_BR"><img
+                                src="img/playgames.svg"></a></li>
                 </ul>
             </div>
             <div class="rodape-sociais">
                 <h4>Comunidade</h4>
                 <div class="sociais-icones">
+                    <a href="https://t.me/The_Cursed_Isle"><img src="img/telegram-svgrepo-com.svg"></a>
                     <a href="https://discord.com/invite/dreamdustofficial"><img src="img/discorde.svg"></a>
                     <a href="https://youtube.com/@dreamdustgames?si=ociapI6gkQNDoi-J"><img src="img/youtube.svg"></a>
                 </div>
@@ -185,4 +195,5 @@
     <script src="js/status.js" defer></script>
     <script src="js/compare.js" defer></script>
 </body>
+
 </html>
