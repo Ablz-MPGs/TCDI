@@ -673,7 +673,7 @@
             nome: "Triceratops horridus",
             classe: 3,
             tier: 5,
-            peso: 1650,
+            peso: 1750,
             hp: 4875,
             dano_base: 270,
             fratura: 5,
