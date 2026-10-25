@@ -1011,7 +1011,7 @@
       "fotinha": "2000",
       "group": "2.5 slots",
       "growth": "38 min",
-      "price": "2000",
+      "price": "600",
       "skin1": "40000",
       "skin2": "450"
     }
@@ -1224,7 +1224,7 @@
     "actives": [
       {
         "desc": "Um golpe de cauda em área, que causa repulsão.",
-        "effect": "Recarga em 5 segundos ",
+        "effect": null,
         "icon": "img/skill/cauda.png",
         "title": "Chicote de cauda"
       }

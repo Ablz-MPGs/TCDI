@@ -39,7 +39,7 @@
             dieta: "🌿",
             slots: 2.5,
             ativas: {
-                skill1: { dano: 300, tr: 3.5 },
+                skill1: { dano: 300, tr: 2 },
                 skill2: { dano: null }
             }
         },
@@ -520,7 +520,7 @@
             dieta: "🌿",
             slots: 2,
             ativas: {
-                skill1: { dano: 220, tr: 3.5 }
+                skill1: { dano: 220, tr: 2 }
             }
         },
         // Psittacosaurus
