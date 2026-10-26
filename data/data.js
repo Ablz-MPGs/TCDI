@@ -601,8 +601,8 @@
             dieta: "🥩🦈",
             slots: 3,
             ativas: {
-                skill1: { dano: 210 },
-                skill2: { dano: 265 }
+                skill1: { dano: null },
+                skill2: { dano: null }
             }
         },
         // Stegosaurus
