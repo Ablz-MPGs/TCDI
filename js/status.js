@@ -258,6 +258,10 @@ function calcularDano(idAtacante, idAlvo, tipoDefesa, tipoAtaque) {
 }
 
 function defender(botaoClicado) {
+    if(1 > 0){
+        alert("Função indisponível!");
+        return;
+    }
     const selecionado = document.querySelector('.alvo.active');
     if (selecionado) {
         selecionado.classList.remove('active');
@@ -269,6 +273,10 @@ function defender(botaoClicado) {
 }
 
 function atacar(botaoClicado) {
+    if(1 > 0){
+        alert("Função indisponível!");
+        return;
+    }
     const selecionado = document.querySelector('.atacante.active');
     if (selecionado) {
         selecionado.classList.remove('active');

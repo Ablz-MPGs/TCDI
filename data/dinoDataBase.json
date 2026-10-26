@@ -137,7 +137,7 @@
       {
         "desc": "Seu dinossauro possui uma chance de ignorar 1 ponto de efeito sofrido.",
         "effect": "-1 efeito de sangramento ou fratura",
-        "icon": "img/skill/escudoosseo.png",
+        "icon": "img/skill/escudoO.png",
         "title": "Escudo Ósseo"
       }
     ],
@@ -168,7 +168,7 @@
       },
       {
         "desc": "Salta rapidamente, atacando o inimigo, há chances de reduzir sua defesa.",
-        "effect": "-15% defesa inimiga durante 20 segundos. Dano base: 200, recarga em 15s.",
+        "effect": "-15% defesa inimiga durante 20 segundos. Recarga em 15s.",
         "icon": "img/skill/mordida.png",
         "title": "Ataque do céu"
       }
@@ -1421,16 +1421,16 @@
   "Spinosaurus": {
     "actives": [
       {
-        "desc": "Seu dinossauro desfiere três golpes com suas garras. Aumenta a chance de infligir sangramento.",
+        "desc": "O dinossauro desfere dois golpes com suas garras. Reduz 30% da velocidade de inimigos atingidos. Aumenta a chance de infligir sangramento.",
         "effect": null,
-        "icon": "img/skill/garras.png",
+        "icon": "img/skill/spinoClaw.png",
         "title": "Chuva de Golpes"
       },
       {
-        "desc": "Um golpe de cauda em área, causa repulsão.",
+        "desc": "Em terra, o dinossauro executa um giro de 160° área, atacando com a cauda e garras. Na água, o dinossauro se impulsiona para frente",
         "effect": null,
-        "icon": "img/skill/cauda.png",
-        "title": "Chicote de Cauda"
+        "icon": "img/skill/giro.png",
+        "title": "Golpe em gancho"
       }
     ],
     "desc": "Dinossauro espinossaurídeo de hábitos semi-aquático, o dinossauro carnívoro mais comprido que já viveu.",
@@ -1440,22 +1440,26 @@
     "image": "img/pict/spinoperfil.png",
     "passives": [
       {
-        "desc": "Quando os membros da matilha estão perto de você, sua chance de causar sangramento aumenta.",
-        "effect": "+2.5% sangramento",
-        "icon": "img/skill/rebanho.png",
-        "title": "O poder do bando"
-      },
-      {
         "desc": "Quando seu dinossauro nada, o dano aumenta.",
         "effect": "+15% defesa e +8% dano, dura 25s mesmo após sair da água.",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
+      },{
+        "desc": "O primeiro ataque realizado após deixar a água possui dano aumentado.",
+        "effect": "+50% de dano",
+        "icon": "img/skill/emboscadaA.png",
+        "title": "Emboscada Aquática"
       },
       {
-        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
-        "icon": "img/skill/aquatico.png",
-        "title": "Presente das Profundezas"
+        "desc": "Permanecer por certo tempo na água fará com que a velocidade de movimento e de giro sejam aprimoradas. O efeito persiste temporariamente após sair para a terra",
+        "effect": "+8% velocidade",
+        "icon": "img/skill/cacadorF.png",
+        "title": "Caçador Fluvial"
+      },{
+        "desc" : "A defesa é aumentada quando estiver com a vida alta.",
+        "effect" : "+10% defesa",
+        "icon" : "img/skill/tamColossal.png",
+        "title" : "Tamanho Colossal"
       }
     ],
     "prices": {
