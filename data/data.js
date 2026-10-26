@@ -60,8 +60,8 @@
             dieta: "🌿",
             slots: 2.5,
             ativas: {
-                skill1: { dano: null },
-                skill2: { dano: 492, tr: 0 }
+                skill1: { dano: 420, tr: 7 },
+                skill2: { dano: null}
             }
         },
         // Austroraptor
