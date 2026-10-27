@@ -330,7 +330,7 @@
             dieta: "🥩",
             slots: 3,
             ativas: {
-                skill1: { dano: 400, tr: 9 },
+                skill1: { dano: 320, tr: 9 },
                 skill2: { dano: null, tr: 12 } //efeito de lentidão por 5s?
             }
         },
