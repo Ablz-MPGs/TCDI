@@ -828,7 +828,7 @@
         "title": "Sede de Sangue"
       },
       {
-        "desc": "Sua mordida é capaz de roubar a força da vítima, restaurando o vigor roubada do inimigo.",       
+        "desc": "Sua mordida é capaz de roubar a força da vítima, restaurando o vigor roubada do inimigo.",
         "effect": "Vigor roubado indefinido",
         "icon": "img/skill/furia.png",
         "title": "Fúria insaciável"
@@ -1160,7 +1160,7 @@
       {
         "desc": "Quando seu dinossauro está com pouco HP, sua velocidade e chance de fraturar aumentam.",
         "effect": "+5% velocidade e chance de fratura",
-        "icon": "img/skill/poucohpP.png",
+        "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       }
     ],

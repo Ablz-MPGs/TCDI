@@ -68,7 +68,7 @@ const skills = [
                 desc: "A defesa e chance de infligir sangramento são aumentadas quando com pouca vida.",
                 effect: "+12% defesa, +4.5% sangramento",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ]
     },
@@ -105,7 +105,7 @@ const skills = [
                 desc: "O dano e chance de infligir fratura são aumentadas quando com pouca vida.",
                 effect: "+15% dano, +7.5% chance de fratura",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             },
             {
                 title: "Escudo Ósseo",
@@ -245,7 +245,7 @@ const skills = [
                 desc: "A defesa e chance de infligir sangramento são aumentadas quando com pouca vida.",
                 effect: "+12% defesa, +3.6% sangramento",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }, {
                 title: "O poder do bando",
                 desc: "A vida regenera mais rápido quando há membros da matilha por perto.",
@@ -348,7 +348,7 @@ const skills = [
                 desc: "A velocidade aumenta e o consumo de vigor é reduzido quando com pouca vida.",
                 effect: "-20% consumo de vigor, +5% velocidade",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ]
     },
@@ -356,12 +356,12 @@ const skills = [
         id: 10,
         ativas: [
             {
-                title: "Surto de poder",
+                title: "Ataque Pesado",
                 desc: "O dinossauro desfere um golpe forte. As chances de infligir sangramento são aumentadas.",
                 effect: null,
                 dmg: 200,
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ],
         passivas: [
@@ -370,7 +370,7 @@ const skills = [
                 desc: "O dano aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
                 effect: "+14% dano, -20% consumo de vigor",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }, {
                 title: "O poder do bando",
                 desc: "A regeneração de vida aumenta,quando há membros da matilha por perto.",
@@ -493,7 +493,7 @@ const skills = [
                 desc: "O dano e as chances de infligir sangramento aumentam, quando com pouca vida.",
                 effect: "+20% dano, +4% chance de sangramento",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ]
     },
@@ -559,7 +559,7 @@ const skills = [
                 desc: "O consumo de vigor é reduzido e a velocidade aumenta, quando com pouca vida.",
                 effect: "+5% velocidade, -25% consumo de vigor",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }, {
                 title: "O poder do bando",
                 desc: "As chances de aplicar fratura aumentam, quando há membros da matilha por perto.",
@@ -581,7 +581,7 @@ const skills = [
                 icon: "cranio"
             },
             {
-                title : "Terremoto",
+                title: "Terremoto",
                 desc: "Pisa no chão, causando dano em área e lentidão aos atingidos. Pode repelir e/ou atordoar inimigos menores.",
                 effect: null,
                 dmg: 0,
@@ -609,7 +609,7 @@ const skills = [
                 cd: null,
                 icon: "armadura"
             }
-            
+
         ]
     },
     Gigantoraptor = {
@@ -634,7 +634,7 @@ const skills = [
         ],
         passivas: [
             {
-                title : "Instinto Materno",
+                title: "Instinto Materno",
                 desc: "Quando próximo a um ninho, o dano é aumentado de acordo com a quantidade de ovos restantes",
                 effect: "Acumula 3 vezes, até +18%",
                 cd: null,
@@ -646,7 +646,7 @@ const skills = [
                 cd: null,
                 icon: "rebanhoC"
             }
-        ] 
+        ]
     },
     Guanlong = {
         id: 18,
@@ -666,7 +666,7 @@ const skills = [
                 cd: 0,
                 icon: "sangra"
             }
-        ], 
+        ],
         passivas: [
             {
                 title: "Poder do Bando",
@@ -685,14 +685,14 @@ const skills = [
     },
     Kentrosaurus = {
         id: 19,
-        ativas :[
+        ativas: [
             {
                 title: "Chuva de Golpes",
                 desc: "Ataca três vezes com a cauda. As chances de infligir sangramento são maiores",
                 effect: null,
-                dmg : 230,
-                cd : 35,
-                icon : "tago"
+                dmg: 230,
+                cd: 35,
+                icon: "tago"
             },
             {
                 title: "Armadura",
@@ -701,7 +701,7 @@ const skills = [
                 cd: 50,
                 icon: "defesa"
             }
-        ], 
+        ],
         passivas: [
             {
                 title: "Instinto Primordial",
@@ -720,12 +720,12 @@ const skills = [
                 desc: "O consumo de vigor é reduzido e a velocidade aumenta, quando com pouca vida.",
                 effect: "+5% velocidade, -20% consumo de vigor",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ]
     },
     Megaraptor = {
-        id : 20,
+        id: 20,
         ativas: [
             {
                 title: "Garras Afiadas",
@@ -766,7 +766,7 @@ const skills = [
             }
         ]
     },
-    Ornithomimus ={
+    Ornithomimus = {
         id: 21,
         ativas: [
             {
@@ -783,11 +783,11 @@ const skills = [
                 dmg: 150,
                 cd: 10,
                 icon: "chute"
-            },
-        ], 
+            }
+        ],
         passivas: [
             {
-                title : "Instinto Materno",
+                title: "Instinto Materno",
                 desc: "Quando próximo ao ninho, o dano é aumentado de acordo com a quantidade de ovos restantes",
                 effect: "Acumula 3 vezes, até +14% dano",
                 cd: null,
@@ -803,12 +803,12 @@ const skills = [
                 desc: "A defesa aumenta, quando com pouca vida.",
                 effect: "+15% vida",
                 cd: null,
-                icon: "poucoHp"
+                icon: "surto"
             }
         ]
     },
     Pachycephalosaurus = {
-        id: 21,
+        id: 22,
         ativas: [
             {
                 title: "Ataque carregado",
@@ -818,7 +818,7 @@ const skills = [
                 cd: 20,
                 icon: "carregada"
             }, {
-                title: "Ataque carregado",
+                title: "Investida",
                 desc: "O dinossauro avança em alta velocidade durante seis segundos, apliacando dano ao se chocar com um inimigo. O dano aumenta conforme a distância. O raio de giro é reduzido. As chances de aplicar fratura são aumentadas.",
                 effect: "+25% velocidade. +15% consumo de vigor",
                 dmg: 457,
@@ -828,7 +828,7 @@ const skills = [
         ],
         passivas: [
             {
-                title: "Corredor de Maratona",
+                title: "O Poder do Bando",
                 desc: "A defesa aumenta, quando há membros da matilha por perto.",
                 effect: "Acumula 3 vezes, até +13% defesa",
                 cd: null,
@@ -838,7 +838,203 @@ const skills = [
                 desc: "A velocidade e chances de infligir fratura aumentam, quando com pouca vida.",
                 effect: "+5% velocidade e chance de fratura",
                 cd: null,
-                icon: "poucoHpP"
+                icon: "surtoP"
+            }
+        ]
+    },
+    Pachyrhinosaurus = {
+        id: 23,
+        ativas: [
+            {
+                title: "Investida",
+                desc: "O dinossauro avança em alta velocidade durante seis segundos, apliacando dano ao se chocar com um inimigo. O dano aumenta conforme a distância. O raio de giro é reduzido durante o avanço. As chances de aplicar fratura são aumentadas.",
+                effect: "+25% velocidade. +15% consumo de vigor",
+                dmg: 0,
+                cd: 0,
+                icon: "investida"
+            }, {
+                title: "Terremoto",
+                desc: "Ergue as patas dianteiras e pisa no chão, causando dano em área. Pode repelir e/ou atordoar inimigos menores.",
+                effect: null,
+                dmg: 0,
+                cd: 12,
+                icon: "terremoto"
+            }
+
+        ],
+        passivas: [
+            {
+                title: "O Poder do Bando",
+                desc: "A regeneração de vida aumenta, quando há membros da matilha por perto.",
+                effect: "+20% regeneração de vida",
+                cd: null,
+                icon: "rebanhoH"
+            }, {
+                title: "Surto de poder",
+                desc: "A velocidade aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect: "+5% velocidade, -20% gasto de vigor",
+                cd: null,
+                icon: "surto"
+            }
+        ]
+    },
+    Parasaurolophus = {
+        id: 24,
+        ativas: [
+            {
+                title: "Chute",
+                desc: "Desfere um golpe com as patas traseiras. Pode repelir e/ou atordoar dinossauros menores.",
+                effect: null,
+                dmg: 350,
+                cd: 7,
+                icon: "coice"
+            }, {
+                title: "Rugido Intimidador",
+                desc: "O dinossauro ruge, reduzindo o consumo a defesa inimiga durante 20 segundos.",
+                effect: "-15% defesa inimiga",
+                dmg: null,
+                cd: 50,
+                icon: "rugido"
+            }
+        ],
+        passivas: [
+            {
+                title: "Surto de poder",
+                desc: "A velocidade aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect: "+5% velocidade, -20% gasto de vigor",
+                cd: null,
+                icon: "surto"
+            }
+        ]
+    },
+    Plateosaurus = {
+        id: 25,
+        ativas: [
+            {
+                title: "Chicote de Cauda",
+                desc: "Um golpe de cauda em área que causa repulsão. Pode causar sangramento.",
+                effect: null,
+                dmg: 220,
+                cd: 2,
+                icon: "cauda"
+            }
+        ],
+        passivas: [
+            {
+                title: "O Poder do Bando",
+                desc: "A defesa é aumentada, quando há membros da matilha por perto.",
+                effect: "Acumula 2 vezes, até + 11% defesa",
+                cd: null,
+                icon: "rebanhoH"
+            }, {
+                title: "Surto de poder",
+                desc: "A velocidade aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect: "+5% velocidade, -20% gasto de vigor",
+                cd: null,
+                icon: "surto"
+            }
+        ]
+    },
+    Psittacosaurus = {
+        id: 36,
+        ativas: [
+            {
+                title: "grito de Cura",
+                desc: "O dinossauro ruge, aprimorando a regeneação de vida aliada durante 20 segundos.",
+                effect: "+20% regeneração de vida",
+                dmg: null,
+                cd: 50,
+                icon: "rugido"
+            }
+        ],
+        passivas: [
+            {
+                title: "Surto de poder",
+                desc: "A velocidade aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect: "+5% velocidade, -20% gasto de vigor",
+                cd: null,
+                icon: "surto"
+            }, {
+                title: "Instinto Materno",
+                desc: "Quando próximo ao ninho, o dano é aumentado de acordo com a quantidade de ovos restantes",
+                effect: "Acumula 3 vezes, até +14% dano",
+                cd: null,
+                icon: "ninho"
+            }
+        ]
+    },
+    Quetzalcoatlus = {
+        id: 27,
+        ativas: [
+            {
+                title: "Capturar",
+                desc: "Agarra uma presa com a boca, consumido vigor para segurá-la. Funciona apenas com animais menores. Reduz a velocidade.",
+                effect: "-15% velocidade",
+                dmg: 160,
+                cd: 0,
+                icon: "capturarQ"
+            }
+        ], 
+        passivas: [
+            {
+                title: "O poder do bando",
+                desc: "O dano aumenta, quando há membros da matilha por perto.",
+                effect: "Acumula 3 vezes, até +10% dano",
+                cd: null,
+                icon: "rebanhoC"
+            }, {
+                title: "Surto de poder",
+                desc: "A velocidade aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect: "+5% velocidade, -20% gasto de vigor",
+                cd: null,
+                icon: "surto"
+            }
+        ]
+    }, 
+    Sarcosuchus = {
+        id: 28,
+        ativas: [
+            {
+                title: "Mordida Mortal",
+                desc: "O dinossauro desfere um golpe forte. que reduz o vigor e oxigênio do atingido. As chances de infligir sangramento e fratura são aumentadas.",
+                effect: null,
+                dmg: 350,
+                cd: 0,
+                icon: "mordida"
+            }, {
+                title: "Capturar",
+                desc: "Agarra uma presa com a boca, consumido vigor para segurá-la. Funciona apenas com animais menores. Reduz a velocidade.",
+                effect: "-15% velocidade",
+                dmg: 300,
+                cd: 0,
+                icon: "capturarS"
+            }
+        ], 
+        passivas: [
+            {
+                title: "O poder do bando",
+                desc: "As chances de aplicar fratura aumentam, quando há membros da matilha por perto.",
+                effect: "Acumula 2 vezes, até +1% chance de fratura",
+                cd: null,
+                icon: "rebanhoC"
+            }, {
+                title: "Surto de poder",
+                desc: "A defesa, quando com pouca vida.",
+                effect: "+10% defesa",
+                cd: null,
+                icon: "surto"
+            }, {
+                title: "Presente das Profundezas",
+                desc: "O consumo de vigor é reduzido após alimentar-se de peixe.",
+                effect: "-10% consumo de vigor durante 30 segundos",
+                cd: 0,
+                icon: "aquatico"
+            }, {
+                title: "Elemento nativo",
+                desc: "A defesa e o dano aumentam, enquanto estiver dentro da água.",
+                effect: "+25% defesa, +10% dano",
+                cd: null,
+                icon: "enativo"
             }
         ]
     }
