@@ -511,7 +511,7 @@
       },
       {
         "desc": "Quando seu dinossauro está com pouco HP, seu dano aumenta e o consumo de vigor é reduzido.",
-        "effect": "+20 dano, -20% consumo de vigor",
+        "effect": "+14% dano, -20% consumo de vigor",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       }
@@ -529,6 +529,63 @@
       "group": "2 slots",
       "growth": "32 min",
       "price": "280",
+      "skin1": "-",
+      "skin2": "-"
+    }
+  },
+  "Cristatusaurus": {
+    "actives": [
+      {
+        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
+        "effect": null,
+        "icon": "img/skill/carregada.png",
+        "title": "Ataque Carregado"
+      },
+      {
+        "desc": "O dinossauro realiza dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
+        "effect": null,
+        "icon": "img/skill/garras.png",
+        "title": "Garras Afiadas"
+      }
+    ],
+    "desc": "Espinossaurídeo baryonichinae de grande porte, teoriza-se ser um dos mais terrestres de sua família.",
+    "diet": "🥩🦈",
+    "fullName": "CRISTATUSAURUS<br>PARADOXUS",
+    "idStatus": "crista",
+    "image": "img/pict/cristaperfil.png",
+    "passives": [
+      {
+        "desc": "Quando os membros da matilha estão perto de você, sua defesa é aumentada.",
+        "effect": "Até 2 vezes: +8% defesa",
+        "icon": "img/skill/rebanho.png",
+        "title": "O poder do bando"
+      },
+      {
+        "desc": "Quando seu dinossauro nada, sua velocidade aumenta e o custo de vigor é reduzido.",
+        "effect": "+5% velocidade, -20% gasto de vigor",
+        "icon": "img/skill/enativo.png",
+        "title": "Elemento nativo"
+      },
+      {
+        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina",
+        "icon": "img/skill/aquatico.png",
+        "title": "Presente das Profundezas"
+      }
+    ],
+    "prices": {
+      "avatar": "moeda",
+      "price": "moeda"
+    },
+    "release": "02 / 04 / 2025",
+    "shortName": "Cristatusaurus",
+    "stats": {
+      "corgema": "20",
+      "cormoeda": "2000",
+      "fotinha": "15000",
+      "group": "2.5 slots",
+      "growth": "41 min",
+      "price": "110000",
       "skin1": "-",
       "skin2": "-"
     }
@@ -1579,63 +1636,6 @@
       "price": "55000",
       "skin1": "25000",
       "skin2": "250"
-    }
-  },
-  "Cristatusaurus": {
-    "actives": [
-      {
-        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
-        "effect": null,
-        "icon": "img/skill/carregada.png",
-        "title": "Ataque Carregado"
-      },
-      {
-        "desc": "O dinossauro realiza dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
-        "effect": null,
-        "icon": "img/skill/garras.png",
-        "title": "Garras Afiadas"
-      }
-    ],
-    "desc": "Espinossaurídeo baryonichinae de grande porte, teoriza-se ser um dos mais terrestres de sua família.",
-    "diet": "🥩🦈",
-    "fullName": "CRISTATUSAURUS<br>PARADOXUS",
-    "idStatus": "crista",
-    "image": "img/pict/cristaperfil.png",
-    "passives": [
-      {
-        "desc": "Quando os membros da matilha estão perto de você, sua defesa é aumentada.",
-        "effect": "Até 2 vezes: +8% defesa",
-        "icon": "img/skill/rebanho.png",
-        "title": "O poder do bando"
-      },
-      {
-        "desc": "Quando seu dinossauro nada, sua velocidade aumenta e o custo de vigor é reduzido.",
-        "effect": "+5% velocidade, -20% gasto de vigor",
-        "icon": "img/skill/enativo.png",
-        "title": "Elemento nativo"
-      },
-      {
-        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
-        "icon": "img/skill/aquatico.png",
-        "title": "Presente das Profundezas"
-      }
-    ],
-    "prices": {
-      "avatar": "moeda",
-      "price": "moeda"
-    },
-    "release": "02 / 04 / 2025",
-    "shortName": "Cristatusaurus",
-    "stats": {
-      "corgema": "20",
-      "cormoeda": "2000",
-      "fotinha": "15000",
-      "group": "2.5 slots",
-      "growth": "41 min",
-      "price": "110000",
-      "skin1": "-",
-      "skin2": "-"
     }
   },
   "Therizinosaurus": {

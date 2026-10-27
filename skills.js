@@ -157,7 +157,7 @@ const skills = [
                 desc : "O consumo de vigor é reduzido após alimentar-se de peixe.",
                 effect : "-10% consumo de vigor durante 30 segundos", 
                 cd : 0,
-                icon : "disparada"
+                icon : "aquatico"
             },{
                 title : "Frescor Marinho",
                 desc :  "A velocidade é aumentada após sair da água.",
@@ -362,5 +362,121 @@ const skills = [
         ]
     }, 
     //Concavenator
-    
+    {
+        id : 10,
+        ativas : [
+            {
+                title : "Surto de poder",
+                desc : "O dinossauro desfere um golpe forte. As chances de infligir sangramento são aumentadas.",
+                effect : null, 
+                dmg : 200,
+                cd : null,
+                icon : "poucoHp"
+            } 
+        ],
+        passivas : [
+            {
+                title : "Surto de poder",
+                desc : "O dano aumenta e o consumo de vigor é reduzido, quando com pouca vida.",
+                effect : "+14% dano, -20% consumo de vigor", 
+                cd : null,
+                icon : "poucoHp"
+            }, {
+                title : "O poder do bando",
+                desc : "A regeneração de vida aumenta,quando há membros da matilha por perto.",
+                effect : "Acumula 3 vezes, até +20% regeneração de vida", 
+                cd : null,
+                icon : "rebanhoC"
+            }, 
+        ]
+    },
+    //Cristatusaurus
+    {
+        id:11,
+        ativas:[
+            {
+                title : "Ataque carregado",
+                desc :  "O dinossauro prepara um ataque poderoso, desferindo-o em até 5 segundos.  Maiores chances de infligir sangramento.",
+                effect : "", 
+                dmg : 615,
+                cd : 20,
+                icon : "carregada"
+            }, {
+                title : "Garras Afiadas",
+                desc :  "Executa um ataque de garras. Aumenta as chances de ifligir sangramento.",
+                effect : "", 
+                dmg : 240,
+                cd : 0,
+                icon : "garras"
+            }
+        ], 
+        passivas: [
+            {
+                title : "O poder do bando",
+                desc :  "A defesa aumenta quando há membros da matilha por perto.",
+                effect : "Acumula 2 vezes, até + 8% defesa", 
+                cd : null,
+                icon : "rebanhoC"
+            }, {
+                title : "Elemento nativo",
+                desc :  "A velocidade aumenta e o consumo de vigor é reduzido, enquanto estiver dentro da água.",
+                effect : "+5% velocidade, -20% consumo de vigor", 
+                cd : null,
+                icon : "enativo"
+            }, {
+                title : "Presente das Profundezas",
+                desc : "O consumo de vigor é reduzido após alimentar-se de peixe.",
+                effect : "-10% consumo de vigor durante 30 segundos", 
+                cd : 0,
+                icon : "aquatico"
+            }
+        ]
+    },
+    //Deinocheirus
+    {
+        id : 12,
+        ativas :[
+            {
+                title : "Estrondo do lagarto",
+                desc: "O dinossauro ruge, aumentando temporariamente a velocidade e defesa.",
+                effect: "+15% defesa, +3% velocidade",
+                dmg: null,
+                cd: null,
+                icon: "buffS"
+            }, {
+                title : "Ataque carregado",
+                desc :  "O dinossauro prepara um ataque poderoso, desferindo-o em até 5 segundos.  Maiores chances de infligir sangramento e fratura.",
+                effect : "", 
+                dmg : 812,
+                cd : 20,
+                icon : "carregada"
+            }
+        ],
+        passivas : [
+            {
+                title : "O poder do bando",
+                desc :  "As chances de aplicar sangramento aumentam quando há membros da matilha por perto.",
+                effect : "+2% chance de sangramento", 
+                cd : null,
+                icon : "rebanhoH"
+            },{
+                title : "Presente das Profundezas",
+                desc : "O consumo de vigor é reduzido após alimentar-se de peixe.",
+                effect : "-10% consumo de vigor durante 30 segundos", 
+                cd : 0,
+                icon : "aquatico"
+            },{
+                title : "Elemento nativo",
+                desc :  "A defesa aumenta enquanto estiver dentro da água.",
+                effect : "+15% defesa", 
+                cd : null,
+                icon : "enativo"
+            }
+        ]
+    },
+    //Deinonychus
+    {
+        id: 13,
+        ati 
+    }
 ];
