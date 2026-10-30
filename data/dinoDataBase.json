@@ -93,7 +93,7 @@
     "stats": {
       "corgema": "30",
       "cormoeda": "3000",
-      "fotinha": "-",
+      "fotinha": "12000",
       "group": "2.5 slots",
       "growth": "48 min",
       "price": "120000",
@@ -639,7 +639,7 @@
     "stats": {
       "corgema": "40",
       "cormoeda": "4000",
-      "fotinha": "-",
+      "fotinha": "30000",
       "group": "3 slots",
       "growth": "48 min",
       "price": "800",
@@ -1497,7 +1497,7 @@
     "image": "img/pict/spinoperfil.png",
     "passives": [
       {
-        "desc": "Quando seu dinossauro nada, o dano aumenta.",
+        "desc": "Quando seu dinossauro nada, o dano e a defesa aumentam.",
         "effect": "+15% defesa e +8% dano, dura 25s mesmo após sair da água.",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
@@ -1683,7 +1683,7 @@
     "stats": {
       "corgema": "40",
       "cormoeda": "4000",
-      "fotinha": "-",
+      "fotinha": "35000",
       "group": "2.5 slots",
       "growth": "48 min",
       "price": "150000",
