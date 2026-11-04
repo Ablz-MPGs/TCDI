@@ -19,7 +19,7 @@
             dieta: "🥩",
             slots: 2,
             ativas: {
-                skill1: { dano: 672, tr: 20 }
+                skill1: { dano: 641, tr: 20 }
             }
         },
         // Amargasaurus
@@ -180,7 +180,7 @@
             vel_terra: 2050,
             vel_agua: 350,
             vel_ar: null,
-            crescimento: 15,
+            crescimento: 14,
             dieta: "🥩",
             slots: 1,
             ativas: {
@@ -432,7 +432,7 @@
             vel_terra: 2000,
             vel_agua: 450,
             vel_ar: null,
-            crescimento: 17,
+            crescimento: 16,
             dieta: "🌿",
             slots: 1,
             ativas: {
@@ -536,7 +536,7 @@
             vel_terra: 1880,
             vel_agua: 400,
             vel_ar: null,
-            crescimento: 20,
+            crescimento: 28,
             dieta: "🌿",
             slots: 1,
             ativas: {

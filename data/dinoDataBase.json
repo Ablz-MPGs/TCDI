@@ -130,7 +130,7 @@
       },
       {
         "desc": "Quando seu dinossauro está com HP baixo, seu dano e chance de fraturar aumentam.",
-        "effect": "+ dano, +7,5% fratura",
+        "effect": "+15% dano, +7,5% fratura",
         "icon": "img/skill/poucohp.png",
         "title": "Surto de poder"
       },
