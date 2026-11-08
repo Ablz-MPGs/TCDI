@@ -555,7 +555,7 @@
             sangramento: 9,
             vel_terra: 1400,
             vel_agua: 600,
-            vel_ar: 2200,
+            vel_ar: 2350,
             crescimento: 41,
             dieta: "🥩🦈",
             slots: 3,

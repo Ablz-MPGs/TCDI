@@ -760,7 +760,7 @@
       {
         "desc": "Seu dinossauro agarra uma presa com a boca, podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
         "effect": "-15% velocidade. Dano base: 245",
-        "icon": "img/skill/capturarf.png",
+        "icon": "img/skill/capturarF.png",
         "title": "Capturar"
       }
     ],
