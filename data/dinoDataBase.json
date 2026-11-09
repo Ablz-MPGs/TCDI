@@ -423,7 +423,7 @@
     "stats": {
       "corgema": "50",
       "cormoeda": "8000",
-      "fotinha": "-",
+      "fotinha": "25000",
       "group": "1 slot",
       "growth": "12 min",
       "price": "550",
@@ -631,7 +631,7 @@
       }
     ],
     "prices": {
-      "avatar": "free",
+      "avatar": "moeda",
       "price": "gema"
     },
     "release": "20 / 11 / 2024",
