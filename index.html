@@ -17,6 +17,12 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/media.css">
 </head>
+<script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PCP4Z9CQ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+</script>
 
 <body>
     <header class="cabecalho">
@@ -112,6 +118,14 @@
                 <img src="img/logo.png" alt="Logo The Cursed Dinosaur Isle" loading="lazy">
             </div>
         </section>
+
+        <div id="cookie-banner" style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #e30101; color: #fff; padding: 20px; display: none; z-index: 9999; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: sans-serif;">
+            <p style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.5;">
+                Utilizamos cookies e tecnologias semelhantes para melhorar a sua experiência e analisar o tráfego do site através do Google Analytics.
+            </p>
+            <button id="accept-cookies" style="background: #1d531f; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-right: 10px;">Aceitar</button>
+            <button id="reject-cookies" style="background: #66221d; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold;">Recusar</button>
+        </div>
     </main>
 
     <footer class="rodape">

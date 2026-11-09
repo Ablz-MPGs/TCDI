@@ -76,3 +76,48 @@ if (viewMode) {
         light !== 'active' ? lightMode() : darkMode();
     });
 }
+
+const GA_MEASUREMENT_ID = 'G-SEU_ID_AQUI'; // Substitua pelo seu ID real
+
+// Função que injeta dinamicamente o script do Google Analytics
+function ativarGoogleAnalytics() {
+    const scriptUrl = document.createElement('script');
+    scriptUrl.async = true;
+    scriptUrl.src = `https://googletagmanager.com{GA_MEASUREMENT_ID}`;
+    document.head.appendChild(scriptUrl);
+
+    const scriptInline = document.createElement('script');
+    scriptInline.innerHTML = `
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '${GA_MEASUREMENT_ID}');
+    `;
+    document.head.appendChild(scriptInline);
+}
+
+// Executa ao carregar a página
+window.addEventListener('DOMContentLoaded', () => {
+    const consentimento = localStorage.getItem('cookies-consent');
+    const banner = document.getElementById('cookie-banner');
+
+    if (consentimento === 'aceito') {
+        ativarGoogleAnalytics();
+    } else if (consentimento === null) {
+        // Se nunca tomou uma decisão, mostra o banner
+        banner.style.display = 'block';
+    }
+
+    // Evento do botão Aceitar
+    document.getElementById('accept-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookies-consent', 'aceito');
+        banner.style.display = 'none';
+        ativarGoogleAnalytics();
+    });
+
+    // Evento do botão Recusar
+    document.getElementById('reject-cookies').addEventListener('click', () => {
+        localStorage.setItem('cookies-consent', 'recusado');
+        banner.style.display = 'none';
+    });
+});
