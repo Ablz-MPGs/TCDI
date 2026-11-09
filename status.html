@@ -19,9 +19,9 @@
 </head>
 <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-PCP4Z9CQ"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
 </script>
 
 <body>
@@ -162,6 +162,18 @@
                 <div class="skills-grid" id="skills-grid"></div>
             </section>
         </section>
+        <div id="cookie-banner"
+            style="position: fixed; bottom: 20px; left: 20px; right: 20px; background: #222; color: #fff; padding: 20px; display: none; z-index: 9999; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); font-family: sans-serif;">
+            <p style="margin: 0 0 15px 0; font-size: 14px; line-height: 1.5;">
+                Utilizamos cookies para melhorar sua experiência e analisar o tráfego. Suas preferências serão
+                respeitadas de acordo com as diretrizes de privacidade.
+            </p>
+            <button id="accept-cookies"
+                style="background: #4CAF50; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold; margin-right: 10px;">Aceitar
+                Todos</button>
+            <button id="reject-cookies"
+                style="background: #f44336; color: white; border: none; padding: 10px 20px; cursor: pointer; border-radius: 4px; font-weight: bold;">Recusar</button>
+        </div>
     </main>
     <footer class="rodape">
         <div class="rodape-conteudo">

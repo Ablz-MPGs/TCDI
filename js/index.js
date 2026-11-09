@@ -77,47 +77,77 @@ if (viewMode) {
     });
 }
 
-const GA_MEASUREMENT_ID = 'G-SEU_ID_AQUI'; // Substitua pelo seu ID real
+const GA_MEASUREMENT_ID = 'G-SEU_ID_AQUI'; // <--- INSIRA SEU ID DO GA4 AQUI
 
-// Função que injeta dinamicamente o script do Google Analytics
-function ativarGoogleAnalytics() {
-    const scriptUrl = document.createElement('script');
-    scriptUrl.async = true;
-    scriptUrl.src = `https://googletagmanager.com{GA_MEASUREMENT_ID}`;
-    document.head.appendChild(scriptUrl);
+// Cria a camada de dados global exigida pelo Google
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
 
-    const scriptInline = document.createElement('script');
-    scriptInline.innerHTML = `
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '${GA_MEASUREMENT_ID}');
-    `;
-    document.head.appendChild(scriptInline);
+// Determina o estado inicial baseado no que foi salvo no navegador anteriormente
+const consentimentoSalvo = localStorage.getItem('cookies-consent-v2');
+
+if (consentimentoSalvo === 'concedido') {
+    // Se já aceitou no passado, define tudo como 'granted'
+    gtag('consent', 'default', {
+        'analytics_storage': 'granted',
+        'ad_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted'
+    });
+} else {
+    // Por padrão (ou se recusou), tudo inicia como 'denied'
+    gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+    });
 }
 
-// Executa ao carregar a página
+// Carrega o script base do Google Analytics imediatamente (Abordagem Avançada)
+const scriptUrl = document.createElement('script');
+scriptUrl.async = true;
+scriptUrl.src = `https://googletagmanager.com{GA_MEASUREMENT_ID}`;
+document.head.appendChild(scriptUrl);
+
+// Inicializa as configurações padrão da tag
+gtag('js', new Date());
+gtag('config', GA_MEASUREMENT_ID);
+
+// Lógica visual do Banner e atualização de consentimento em tempo de execução
 window.addEventListener('DOMContentLoaded', () => {
-    const consentimento = localStorage.getItem('cookies-consent');
     const banner = document.getElementById('cookie-banner');
 
-    if (consentimento === 'aceito') {
-        ativarGoogleAnalytics();
-    } else if (consentimento === null) {
-        // Se nunca tomou uma decisão, mostra o banner
+    // Se o usuário ainda não tomou uma decisão nesta ou em sessões anteriores, exibe o banner
+    if (consentimentoSalvo === null) {
         banner.style.display = 'block';
     }
 
-    // Evento do botão Aceitar
+    // Ação ao clicar em "Aceitar Todos"
     document.getElementById('accept-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookies-consent', 'aceito');
+        localStorage.setItem('cookies-consent-v2', 'concedido');
         banner.style.display = 'none';
-        ativarGoogleAnalytics();
+        
+        // Dispara a atualização dos parâmetros para o Google Analytics notar a mudança imediatamente
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted',
+            'ad_storage': 'granted',
+            'ad_user_data': 'granted',
+            'ad_personalization': 'granted'
+        });
     });
 
-    // Evento do botão Recusar
+    // Ação ao clicar em "Recusar"
     document.getElementById('reject-cookies').addEventListener('click', () => {
-        localStorage.setItem('cookies-consent', 'recusado');
+        localStorage.setItem('cookies-consent-v2', 'recusado');
         banner.style.display = 'none';
+        
+        // Atualiza explicitamente como negado (mantém o padrão, mas formaliza a escolha do usuário)
+        gtag('consent', 'update', {
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+        });
     });
 });
