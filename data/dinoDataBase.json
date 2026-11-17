@@ -43,7 +43,7 @@
       "corgema": "40",
       "cormoeda": "6000",
       "fotinha": "300",
-      "group": "2 slots",
+       
       "growth": "38 min",
       "price": "650",
       "skin1": "-",
@@ -94,7 +94,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "12000",
-      "group": "2.5 slots",
+       
       "growth": "48 min",
       "price": "120000",
       "skin1": "-",
@@ -151,7 +151,7 @@
       "corgema": "25",
       "cormoeda": "2500",
       "fotinha": "8000",
-      "group": "2.5 slots",
+       
       "growth": "39 min",
       "price": "135000",
       "skin1": "12000",
@@ -214,7 +214,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "12000",
-      "group": "2 slots",
+       
       "growth": "24 min",
       "price": "28000",
       "skin1": "15000",
@@ -259,7 +259,7 @@
       "corgema": "40",
       "cormoeda": "4000",
       "fotinha": "18000",
-      "group": "2 slots",
+       
       "growth": "31 min",
       "price": "600",
       "skin1": "20000",
@@ -310,7 +310,7 @@
       "corgema": "25",
       "cormoeda": "2500",
       "fotinha": "150",
-      "group": "2 slots",
+       
       "growth": "29 min",
       "price": "90000",
       "skin1": "-",
@@ -355,7 +355,7 @@
       "corgema": "40",
       "cormoeda": "6000",
       "fotinha": "30000",
-      "group": "2.5 slots",
+       
       "growth": "39 min",
       "price": "120000",
       "skin1": "-",
@@ -424,7 +424,7 @@
       "corgema": "50",
       "cormoeda": "8000",
       "fotinha": "25000",
-      "group": "1 slot",
+       
       "growth": "12 min",
       "price": "550",
       "skin1": "25000",
@@ -481,7 +481,7 @@
       "corgema": "5",
       "cormoeda": "500",
       "fotinha": "N/A",
-      "group": "1 slot",
+       
       "growth": "15 min",
       "price": "N/A",
       "skin1": "4000",
@@ -526,11 +526,11 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "150",
-      "group": "2 slots",
+       
       "growth": "32 min",
       "price": "280",
-      "skin1": "-",
-      "skin2": "-"
+      "skin1": "18000",
+      "skin2": "160"
     }
   },
   "Cristatusaurus": {
@@ -583,11 +583,11 @@
       "corgema": "20",
       "cormoeda": "2000",
       "fotinha": "15000",
-      "group": "2.5 slots",
+       
       "growth": "41 min",
       "price": "110000",
-      "skin1": "-",
-      "skin2": "-"
+      "skin1": "25000",
+      "skin2": "180"
     }
   },
   "Deinocheirus": {
@@ -640,7 +640,7 @@
       "corgema": "40",
       "cormoeda": "4000",
       "fotinha": "30000",
-      "group": "3 slots",
+       
       "growth": "48 min",
       "price": "800",
       "skin1": "35000",
@@ -691,7 +691,7 @@
       "corgema": "15",
       "cormoeda": "2000",
       "fotinha": "N/A",
-      "group": "1.5 slots",
+       
       "growth": "18 min",
       "price": "N/A",
       "skin1": "6500",
@@ -742,7 +742,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "120",
-      "group": "2 slots",
+       
       "growth": "28 min",
       "price": "32000",
       "skin1": "18000",
@@ -793,7 +793,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "15000",
-      "group": "2 slots",
+       
       "growth": "29 min",
       "price": "500",
       "skin1": "-",
@@ -850,7 +850,7 @@
       "corgema": "50",
       "cormoeda": "8000",
       "fotinha": "40000",
-      "group": "3 slots",
+       
       "growth": "48 min",
       "price": "140000",
       "skin1": "40000",
@@ -901,7 +901,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "15000",
-      "group": "2 slots",
+       
       "growth": "42 min",
       "price": "55000",
       "skin1": "-",
@@ -952,7 +952,7 @@
       "corgema": "15",
       "cormoeda": "2000",
       "fotinha": "3000",
-      "group": "1.5 slots",
+       
       "growth": "28 min",
       "price": "180",
       "skin1": "8000",
@@ -1009,7 +1009,7 @@
       "corgema": "20",
       "cormoeda": "2000",
       "fotinha": "10000",
-      "group": "2 slots",
+       
       "growth": "39 min",
       "price": "30000",
       "skin1": "12000",
@@ -1066,7 +1066,7 @@
       "corgema": "50",
       "cormoeda": "8000",
       "fotinha": "2000",
-      "group": "2.5 slots",
+       
       "growth": "38 min",
       "price": "600",
       "skin1": "40000",
@@ -1123,7 +1123,7 @@
       "corgema": "10",
       "cormoeda": "1000",
       "fotinha": "N/A",
-      "group": "1 slot",
+       
       "growth": "17 min",
       "price": "N/A",
       "skin1": "5500",
@@ -1174,7 +1174,7 @@
       "corgema": "20",
       "cormoeda": "2000",
       "fotinha": "5000",
-      "group": "2 slots",
+       
       "growth": "28 min",
       "price": "8000",
       "skin1": "6000",
@@ -1225,7 +1225,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "7000",
-      "group": "2 slots",
+       
       "growth": "36 min",
       "price": "75000",
       "skin1": "18000",
@@ -1270,7 +1270,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "N/A",
-      "group": "2 slots",
+       
       "growth": "29 min",
       "price": "32000",
       "skin1": "10000",
@@ -1315,11 +1315,11 @@
       "corgema": "20",
       "cormoeda": "2000",
       "fotinha": "N/A",
-      "group": "2 slots",
+       
       "growth": "31 min",
       "price": "20500",
-      "skin1": "-",
-      "skin2": "-"
+      "skin1": "12000",
+      "skin2": "80"
     }
   },
   "Psittacosaurus": {
@@ -1345,7 +1345,7 @@
       },
       {
         "desc": "Quando perto de seu ninho, seu dano aumenta para cada ovo nele, o consumo de fome  e sede é reduzido.",
-        "effect": "Até: +30 dano",
+        "effect": "Até: +4% dano",
         "icon": "img/skill/ninho.png",
         "title": "Instinto materno"
       }
@@ -1360,7 +1360,7 @@
       "corgema": "20",
       "cormoeda": "2000",
       "fotinha": "70",
-      "group": "1 slot",
+       
       "growth": "20 min",
       "price": "5000",
       "skin1": "8500",
@@ -1405,7 +1405,7 @@
       "corgema": "40",
       "cormoeda": "4000",
       "fotinha": "15000",
-      "group": "3 slots",
+       
       "growth": "41 min",
       "price": "125000",
       "skin1": "-",
@@ -1468,11 +1468,11 @@
       "corgema": "70",
       "cormoeda": "8000",
       "fotinha": "250",
-      "group": "2.5 slots",
+       
       "growth": "48 min",
       "price": "650",
-      "skin1": "-",
-      "skin2": "-"
+      "skin1": "30000",
+      "skin2": "300"
     }
   },
   "Spinosaurus": {
@@ -1531,7 +1531,7 @@
       "corgema": "40",
       "cormoeda": "6000",
       "fotinha": "22000",
-      "group": "3 slots",
+       
       "growth": "48 min",
       "price": "150000",
       "skin1": "50000",
@@ -1582,7 +1582,7 @@
       "corgema": "40",
       "cormoeda": "6000",
       "fotinha": "60",
-      "group": "3 slots",
+       
       "growth": "40 min",
       "price": "100000",
       "skin1": "18000",
@@ -1633,7 +1633,7 @@
       "corgema": "30",
       "cormoeda": "3000",
       "fotinha": "10000",
-      "group": "2 slots",
+       
       "growth": "39 min",
       "price": "55000",
       "skin1": "25000",
@@ -1684,7 +1684,7 @@
       "corgema": "40",
       "cormoeda": "4000",
       "fotinha": "35000",
-      "group": "2.5 slots",
+       
       "growth": "48 min",
       "price": "150000",
       "skin1": "-",
@@ -1735,7 +1735,7 @@
       "corgema": "40",
       "cormoeda": "4000",
       "fotinha": "20000",
-      "group": "3 slots",
+       
       "growth": "48 min",
       "price": "110000",
       "skin1": "30000",
@@ -1780,7 +1780,7 @@
       "corgema": "50",
       "cormoeda": "8000",
       "fotinha": "200",
-      "group": "3 slots",
+       
       "growth": "56 min",
       "price": "800",
       "skin1": "40000",

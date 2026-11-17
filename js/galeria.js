@@ -1,9 +1,3 @@
-/**
- * js/galeria.js
- * Script de controle da galeria, modais e visualização de espécies.
- */
-
-// Cache dos elementos do DOM e do modal
 const modal = document.getElementById("myModal");
 const botaoFechar = document.getElementsByClassName("close")[0];
 const imagemModal = document.getElementById("modal-img");
@@ -240,11 +234,13 @@ function preencherStatusModal(statusDino) {
     const atribuirTexto = (elemento, valor) => {
         if (elemento) elemento.innerText = valor ?? "N/A";
     };
+    if(statusDino.peso === 0) statusDino.peso = null;
 
     const mapaStatus = [
+        { elem: elemEspacos, val: statusDino?.slots ? `${statusDino.slots} slots` : "N/A" },
         { elem: dinoHp, val: statusDino?.hp },
         { elem: dinoDano, val: statusDino?.dano_base },
-        { elem: dinoPeso, val: statusDino?.peso },
+        { elem: dinoPeso, val: statusDino?.peso ?? "N/A" },
         { elem: dinoFratura, val: statusDino ? `${statusDino.fratura}%` : "N/A" },
         { elem: dinoSangramento, val: statusDino ? `${statusDino.sangramento}%` : "N/A" },
         { elem: dinoNata, val: statusDino?.vel_agua },
@@ -287,7 +283,6 @@ function preencherModalDino(chaveDino, dados) {
     }
 
     const mapaEstatisticas = [
-        { elem: elemEspacos, val: dados.stats?.group },
         { elem: elemCrescimento, val: dados.stats?.growth },
         { elem: elemPreco, val: dados.stats?.price },
         { elem: elemSkin1, val: dados.stats?.skin1 },
