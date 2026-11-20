@@ -192,8 +192,8 @@
         "title": "Juntos somos fortes!"
       },
       {
-        "desc": "Durante um tempo seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de vigor",
+        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       },
@@ -224,8 +224,8 @@
   "Barbaridactylus": {
     "actives": [
       {
-        "desc": "O pterossauro emite um grito estridente, aumentando a sua capacidade de infligir sangramento e a de aliados próximos por um curto período.",
-        "effect": "+15% chance de sangramento",
+        "desc": "O pterossauro emite um grito estridente, aumentando a sua capacidade de infligir sangramento e a de aliados próximos durante 25 segundos.",
+        "effect": "+15% chance de sangramento. Recarga em 45 segundos",
         "icon": "img/skill/sangra.png",
         "title": "Enxame Barulhento"
       }
@@ -243,8 +243,8 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
+        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       }
@@ -561,14 +561,14 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Quando seu dinossauro nada, sua velocidade aumenta e o custo de vigor é reduzido.",
+        "desc": "Quando seu dinossauro nada, sua velocidade aumenta e o custo de vigor é reduzido. O efeito perdura por 16 segundos após deixar a água.",
         "effect": "+5% velocidade, -20% gasto de vigor",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
       },
       {
-        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
+        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       }
@@ -594,7 +594,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro ruge, aumentando temporariamente sua defesa e velocidade de movimento.",
-        "effect": "+15% defesa, +3% velocidade",
+        "effect": "+15% defesa, +3% velocidade, durante 25 segundos. Recarga em 1 minuto.",
         "icon": "img/skill/buffS.png",
         "title": "Estrondo do Lagarto"
       },
@@ -624,8 +624,8 @@
         "title": "Elemento nativo"
       },
       {
-        "desc": "Durante um tempo, seu dinossauro gasta menos stamina após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
+        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       }
@@ -721,7 +721,7 @@
     "passives": [
       {
         "desc": "Se você atacar um inimigo dentro de um curto período de tempo após seu ataque anterior, seu dinossauro ganhará um aumento temporário na chance de causar sangramento e velocidade de movimento.",
-        "effect": "Até 10 vezes: +6% velocidade, +5% chance de sangramento",
+        "effect": "Até 10 vezes: +6% velocidade, +5% chance de sangramento, stacks persistem por 5 segundos ",
         "icon": "img/skill/sedesangue.png",
         "title": "Sede de Sangue"
       },
@@ -759,7 +759,7 @@
       },
       {
         "desc": "Seu dinossauro agarra uma presa com a boca, podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
-        "effect": "-15% velocidade. Dano base: 245",
+        "effect": null,
         "icon": "img/skill/capturarF.png",
         "title": "Capturar"
       }
@@ -911,16 +911,16 @@
   "Guanlong": {
     "actives": [
       {
-        "desc": "Seu dinossauro ruge, aumentando a chance de infligir sangramento por um tempo.",
-        "effect": "+15% chance de sangramento",
-        "icon": "img/skill/sangra.png",
-        "title": "Grito de Guerra"
-      },
-      {
         "desc": "O dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
         "effect": null,
         "icon": "img/skill/carregada.png",
         "title": "Ataque Carregado"
+      },
+      {
+        "desc": "O pterossauro emite um grito estridente, aumentando a sua capacidade de infligir sangramento e a de aliados próximos durante 25 segundos.",
+        "effect": "+15% chance de sangramento. Recarga em 45 segundos",
+        "icon": "img/skill/sangra.png",
+        "title": "Enxame Barulhento"
       }
     ],
     "desc": "Um ancestral primitivo dos tiranossauros, possuia uma crista ornamental na cabeça.",
@@ -1371,7 +1371,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro agarra uma presa com o bico podendo levá-lo consigo, gastando vigor para tal. Funciona apenas com animais menores e reduz sua velocidade.",
-        "effect": "-15% velocidade. Dano base: 160",
+        "effect": null,
         "icon": "img/skill/capturarQ.png",
         "title": "Capturar"
       }
@@ -1415,17 +1415,17 @@
   "Sarcosuchus": {
     "actives": [
       {
-        "desc": "Seu dinossauro agarra uma presa com o boca podendo levá-la consigo, gastando stamina para tal. Funciona apenas com animais menores.",
-        "effect": null,
-        "icon": "img/skill/capturaS.png",
-        "title": "Capturar"
-      },
-      {
         "desc": "Uma mordida poderosa que drena o oxigênio e a resistência do inimigo.",
         "effect": null,
         "icon": "img/skill/mordida.png",
         "title": "Mordida Mortal"
-      }
+      },
+      {
+        "desc": "Seu dinossauro agarra uma presa com o boca podendo levá-la consigo, gastando stamina para tal. Funciona apenas com animais menores.",
+        "effect": null,
+        "icon": "img/skill/capturaS.png",
+        "title": "Capturar"
+      }     
     ],
     "desc": "Predador de emboscadas africano, conhecido por estar entre maiores crocodilomorfos de todos os tempos!",
     "diet": "🥩🦈",
@@ -1440,8 +1440,8 @@
         "title": "O poder do bando"
       },
       {
-        "desc": "Durante um tempo, seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina",
+        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
+        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       },
@@ -1452,7 +1452,7 @@
         "title": "Surto de poder"
       },
       {
-        "desc": "quando seu dinossauro nada, sua defesa e dano aumentam.",
+        "desc": "quando seu dinossauro nada, sua defesa e dano aumentam. O efeito persiste por 8 segundos após deixar a água.",
         "effect": "+25% defesa, +10% dano",
         "icon": "img/skill/enativo.png",
         "title": "Elemento nativo"
@@ -1478,7 +1478,7 @@
   "Spinosaurus": {
     "actives": [
       {
-        "desc": "O dinossauro desfere dois golpes com suas garras. Reduz 30% da velocidade de inimigos atingidos. Aumenta a chance de infligir sangramento.",
+        "desc": "O dinossauro desfere dois golpes com suas garras. Há chances de reduzir 30% da velocidade de inimigos atingidos. Aumenta a chance de infligir sangramento.",
         "effect": null,
         "icon": "img/skill/spinoClaw.png",
         "title": "Chuva de Golpes"
@@ -1509,7 +1509,7 @@
         "title": "Emboscada Aquática"
       },
       {
-        "desc": "Permanecer por certo tempo na água fará com que a velocidade de movimento e de giro sejam aprimoradas. O efeito persiste temporariamente após sair para a terra",
+        "desc": "Permanecer 20 segundos na água fará com que a velocidade de movimento e de giro sejam aprimoradas. O efeito persiste por 5 segundos após sair para a terra",
         "effect": "+8% velocidade",
         "icon": "img/skill/cacadorF.png",
         "title": "Caçador Fluvial"
@@ -1746,7 +1746,7 @@
     "actives": [
       {
         "desc": "Seu dinossauro ruge, reduzindo a defesa de inimigos próximos.",
-        "effect": "-20% defesa inimiga",
+        "effect": "-20% defesa inimiga, durante 15 segundos. Recarga em 1m.",
         "icon": "img/skill/rugidoR.png",
         "title": "Rugido Aterrorizante"
       },

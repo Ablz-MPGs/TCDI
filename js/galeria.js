@@ -183,15 +183,20 @@ function obterEfeitoAtiva(chaveDino, indiceAtiva) {
     let dano = statusDino.ativas[chaveHabilidade].dano;
     let recarga = null;
 
-    if (dano == null || dano === "" || dano === "indefinido") {
+    if (dano == null || dano === "" || dano === undefined) {
         return "Nenhum efeito cadastrado!";
     } else {
         recarga = statusDino.ativas[chaveHabilidade].tr;
     }
 
     if (recarga != null && recarga !== "" && recarga !== "indefinido") {
-        dano = `${dano} de dano.`;
-        recarga = `Recarga em ${recarga} segundos.`;
+        if(recarga === 1.4) {
+            dano = `${dano} de dano.`;
+            recarga = `Recarga em ${recarga} minutos.`;
+        } else {
+            dano = `${dano} de dano.`;
+            recarga = `Recarga em ${recarga} segundos.`;
+        }
     }
     return `${dano} ${recarga || ""}`.trim();
 }
@@ -304,12 +309,21 @@ function preencherModalDino(chaveDino, dados) {
     if (containerAtivas) {
         containerAtivas.innerHTML = (dados.actives || []).map((habilidade, indice) => {
             if(habilidade.icon === "img/skill/investida.png" || habilidade.icon === "img/skill/investidaP.png") {
-                const efeitoFinal1 = `+25% velocidade, +15% consumo de vigor. Dano base máximo ${obterEfeitoAtiva(chaveDino, indice)}`;
+                const efeitoFinal = `+25% velocidade, +15% consumo de vigor. Dano base máximo ${obterEfeitoAtiva(chaveDino, indice)}`;
                 return criarHtmlHabilidade({
                     ...habilidade,
-                    effect: efeitoFinal1
+                    effect: efeitoFinal
                 });
-            } else{
+            }
+            if(habilidade.title === "capturar"){
+                let efeitoFinal = ``;
+                efeitoFinal = `-15% velocidade, ${obterEfeitoAtiva(chaveDino, indice)}`;
+                return criarHtmlHabilidade({
+                    ...habilidade,
+                    effect: efeitoFinal
+                });
+            }
+            else{
                 const efeitoFinal = habilidade.effect != null && habilidade.effect !== "" 
                     ? habilidade.effect
                     : obterEfeitoAtiva(chaveDino, indice);
@@ -441,7 +455,6 @@ function focarAlvoHash() {
 
     const paiTier = elementoAlvo.closest(".tier-indicator");
     const paiDieta = elementoAlvo.closest(".diet-indicator");
-
     if (paiTier) {
         if (seletorFiltro) seletorFiltro.value = "tier";
         gerenciarVisualizacaoGaleria("tier");

@@ -61,7 +61,7 @@
             slots: 2.5,
             ativas: {
                 skill1: { dano: 420, tr: 7 },
-                skill2: { dano: null}
+                skill2: { dano: 412, tr: 34 }
             }
         },
         // Austroraptor
@@ -123,7 +123,7 @@
             slots: 2,
             ativas: {
                 skill1: { dano: 560, tr: 20 },
-                skill2: { dano: 245 }
+                skill2: { dano: 245, tr: 20}
             }
         },
         // Changyuraptor
@@ -205,7 +205,7 @@
             dieta: "🥩🦈",
             slots: 2,
             ativas: {
-                skill1: { dano: 200 }
+                skill1: { dano: 200, tr:10 }
             }
         },
         // Cristatusaurus
@@ -225,8 +225,8 @@
             dieta: "🥩🦈",
             slots: 2.5,
             ativas: {
-                skill1: { dano: 240 },
-                skill2: { dano: 615, tr: 20 }
+                skill1: { dano: 240, tr: 7 },
+                skill2: { dano: 600, tr: 20 }
             }
         },
         // Deinocheirus
@@ -247,7 +247,7 @@
             slots: 3,
             ativas: {
                 skill1: { dano: null },
-                skill2: { dano: 812, tr: 20 }
+                skill2: { dano: 791, tr: 20 }
             }
         },
         // Deinonychus
@@ -288,8 +288,8 @@
             dieta: "🥩🦈",
             slots: 2,
             ativas: {
-                skill1: { dano: 100 },
-                skill2: { dano: 140 }
+                skill1: { dano: 100, tr: 15 },
+                skill2: { dano: 140, tr: 30 }
             }
         },
         // Fasolasuchus
@@ -309,7 +309,7 @@
             dieta: "🥩",
             slots: 2,
             ativas: {
-                skill1: { dano: 245 },
+                skill1: { dano: 245, tr: 45 },
                 skill2: { dano: 686, tr: 20 }
             }
         },
@@ -331,7 +331,7 @@
             slots: 3,
             ativas: {
                 skill1: { dano: 400, tr: 9 },
-                skill2: { dano: null, tr: 12 } //efeito de lentidão por 5s?
+                skill2: { dano: 0, tr: 12 } //efeito de lentidão por 5s?
             }
         },
         // Gigantoraptor
@@ -351,8 +351,8 @@
             dieta: "🥩🌿",
             slots: 2,
             ativas: {
-                skill1: { dano: 250 },
-                skill2: { dano: 110 }
+                skill1: { dano: 250, tr:7 },
+                skill2: { dano: 110, tr: 25 }
             }
         },
         // Guanlong
@@ -372,8 +372,8 @@
             dieta: "🥩🦈",
             slots: 1.5,
             ativas: {
-                skill1: { dano: null },
-                skill2: { dano: 336 }
+                skill2: { dano: 336, tr: 20 },
+                skill1: { dano: null }
             }
         },
         // Kentrosaurus
@@ -415,7 +415,7 @@
             dieta: "🥩",
             slots: 2.5,
             ativas: {
-                skill2: { dano: 245 },
+                skill2: { dano: 245, tr: 10 },
                 skill1: { dano: null }
             }
         },
@@ -479,7 +479,7 @@
             slots: 2,
             ativas: {
                 skill1: { dano: 618 },
-                skill2: { dano: "indefinido" }
+                skill2: { dano: 230, tr: 25 }
             }
         },
         // Parasaurolophus
@@ -560,7 +560,7 @@
             dieta: "🥩🦈",
             slots: 3,
             ativas: {
-                skill1: { dano: 160 }
+                skill1: { dano: 160, tr: 1.40 }
             }
         },
         // Sarcosuchus
@@ -580,8 +580,8 @@
             dieta: "🥩🦈",
             slots: 2.5,
             ativas: {
-                skill1: { dano: 300 },
-                skill2: { dano: 350 }
+                skill1: { dano: 300, tr: 45 },
+                skill2: { dano: 350, tr: 20 }
             }
         },
         // Spinosaurus
@@ -601,8 +601,8 @@
             dieta: "🥩🦈",
             slots: 3,
             ativas: {
-                skill1: { dano: 350 },
-                skill2: { dano: 300 }
+                skill1: { dano: 350, tr: 10 },
+                skill2: { dano: 300, tr: 20 }
             }
         },
         // Stegosaurus
@@ -622,8 +622,8 @@
             dieta: "🌿",
             slots: 3,
             ativas: {
-                skill1: { dano: 488 },
-                skill2: { dano: 350 }
+                skill1: { dano: 533, tr: 25 },
+                skill2: { dano: 380, tr: 8 }
             }
         },
         // Styracosaurus
@@ -643,8 +643,8 @@
             dieta: "🌿",
             slots: 2,
             ativas: {
-                skill1: { dano: 270 },
-                skill2: { dano: 300 }
+                skill1: { dano: 310, tr: 25 },
+                skill2: { dano: 280, tr: 20 }
             }
         },
         // Therizinosaurus
@@ -686,7 +686,7 @@
             slots: 3,
             ativas: {
                 skill1: { dano: 668 },
-                skill2: { dano: 350 }
+                skill2: { dano: 350, tr: 15 }
             }
         },
         // Tyrannosaurus
@@ -707,7 +707,7 @@
             slots: 3,
             ativas: {
                 skill1: { dano: null },
-                skill2: { dano: 400 }
+                skill2: { dano: 400,  tr: 20 }
             }
         }
     ];
