@@ -536,16 +536,16 @@
   "Cristatusaurus": {
     "actives": [
       {
-        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento e fratura.",
-        "effect": null,
-        "icon": "img/skill/carregada.png",
-        "title": "Ataque Carregado"
-      },
-      {
-        "desc": "O dinossauro realiza dois movimentos com suas garras aumentando as chances de infligir sangramento e fratura.",
+        "desc": "O dinossauro realiza dois movimentos com suas garras aumentando as chances de infligir sangramento.",
         "effect": null,
         "icon": "img/skill/garras.png",
         "title": "Garras Afiadas"
+      },
+      {
+        "desc": "Seu dinossauro prepara um ataque poderoso, desferindo-o em poucos segundos, aumenta a chance de infligir sangramento.",
+        "effect": null,
+        "icon": "img/skill/carregada.png",
+        "title": "Ataque Carregado"
       }
     ],
     "desc": "Espinossaurídeo baryonichinae de grande porte, teoriza-se ser um dos mais terrestres de sua família.",
@@ -567,8 +567,8 @@
         "title": "Elemento nativo"
       },
       {
-        "desc": "Seu dinossauro gasta menos vigor após se alimentar de um peixe.",
-        "effect": "-10% gasto de stamina, durante 30 segundos. Recarga em 1 minuto",
+        "desc": "Seu dinossauro regenera saúde mais rapidamente, após se alimentar de um peixe.",
+        "effect": "-20% regeneração de saúde, durante 30 segundos. Recarga em 1 minuto",
         "icon": "img/skill/aquatico.png",
         "title": "Presente das Profundezas"
       }

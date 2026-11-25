@@ -19,7 +19,7 @@
             dieta: "🥩",
             slots: 2,
             ativas: {
-                skill1: { dano: 641, tr: 20 }
+                skill1: { dano: 658, tr: 20 }
             }
         },
         // Amargasaurus
@@ -226,7 +226,7 @@
             slots: 2.5,
             ativas: {
                 skill1: { dano: 240, tr: 7 },
-                skill2: { dano: 600, tr: 20 }
+                skill2: { dano: 616, tr: 20 }
             }
         },
         // Deinocheirus
@@ -712,7 +712,6 @@
         }
     ];
 
-    // Validador de schema simples para garantir a integridade dos dados e tipos corretos
     function validateDinosSchema(data) {
         if (!Array.isArray(data)) return [];
         return data.map(dino => {
