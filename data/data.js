@@ -580,8 +580,8 @@
             dieta: "🥩🦈",
             slots: 2.5,
             ativas: {
-                skill1: { dano: 300, tr: 45 },
-                skill2: { dano: 350, tr: 20 }
+                skill1: { dano: 350, tr: 20 },
+                skill2: { dano: 300, tr: 45 }
             }
         },
         // Spinosaurus
@@ -664,7 +664,7 @@
             dieta: "🌿",
             slots: 2.5,
             ativas: {
-                skill1: { dano: 150 },
+                skill1: { dano: 150, tr: 12 },
                 skill2: { dano: 896, tr: 20 }
             }
         },
