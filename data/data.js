@@ -372,8 +372,8 @@
             dieta: "🥩🦈",
             slots: 1.5,
             ativas: {
-                skill2: { dano: 336, tr: 20 },
-                skill1: { dano: null }
+                skill1: { dano: 336, tr: 20 },
+                skill2: { dano: null }
             }
         },
         // Kentrosaurus
